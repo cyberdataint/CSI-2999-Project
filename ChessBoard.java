@@ -1,42 +1,58 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class ChessBoard {
     
     public ChessBoard() {
 
-        // intializes the board
-        JFrame board = new JFrame();
-        board.setTitle("Offline Chess Simulator");
-        board.setSize(new Dimension(500, 500));
-        board.setLayout(new GridLayout(8, 8));
-        board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        board.setVisible(true);
+        JFrame frame = new JFrame("Offline Chess Simulator");
+        frame.setSize(new Dimension(500, 500));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        JPanel board = new JPanel(new GridLayout(8, 8));
+        
         JButton grid[][] = new JButton[8][8];
-        ImageIcon empty = new ImageIcon("");
 
-        // supposed to alternate buttons and color them appropriately
-        for (int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                JButton square = new JButton();
+                square.setPreferredSize(new Dimension(50, 50));
+                square.addActionListener(new SqaureButtonListener(x, y));
+                grid[x][y] = square;
+
                 if ((x + y) % 2 == 0) {
-                    ChessSquare s = new ChessSquare(empty, x, y);
-                    JButton square = new JButton();
-                    square.setBackground(Color.BLACK);
-                    grid[x][y] = square;
-                    board.add(grid[x][y]);
-                }
-                else {
-                    ChessSquare s = new ChessSquare(empty, x, y);
-                    JButton square = new JButton();
                     square.setBackground(Color.WHITE);
-                    grid[x][y] = square;
-                    board.add(grid[x][y]);
+                } else {
+                    square.setBackground(Color.BLACK);
                 }
+
+                board.add(square);
             }
         }
 
+        frame.getContentPane().add(board);
+        frame.setVisible(true);
+
+    }
+
+
+    static class SqaureButtonListener implements ActionListener {
+        private int x;
+        private int y;
+
+        public SqaureButtonListener(int xCoord, int yCoord) {
+            this.x = xCoord;
+            this.y = yCoord;
+        }
+
+        // example use where it prints the coordinates of the button clicked
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("(" + x + ", " + y + ")");
+        }
     }
 
 }
