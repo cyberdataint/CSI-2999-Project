@@ -20,7 +20,7 @@ public class ChessBoard {
             for (int x = 0; x < 8; x++) {
                 JButton square = new JButton();
                 square.setPreferredSize(new Dimension(50, 50));
-                square.addActionListener(new SqaureButtonListener(x, y));
+                square.addActionListener(new SquareButtonListener(x, y));
                 grid[x][y] = square;
 
                 if ((x + y) % 2 == 0) {
@@ -39,11 +39,11 @@ public class ChessBoard {
     }
 
 
-    static class SqaureButtonListener implements ActionListener {
+    static class SquareButtonListener implements ActionListener {
         private int x;
         private int y;
 
-        public SqaureButtonListener(int xCoord, int yCoord) {
+        public SquareButtonListener(int xCoord, int yCoord) {
             this.x = xCoord;
             this.y = yCoord;
         }
