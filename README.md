@@ -15,14 +15,6 @@
 
 
 
-### How_to_Run_Apache_Tomcat
-
-
-
-### How_to_Stop_the_Server
-
-
-
 ### 1. Description of the Overall Program Design
 
 #### Purpose:
