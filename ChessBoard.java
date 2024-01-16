@@ -6,6 +6,7 @@ public class ChessBoard {
     
     public ChessBoard() {
 
+        // intializes the board settings
         JFrame board = new JFrame();
         board.setTitle("Offline Chess Simulator");
         board.setSize(new Dimension(500, 500));
@@ -13,11 +14,12 @@ public class ChessBoard {
         board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         board.setVisible(true);
 
+        // creates the grid of buttons
         JButton grid[][] = new JButton[8][8];
 
-        ImageIcon empty = new ImageIcon("https://upload.wikimedia.org/wikipedia/commons/8/83/Solid_white_bordered.svg");
+        ImageIcon empty = new ImageIcon("");
 
-        
+        // supposed to alternate buttons and color them appropriately
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
                 if ((x + y) % 2 == 0) {
