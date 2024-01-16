@@ -1,12 +1,10 @@
 import java.awt.*;
 import javax.swing.*;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 
 public class ChessBoard {
     
-    public ChessBoard() throws IOException {
+    public ChessBoard() {
 
         JFrame board = new JFrame();
         board.setTitle("Offline Chess Simulator");
@@ -15,8 +13,9 @@ public class ChessBoard {
 
         JButton grid[][] = new JButton[8][8];
 
-        ImageIcon empty = new ImageIcon(ImageIO.read(getClass().getResource("/pieces/EmptySqaure.jpg")));
+        ImageIcon empty = new ImageIcon("https://upload.wikimedia.org/wikipedia/commons/8/83/Solid_white_bordered.svg");
 
+        
         for(int x = 0; x < 8; x++) {
             for(int y = 0; y < 8; y++) {
 
