@@ -1,5 +1,5 @@
 # CSI 2999 Project - Chess Game
-![Title!](./README/README-1.jpg)
+![Title!](./README/README-1.png)
 # Directory
 
 - [Directory](#directory)
