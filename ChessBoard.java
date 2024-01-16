@@ -49,10 +49,9 @@ public class ChessBoard {
         }
 
         // example use where it prints the coordinates of the button clicked
-        // removed indexing format for clarity
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("(" + (x + 1) + ", " + (y + 1) + ")");
+            System.out.println("(" + x + ", " + y + ")");
         }
     }
 
