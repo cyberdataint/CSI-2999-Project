@@ -23,12 +23,13 @@ public class Board extends JPanel {
             for (int x = 0; x < 8; x++) {
                 JButton square = new JButton();
                 square.addActionListener(new SquareButtonListener(x, y));
+                square.setBorderPainted(false);
                 grid[x][y] = square;
 
                 if ((x + y) % 2 == 0) {
-                    square.setBackground(Color.WHITE);
+                    square.setBackground(new Color(177, 228, 185)); // LIGHT
                 } else {
-                    square.setBackground(Color.BLACK);
+                    square.setBackground(new Color(112, 162, 163)); // DARK
                 }
 
                 add(square);
