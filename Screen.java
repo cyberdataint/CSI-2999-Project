@@ -24,7 +24,7 @@ public class Screen extends JFrame {
 
             public void componentResized(ComponentEvent e) {
 
-                centerPanel();
+                centerBoard();
 
             }    
         });
@@ -34,7 +34,7 @@ public class Screen extends JFrame {
 
     }
 
-    private void centerPanel() {
+    private void centerBoard() {
 
         Dimension screenSize = getSize();
         Dimension boardSize = board.getPreferredSize();
