@@ -4,22 +4,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class ChessBoard {
+public class Board extends JPanel {
     
-    public ChessBoard() {
+    public Board() {
 
+        /*
         JFrame frame = new JFrame("Offline Chess Simulator");
         frame.setSize(new Dimension(500, 500));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        */
 
-        JPanel board = new JPanel(new GridLayout(8, 8));
+        setLayout(new GridLayout(8, 8));
+        setPreferredSize(new Dimension(400, 400));
         
         JButton grid[][] = new JButton[8][8];
 
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
                 JButton square = new JButton();
-                square.setPreferredSize(new Dimension(50, 50));
                 square.addActionListener(new SquareButtonListener(x, y));
                 grid[x][y] = square;
 
@@ -29,12 +31,14 @@ public class ChessBoard {
                     square.setBackground(Color.BLACK);
                 }
 
-                board.add(square);
+                add(square);
             }
         }
 
+        /*
         frame.getContentPane().add(board);
         frame.setVisible(true);
+        */
 
     }
 
