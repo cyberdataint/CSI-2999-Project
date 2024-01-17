@@ -16,7 +16,7 @@ public class Screen extends JFrame {
         setTitle("Offline Chess Simulator");
         setExtendedState(Screen.MAXIMIZED_BOTH);
         setMinimumSize(new Dimension(800, 800));
-        getContentPane().setBackground(new Color(132, 136, 132)); // GRAY (SMOKE)
+        getContentPane().setBackground(new Color(132, 136, 132)); // BACKGROUND
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
