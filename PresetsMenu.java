@@ -10,16 +10,14 @@ public class PresetsMenu extends JPanel {
     // Coral Color Preset
     private Color lightCoral = new Color(177, 228, 185);
     private Color darkCoral = new Color(112, 162, 163);
-    private Color smoke = new Color(132, 136, 132);
 
     // Dusk Color Preset
     private Color lightDusk = new Color(204, 183, 174);
     private Color darkDusk = new Color(112, 102, 119);
-    // smoke
 
     public PresetsMenu() {
 
-        setLayout(new FlowLayout(FlowLayout.LEFT));
+        // setLayout(new FlowLayout(FlowLayout.LEFT));
 
         JLabel label = new JLabel("Presets:");
         String[] presets = {"Coral", "Dusk"};
@@ -47,13 +45,11 @@ public class PresetsMenu extends JPanel {
         if ("Coral".equals(selectedPreset)) {
 
             Board.changeColor(lightCoral, darkCoral);
-            Screen.changeColor(smoke);
             
         }
         else if ("Dusk".equals(selectedPreset)) {
 
             Board.changeColor(lightDusk, darkDusk);
-            Screen.changeColor(smoke);
 
         }
 

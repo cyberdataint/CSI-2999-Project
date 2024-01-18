@@ -3,40 +3,28 @@ import java.awt.*;
 
 public class Screen extends JFrame {
 
-    private static Container contentPane;
+    UserInterface ui;
+    Board board;
+    PresetsMenu presetsMenu;
 
     public Screen() {
 
-        Board board = new Board();
-        setLayout(new FlowLayout(FlowLayout.CENTER));
-        add(board);
+        ui = new UserInterface();
+        add(ui);
+    
+        board = new Board();
+        // add(board);
 
-        PresetsMenu presetMenu = new PresetsMenu();
-        add(presetMenu);
+        presetsMenu = new PresetsMenu();
+        // add(presetsMenu);
 
         setTitle("Offline Chess Simulator");
         setMinimumSize(new Dimension(800, 800));
-        changeColor(new Color(132, 136, 132));
+        setBackground(new Color(132, 136, 132));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setVisible(true);
-
-    }
-
-    public static void changeColor(Color backgroundColor) {
-
-        if(contentPane != null) {
-            contentPane.setBackground(backgroundColor);
-            contentPane.repaint();
-        }
-
-    }
-
-    public Container getContentPane() {
-
-        contentPane = super.getContentPane();
-        return contentPane;
 
     }
 

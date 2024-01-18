@@ -13,6 +13,7 @@ public class Board extends JPanel {
     
     public Board() {
 
+        squares = new JButton[8][8];
         intializeBoard();
 
     }
@@ -23,13 +24,12 @@ public class Board extends JPanel {
         setLayout(new GridLayout(8, 8));
         setPreferredSize(new Dimension(400, 400));
         createChessBoard();
+        revalidate();
+        repaint();
 
     }
 
     private void createChessBoard() {
-
-        removeAll();
-        squares = new JButton[8][8];
 
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
@@ -40,9 +40,6 @@ public class Board extends JPanel {
 
             }
         }
-
-        revalidate();
-        repaint();
 
     }
 
