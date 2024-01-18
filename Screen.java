@@ -3,11 +3,9 @@ import java.awt.*;
 
 public class Screen extends JFrame {
 
-    private static Screen currentFrame;
+    private static Container contentPane;
 
     public Screen() {
-
-        currentFrame = this;
 
         Board board = new Board();
         setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -17,7 +15,6 @@ public class Screen extends JFrame {
         add(presetMenu);
 
         setTitle("Offline Chess Simulator");
-        setExtendedState(Screen.MAXIMIZED_BOTH);
         setMinimumSize(new Dimension(800, 800));
         changeColor(new Color(132, 136, 132));
         setLocationRelativeTo(null);
@@ -29,13 +26,17 @@ public class Screen extends JFrame {
 
     public static void changeColor(Color backgroundColor) {
 
-        if (currentFrame != null) {
-            currentFrame.getContentPane().setBackground(backgroundColor);
-            currentFrame.repaint();
+        if(contentPane != null) {
+            contentPane.setBackground(backgroundColor);
+            contentPane.repaint();
         }
-        else {
-            System.out.println("Error 404: Frame not found");
-        }
+
+    }
+
+    public Container getContentPane() {
+
+        contentPane = super.getContentPane();
+        return contentPane;
 
     }
 

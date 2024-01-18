@@ -4,7 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
             
-        new Screen();
+        Screen screen = new Screen();
+        screen.setVisible(true);
 
     }
 }

@@ -7,19 +7,23 @@ public class PresetsMenu extends JPanel {
     
     private JComboBox<String> dropDown;
 
-    // Standard Color Preset
+    // Coral Color Preset
     private Color lightCoral = new Color(177, 228, 185);
     private Color darkCoral = new Color(112, 162, 163);
     private Color smoke = new Color(132, 136, 132);
 
-    // Nonstandard Color Preset
+    // Dusk Color Preset
     private Color lightDusk = new Color(204, 183, 174);
     private Color darkDusk = new Color(112, 102, 119);
-    private Color sageGreen = new Color(138, 154, 91);
+    // smoke
 
     public PresetsMenu() {
 
-        String[] presets = {"Standard", "Nonstandard"};
+        setLayout(new FlowLayout(FlowLayout.LEFT));
+        //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        JLabel label = new JLabel("Presets:");
+        String[] presets = {"Coral", "Dusk"};
         dropDown = new JComboBox<>(presets);
         
         dropDown.addActionListener(new ActionListener() {
@@ -33,6 +37,7 @@ public class PresetsMenu extends JPanel {
 
         });
 
+        add(label);
         add(dropDown);
 
     }
@@ -40,16 +45,16 @@ public class PresetsMenu extends JPanel {
 
     private void performAction(String selectedPreset) {
 
-        if ("Default".equals(selectedPreset)) {
+        if ("Coral".equals(selectedPreset)) {
 
             Board.changeColor(lightCoral, darkCoral);
             Screen.changeColor(smoke);
             
         }
-        else if ("Alternative".equals(selectedPreset)) {
+        else if ("Dusk".equals(selectedPreset)) {
 
             Board.changeColor(lightDusk, darkDusk);
-            Screen.changeColor(sageGreen);
+            Screen.changeColor(smoke);
 
         }
 

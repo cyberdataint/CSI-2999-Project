@@ -29,11 +29,13 @@ public class Board extends JPanel {
     private void createChessBoard() {
 
         removeAll();
+        squares = new JButton[8][8];
 
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
 
                 JButton button = createChessButton(x, y);
+                squares[x][y] = button;
                 add(button);
 
             }
@@ -50,9 +52,11 @@ public class Board extends JPanel {
         
         if ((x + y) % 2 == 0) {
             button.setBackground(lightColor);
+            button.setBorderPainted(false);
         }
         else {
             button.setBackground(darkColor);
+            button.setBorderPainted(false);
         }
 
         button.addActionListener(new ActionListener() {
@@ -74,11 +78,15 @@ public class Board extends JPanel {
         lightColor = newLightColor;
         darkColor = newDarkColor;
 
-        for(JButton[] y : squares) {
-            for (JButton square : y) {
-
-                square.setBackground((square.getBackground() == lightColor) ? lightColor : darkColor);
-
+        for(int y = 0; y < 8; y++) {
+            for(int x = 0; x < 8; x++) {
+                JButton square = squares[x][y];
+                if ((x + y) % 2 == 0) {
+                    square.setBackground(lightColor);
+                }
+                else {
+                    square.setBackground(darkColor);
+                }
             }
         }
 
