@@ -1,22 +1,10 @@
 package mechanics;
 
 public class Space {
-    public Piece occupant;
+    public Piece occupant; //pieces should only be accessed by input handling via occupants of a space
     public boolean wdanger;
     public boolean bdanger;
-    int xcoord;
-    int ycoord;
-
-    public Space[][] createBoard() {
-        Space[][] gameBoard = new Space[8][8];
-        for (int i=0; i<8; i++) {
-            for (int j=0; j<8; j++) {
-            gameBoard[i][j].xcoord = i;
-            gameBoard[i][j].ycoord = j; 
-            }
-        }
-        return gameBoard;
-    }
+    public int xcoord;
+    public int ycoord;
 }
-
-//todo: place pieces (initialize occupants and danger variables per space on board) note: this could be done by the pieces initializing, rather than the board
+//spaces are only created by the GameBoard. coord variables are set by the GameBoard, other variables are set by Piece initializations
