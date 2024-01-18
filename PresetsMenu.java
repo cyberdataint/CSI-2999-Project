@@ -20,7 +20,6 @@ public class PresetsMenu extends JPanel {
     public PresetsMenu() {
 
         setLayout(new FlowLayout(FlowLayout.LEFT));
-        //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         JLabel label = new JLabel("Presets:");
         String[] presets = {"Coral", "Dusk"};
