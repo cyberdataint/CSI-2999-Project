@@ -1,51 +1,42 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 public class Screen extends JFrame {
-    
-    private Board board;
+
+    private static Screen currentFrame;
 
     public Screen() {
 
-        board = new Board();
+        currentFrame = this;
+
+        Board board = new Board();
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(board);
+
+        PresetsMenu presetMenu = new PresetsMenu();
+        add(presetMenu);
 
         setTitle("Offline Chess Simulator");
         setExtendedState(Screen.MAXIMIZED_BOTH);
         setMinimumSize(new Dimension(800, 800));
-        getContentPane().setBackground(new Color(132, 136, 132)); // BACKGROUND
+        changeColor(new Color(132, 136, 132));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        addComponentListener(new ComponentAdapter() {
-
-            public void componentResized(ComponentEvent e) {
-
-                centerBoard();
-
-            }    
-        });
-
 
         setVisible(true);
 
     }
 
-    private void centerBoard() {
+    public static void changeColor(Color backgroundColor) {
 
-        Dimension screenSize = getSize();
-        Dimension boardSize = board.getPreferredSize();
-
-        int x = (screenSize.width - boardSize.width) / 2;
-        int y = (screenSize.height - boardSize.height) / 2;
-
-        board.setBounds(x, y, boardSize.width, boardSize.height);
+        if (currentFrame != null) {
+            currentFrame.getContentPane().setBackground(backgroundColor);
+            currentFrame.repaint();
+        }
+        else {
+            System.out.println("Error 404: Frame not found");
+        }
 
     }
-
-
 
 }

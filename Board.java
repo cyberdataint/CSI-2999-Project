@@ -5,59 +5,84 @@ import java.awt.event.ActionListener;
 
 
 public class Board extends JPanel {
+
+    private static Color lightColor = new Color(177, 228, 185);
+    private static Color darkColor = new Color(112, 162, 163);
+
+    private static JButton[][] squares;
     
     public Board() {
 
-        /*
-        JFrame frame = new JFrame("Offline Chess Simulator");
-        frame.setSize(new Dimension(500, 500));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        */
+        intializeBoard();
+
+    }
+
+
+    private void intializeBoard() {
 
         setLayout(new GridLayout(8, 8));
         setPreferredSize(new Dimension(400, 400));
-        
-        JButton grid[][] = new JButton[8][8];
+        createChessBoard();
+
+    }
+
+    private void createChessBoard() {
+
+        removeAll();
 
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
-                JButton square = new JButton();
-                square.addActionListener(new SquareButtonListener(x, y));
-                square.setBorderPainted(false);
-                grid[x][y] = square;
 
-                if ((x + y) % 2 == 0) {
-                    square.setBackground(new Color(177, 228, 185)); // LIGHT
-                } else {
-                    square.setBackground(new Color(112, 162, 163)); // DARK
-                }
+                JButton button = createChessButton(x, y);
+                add(button);
 
-                add(square);
             }
         }
 
-        /*
-        frame.getContentPane().add(board);
-        frame.setVisible(true);
-        */
+        revalidate();
+        repaint();
+
+    }
+
+    private JButton createChessButton(int x, int y) {
+
+        JButton button = new JButton();
+        
+        if ((x + y) % 2 == 0) {
+            button.setBackground(lightColor);
+        }
+        else {
+            button.setBackground(darkColor);
+        }
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                System.out.println("(" + x + ", " + y + ")");
+
+            }
+        });
+
+        return button;
 
     }
 
 
-    static class SquareButtonListener implements ActionListener {
-        private int x;
-        private int y;
+    public static void changeColor(Color newLightColor, Color newDarkColor) {
 
-        public SquareButtonListener(int xCoord, int yCoord) {
-            this.x = xCoord;
-            this.y = yCoord;
+        lightColor = newLightColor;
+        darkColor = newDarkColor;
+
+        for(JButton[] y : squares) {
+            for (JButton square : y) {
+
+                square.setBackground((square.getBackground() == lightColor) ? lightColor : darkColor);
+
+            }
         }
 
-        // example use where it prints the coordinates of the button clicked
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("(" + x + ", " + y + ")");
-        }
     }
+
 
 }
