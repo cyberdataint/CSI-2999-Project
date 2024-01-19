@@ -8,6 +8,12 @@ public class Screen extends JFrame {
 
     public Screen() {
 
+        setTitle("Offline Chess Simulator");
+        setMinimumSize(new Dimension(1000, 875));
+        getContentPane().setBackground(new Color(132, 136, 132));
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         // DON'T FORGET!! ACCOUNT FOR MARGIN!!
         setLayout(new BorderLayout(10, 10));
     
@@ -35,12 +41,6 @@ public class Screen extends JFrame {
         presetsMenu = new PresetsMenu();
         presetsMenu.setPreferredSize(new Dimension(190, 115));
         add(presetsMenu, BorderLayout.SOUTH);
-
-        setTitle("Offline Chess Simulator");
-        setMinimumSize(new Dimension(1000, 875));
-        getContentPane().setBackground(new Color(132, 136, 132));
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         pack();
         setVisible(true);
