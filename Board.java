@@ -14,6 +14,7 @@ public class Board extends JPanel {
     public Board() {
 
         squares = new JButton[8][8];
+        setBackground(new Color(132, 136, 132));
         intializeBoard();
 
     }
@@ -22,7 +23,6 @@ public class Board extends JPanel {
     private void intializeBoard() {
 
         setLayout(new GridLayout(8, 8));
-        setPreferredSize(new Dimension(400, 400));
         createChessBoard();
         revalidate();
         repaint();

@@ -17,8 +17,6 @@ public class PresetsMenu extends JPanel {
 
     public PresetsMenu() {
 
-        // setLayout(new FlowLayout(FlowLayout.LEFT));
-
         JLabel label = new JLabel("Presets:");
         String[] presets = {"Coral", "Dusk"};
         dropDown = new JComboBox<>(presets);
