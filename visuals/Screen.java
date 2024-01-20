@@ -1,9 +1,8 @@
 package visuals;
 
-
 import javax.swing.*;
 import java.awt.*;
-import visuals.userinterface.*;
+import visuals.user_interface.*;
 
 public class Screen extends JFrame {
 
@@ -12,39 +11,48 @@ public class Screen extends JFrame {
 
     public Screen() {
 
+        Color backgroundColor = new Color(132, 136, 132); // SMOKE
+
         setTitle("Offline Chess Simulator");
         setMinimumSize(new Dimension(1000, 875));
-        getContentPane().setBackground(new Color(132, 136, 132));
+        getContentPane().setBackground(backgroundColor);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // DON'T FORGET!! ACCOUNT FOR MARGIN!!
         setLayout(new BorderLayout(10, 10));
+
+        JPanel screenPanel = new JPanel(new BorderLayout());
+        screenPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        screenPanel.setBackground(backgroundColor);
+
+        JLabel label = new JLabel("Test");
+        screenPanel.add(label, BorderLayout.CENTER); 
+
     
         // CENTER PANELS
-        board = new Board();
-        board.setPreferredSize(new Dimension(500, 500));
-        add(board, BorderLayout.CENTER);
+            board = new Board();
+            board.setPreferredSize(new Dimension(500, 500));
+            // add(board, BorderLayout.CENTER);
+        // -------------
 
         // EAST/RIGHT PANELS
-        presetsMenu = new PresetsMenu();
-        presetsMenu.setPreferredSize(new Dimension(190, 90));
-        add(presetsMenu, BorderLayout.EAST);
+            // implement
+        // -------------
 
         // WEST/LEFT PANELS
-        presetsMenu = new PresetsMenu();
-        presetsMenu.setPreferredSize(new Dimension(190, 90));
-        add(presetsMenu, BorderLayout.WEST);
+            // implement
+        // -------------
 
         // NORTH/TOP PANELS
-        presetsMenu = new PresetsMenu();
-        presetsMenu.setPreferredSize(new Dimension(190, 90));
-        add(presetsMenu, BorderLayout.NORTH);
+            // implement
+        // -------------
 
         // SOUTH/BOTTOM PANELS
-        presetsMenu = new PresetsMenu();
-        presetsMenu.setPreferredSize(new Dimension(190, 115));
-        add(presetsMenu, BorderLayout.SOUTH);
+            // implement
+        // -------------
+
+        setContentPane(screenPanel);
 
         pack();
         setVisible(true);

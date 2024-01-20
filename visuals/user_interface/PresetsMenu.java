@@ -1,4 +1,4 @@
-package visuals.userinterface;
+package visuals.user_interface;
 
 import javax.swing.*;
 import java.awt.*;

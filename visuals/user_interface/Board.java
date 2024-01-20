@@ -1,11 +1,9 @@
-package visuals.userinterface;
-
+package visuals.user_interface;
 
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 public class Board extends JPanel {
 
@@ -88,7 +86,7 @@ public class Board extends JPanel {
                 else {
                     square.setBackground(darkColor);
                 }
-                
+
             }
         }
 
