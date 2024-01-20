@@ -15,22 +15,15 @@ public class Board extends JPanel {
     public Board() {
 
         squares = new JButton[8][8];
-        setBackground(new Color(132, 136, 132));
-        intializeBoard();
-
-    }
-
-
-    private void intializeBoard() {
-
-        setLayout(new GridLayout(8, 8));
+        setBackground(new Color(132, 136, 132)); // BACKGROUND COLOR
         createChessBoard();
-        revalidate();
-        repaint();
 
     }
+
 
     private void createChessBoard() {
+
+        setLayout(new GridLayout(8, 8));
 
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
@@ -42,7 +35,11 @@ public class Board extends JPanel {
             }
         }
 
+        revalidate();
+        repaint();
+
     }
+
 
     private JButton createChessButton(int x, int y) {
 
