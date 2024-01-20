@@ -1,5 +1,9 @@
+package visuals;
+
+
 import javax.swing.*;
 import java.awt.*;
+import visuals.userinterface.*;
 
 public class Screen extends JFrame {
 
@@ -22,22 +26,22 @@ public class Screen extends JFrame {
         board.setPreferredSize(new Dimension(500, 500));
         add(board, BorderLayout.CENTER);
 
-        // EAST PANELS
+        // EAST/RIGHT PANELS
         presetsMenu = new PresetsMenu();
         presetsMenu.setPreferredSize(new Dimension(190, 90));
         add(presetsMenu, BorderLayout.EAST);
 
-        // WEST PANELS
+        // WEST/LEFT PANELS
         presetsMenu = new PresetsMenu();
         presetsMenu.setPreferredSize(new Dimension(190, 90));
         add(presetsMenu, BorderLayout.WEST);
 
-        // NORTH PANELS
+        // NORTH/TOP PANELS
         presetsMenu = new PresetsMenu();
         presetsMenu.setPreferredSize(new Dimension(190, 90));
         add(presetsMenu, BorderLayout.NORTH);
 
-        // SOUTH PANELS
+        // SOUTH/BOTTOM PANELS
         presetsMenu = new PresetsMenu();
         presetsMenu.setPreferredSize(new Dimension(190, 115));
         add(presetsMenu, BorderLayout.SOUTH);
