@@ -1,4 +1,4 @@
-package userinterface;
+package visuals.userinterface;
 
 
 import java.awt.*;
@@ -80,6 +80,7 @@ public class Board extends JPanel {
 
         for(int y = 0; y < 8; y++) {
             for(int x = 0; x < 8; x++) {
+
                 JButton square = squares[x][y];
                 if ((x + y) % 2 == 0) {
                     square.setBackground(lightColor);
@@ -87,6 +88,7 @@ public class Board extends JPanel {
                 else {
                     square.setBackground(darkColor);
                 }
+                
             }
         }
 
