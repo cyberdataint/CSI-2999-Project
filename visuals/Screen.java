@@ -8,25 +8,23 @@ public class Screen extends JFrame {
 
     Board board;
     PresetsMenu presetsMenu;
-    JLabel label;
 
     public Screen() {
 
         // JFRAME SETTINGS
-            Color backgroundColor = new Color(132, 136, 132); // SMOKE
             setTitle("Offline Chess Simulator");
+            Color backgroundColor = new Color(132, 136, 132); // SMOKE
             getContentPane().setBackground(backgroundColor);
-            setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             // SETS 6:5 RATIO
             setMinimumSize(new Dimension(1500, 1250));
-            // POTENTIALLY ADD A WAY TO MAINTAIN THAT RATIO? ~implement
+            // possibly implement a way to maintain above ratio
 
-            // FRAME MARGINS
-            setLayout(new BorderLayout(25, 25)); // DON'T FORGET!! ACCOUNT FOR MARGIN!!
+            // MARGINS // DON'T FORGET!! ACCOUNT FOR MARGIN!!
             JPanel screenPanel = new JPanel(new BorderLayout());
-            screenPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
+            screenPanel.setLayout(new BorderLayout(25, 25)); // PANEL MARGINS
+            screenPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50)); // FRAME MARGINS
             screenPanel.setBackground(backgroundColor);
         // ------------
 
@@ -39,54 +37,55 @@ public class Screen extends JFrame {
 
         // EAST PANELS
             // PLACE HOLDER
-            label = new JLabel("test", SwingConstants.CENTER);
-            label.setPreferredSize(new Dimension(300, 50)); // ONLY NEED TO MODIFY WIDTH
-            label.setOpaque(true);
-            label.setBackground(Color.WHITE);
-            screenPanel.add(label, BorderLayout.EAST);
+            JLabel labelEast = new JLabel("test", SwingConstants.CENTER);
+            labelEast.setPreferredSize(new Dimension(300, 50)); // ONLY NEED TO MODIFY WIDTH
+            labelEast.setOpaque(true);
+            labelEast.setBackground(Color.WHITE);
+            screenPanel.add(labelEast, BorderLayout.EAST);
             // ------------
 
-            // implement
+            // implement later (EastPanel.java)
         // -------------
 
         // WEST PANELS
             // PLACE HOLDER
-            label = new JLabel("test", SwingConstants.CENTER);
-            label.setPreferredSize(new Dimension(300, 50)); // ONLY NEED TO MODIFY WIDTH
-            label.setOpaque(true);
-            label.setBackground(Color.WHITE);
-            screenPanel.add(label, BorderLayout.WEST);
+            JLabel labelWest = new JLabel("test", SwingConstants.CENTER);
+            labelWest.setPreferredSize(new Dimension(300, 50)); // ONLY NEED TO MODIFY WIDTH
+            labelWest.setOpaque(true);
+            labelWest.setBackground(Color.WHITE);
+            screenPanel.add(labelWest, BorderLayout.WEST);
             // ------------
 
-            // implement
+            // implement later (WestPanel.java)
         // -------------
 
         // NORTH PANELS
             // PLACE HOLDER
-            label = new JLabel("test", SwingConstants.CENTER);
-            label.setPreferredSize(new Dimension(50, 150)); // ONLY NEED TO MODIFY HEIGHT
-            label.setOpaque(true);
-            label.setBackground(Color.WHITE);
-            screenPanel.add(label, BorderLayout.NORTH);
+            JLabel labelNorth = new JLabel("test", SwingConstants.CENTER);
+            labelNorth.setPreferredSize(new Dimension(50, 150)); // ONLY NEED TO MODIFY HEIGHT
+            labelNorth.setOpaque(true);
+            labelNorth.setBackground(Color.WHITE);
+            screenPanel.add(labelNorth, BorderLayout.NORTH);
             // ------------
 
-            // implement
+            // implement later (NorthPanel.java)
         // -------------
 
         // SOUTH PANELS
             // PLACE HOLDER
-            label = new JLabel("test", SwingConstants.CENTER);
-            label.setPreferredSize(new Dimension(50, 200)); // ONLY NEED TO MODIFY HEIGHT
-            label.setOpaque(true);
-            label.setBackground(Color.WHITE);
-            screenPanel.add(label, BorderLayout.SOUTH);
+            JLabel labelSouth = new JLabel("test", SwingConstants.CENTER);
+            labelSouth.setPreferredSize(new Dimension(50, 200)); // ONLY NEED TO MODIFY HEIGHT
+            labelSouth.setOpaque(true);
+            labelSouth.setBackground(Color.WHITE);
+            screenPanel.add(labelSouth, BorderLayout.SOUTH);
             // ------------
 
-            // implement
+            // implement later (SouthPanel.java)
         // -------------
 
         setContentPane(screenPanel);
 
+        setLocationRelativeTo(null);
         pack();
         setVisible(true);
 

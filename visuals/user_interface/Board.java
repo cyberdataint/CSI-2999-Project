@@ -15,7 +15,7 @@ public class Board extends JPanel {
     public Board() {
 
         squares = new JButton[8][8];
-        setBackground(new Color(132, 136, 132)); // BACKGROUND COLOR
+        setBackground(new Color(132, 136, 132));
         createChessBoard();
 
     }
