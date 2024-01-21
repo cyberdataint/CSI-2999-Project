@@ -84,7 +84,7 @@ public class SouthPanel extends JPanel {
                 setTextFont(blackLabel, "Roboto", Font.BOLD, 14);
 
             labelPanel.setLayout(new BorderLayout());
-            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, 145, 0, 145));
+            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, 140, 10, 140));
             labelPanel.add(whiteLabel, BorderLayout.WEST);
             labelPanel.add(blackLabel, BorderLayout.EAST);
 
