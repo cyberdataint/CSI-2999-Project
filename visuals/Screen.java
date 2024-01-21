@@ -7,11 +7,11 @@ import visuals.border_panels.*;
 
 public class Screen extends JFrame {
 
-    CenterPanel centerPanel;
-    NorthPanel northPanel;
-    SouthPanel southPanel;
-    EastPanel eastPanel;
-    WestPanel westPanel;
+    private static CenterPanel centerPanel;
+    private static NorthPanel northPanel;
+    private static SouthPanel southPanel;
+    private static EastPanel eastPanel;
+    private static WestPanel westPanel;
 
     public Screen() {
 
