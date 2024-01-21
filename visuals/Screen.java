@@ -2,12 +2,13 @@ package visuals;
 
 import javax.swing.*;
 import java.awt.*;
-import visuals.user_interface.*;
+
+import visuals.border_panels.*;
 
 public class Screen extends JFrame {
 
-    Board board;
-    PresetsMenu presetsMenu;
+    CenterPanel centerPanel;
+    NorthPanel northPanel;
 
     public Screen() {
 
@@ -30,9 +31,9 @@ public class Screen extends JFrame {
 
     
         // CENTER PANELS
-            board = new Board();
-            board.setPreferredSize(new Dimension(500, 500));
-            screenPanel.add(board, BorderLayout.CENTER);
+            centerPanel = new CenterPanel();
+            centerPanel.setPreferredSize(new Dimension(500, 500));
+            screenPanel.add(centerPanel, BorderLayout.CENTER);
         // -------------
 
         // EAST PANELS
@@ -60,15 +61,9 @@ public class Screen extends JFrame {
         // -------------
 
         // NORTH PANELS
-            // PLACE HOLDER
-            JLabel labelNorth = new JLabel("test", SwingConstants.CENTER);
-            labelNorth.setPreferredSize(new Dimension(50, 150)); // ONLY NEED TO MODIFY HEIGHT
-            labelNorth.setOpaque(true);
-            labelNorth.setBackground(Color.WHITE);
-            screenPanel.add(labelNorth, BorderLayout.NORTH);
-            // ------------
-
-            // implement later (NorthPanel.java)
+            northPanel = new NorthPanel();
+            northPanel.setPreferredSize(new Dimension(50, 150));
+            screenPanel.add(northPanel, BorderLayout.NORTH);
         // -------------
 
         // SOUTH PANELS
