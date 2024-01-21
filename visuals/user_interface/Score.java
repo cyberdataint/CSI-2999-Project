@@ -4,16 +4,10 @@ import visuals.border_panels.NorthPanel;
 
 public class Score {
 
-    private static int pawnScore = 1;
-    private static int knightBishopScore = 3;
-    private static int rookScore = 5;
-    private static int queenScore = 9;
-
-    public Score() {
-
-        // pass
-
-    }
+    private final static int pawnScore = 1;
+    private final static int knightBishopScore = 3;
+    private final static int rookScore = 5;
+    private final static int queenScore = 9;
 
     public static void updateScore(String pieceName, Boolean isWhite) {
 

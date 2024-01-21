@@ -2,8 +2,9 @@ package visuals.border_panels;
 
 import javax.swing.*;
 import java.awt.*;
-
-import visuals.user_interface.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 
 public class NorthPanel extends JPanel {
 
@@ -23,6 +24,9 @@ public class NorthPanel extends JPanel {
 
     private static int whiteScore = 0;
     private static int blackScore = 0;
+    private static int secondsElapsed = 0;
+
+    private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 
     public NorthPanel() {
 
@@ -111,6 +115,20 @@ public class NorthPanel extends JPanel {
             turnClockLabel.setForeground(textColor);
             setLabelFont(turnClockLabel, "Roboto", Font.BOLD, 24);
 
+            // CLOCK
+            Timer gameTimer = new Timer(1000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    secondsElapsed++;
+                    String formattedTime = formatTime(secondsElapsed);
+                    gameClockLabel.setText("Game Time: " + formattedTime);
+
+                }
+            });
+
+            gameTimer.start();
+
             // .ADD CALLS
             clockShadow.add(gameClockLabel, BorderLayout.NORTH);
             clockShadow.add(turnClockLabel, BorderLayout.SOUTH);
@@ -131,7 +149,15 @@ public class NorthPanel extends JPanel {
         
     }
 
-    // implement clock
+    private static String formatTime(int totalSeconds) {
+
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
+
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+
+    }
 
     private static void setLabelFont(JLabel label, String fontFamily, int fontStyle, int fontSize) {
 
