@@ -1,21 +1,40 @@
 package visuals.user_interface;
 
-import javax.swing.*;
-import java.awt.*;
+import visuals.border_panels.NorthPanel;
 
 public class Score {
 
-    private static int pawnScore;
-    private static int rookScore;
-    private static int knightBishopScore;
-    private static int queenScore;
+    private static int pawnScore = 1;
+    private static int knightBishopScore = 3;
+    private static int rookScore = 5;
+    private static int queenScore = 9;
 
     public Score() {
 
-        pawnScore = 1;
-        knightBishopScore = 3;
-        rookScore = 5;
-        queenScore = 9;
+        // pass
+
+    }
+
+    public static void updateScore(String pieceName, Boolean isWhite) {
+
+        switch (pieceName) {
+            case "pawn":
+                NorthPanel.updateScore(isWhite, pawnScore);
+                break;
+            case "knight":
+            case "bishop":
+                NorthPanel.updateScore(isWhite, knightBishopScore);
+                break;
+            case "rook":
+                NorthPanel.updateScore(isWhite, rookScore);
+                break;
+            case "queen":
+                NorthPanel.updateScore(isWhite, queenScore);
+                break;
+            default:
+                break;
+
+        }
 
     }
     

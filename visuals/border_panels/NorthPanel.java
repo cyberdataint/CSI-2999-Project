@@ -16,6 +16,14 @@ public class NorthPanel extends JPanel {
     private static Color darkShadowColor = new Color(60, 70, 60);
     private static Color textColor = new Color(255, 240, 240);
 
+    private static JLabel whiteScoreLabel;
+    private static JLabel blackScoreLabel;
+    private static JLabel gameClockLabel;
+    private static JLabel turnClockLabel;
+
+    private static int whiteScore = 0;
+    private static int blackScore = 0;
+
     public NorthPanel() {
 
         setBackground(backgroundColor);
@@ -40,15 +48,13 @@ public class NorthPanel extends JPanel {
             scoreShadow.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // SCORE LABELS
-            JLabel whiteScoreLabel = new JLabel("White Score: 0", SwingConstants.CENTER);
+            whiteScoreLabel = new JLabel("White Score: " + whiteScore, SwingConstants.CENTER);
             whiteScoreLabel.setForeground(textColor);
             setLabelFont(whiteScoreLabel, "Roboto", Font.BOLD, 24);
 
-            JLabel blackScoreLabel = new JLabel("Black Score: 0", SwingConstants.CENTER);
+            blackScoreLabel = new JLabel("Black Score: " + blackScore, SwingConstants.CENTER);
             blackScoreLabel.setForeground(textColor);
             setLabelFont(blackScoreLabel, "Roboto", Font.BOLD, 24);
-
-            // implement
 
             // .ADD CALLS
             scoreShadow.add(whiteScoreLabel, BorderLayout.NORTH);
@@ -97,15 +103,13 @@ public class NorthPanel extends JPanel {
             clockShadow.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // CLOCK LABELS
-            JLabel gameClockLabel = new JLabel("Game Time: 00:00:00", SwingConstants.CENTER);
+            gameClockLabel = new JLabel("Game Time: 00:00:00", SwingConstants.CENTER);
             gameClockLabel.setForeground(textColor);
             setLabelFont(gameClockLabel, "Roboto", Font.BOLD, 20);
 
-            JLabel turnClockLabel = new JLabel("Turn Time: 00:00", SwingConstants.CENTER);
+            turnClockLabel = new JLabel("Turn Time: 00:00", SwingConstants.CENTER);
             turnClockLabel.setForeground(textColor);
             setLabelFont(turnClockLabel, "Roboto", Font.BOLD, 24);
-
-            // implement
 
             // .ADD CALLS
             clockShadow.add(gameClockLabel, BorderLayout.NORTH);
@@ -118,9 +122,16 @@ public class NorthPanel extends JPanel {
 
     public static void updateScore(Boolean isWhite, int score) {
 
-        //
+        if (isWhite) {
+            whiteScoreLabel.setText("White Score: " + (whiteScore + score));
+        }
+        else {
+            blackScoreLabel.setText("Black Score: " + (blackScore + score));
+        }
         
     }
+
+    // implement clock
 
     private static void setLabelFont(JLabel label, String fontFamily, int fontStyle, int fontSize) {
 
