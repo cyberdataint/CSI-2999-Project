@@ -116,6 +116,12 @@ public class NorthPanel extends JPanel {
 
     }
 
+    public static void updateScore(Boolean isWhite, int score) {
+
+        //
+        
+    }
+
     private static void setLabelFont(JLabel label, String fontFamily, int fontStyle, int fontSize) {
 
         Font newFont = new Font(fontFamily, fontStyle, fontSize);
