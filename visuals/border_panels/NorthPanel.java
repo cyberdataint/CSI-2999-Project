@@ -18,8 +18,6 @@ public class NorthPanel extends JPanel {
 
     public NorthPanel() {
 
-        
-
         setBackground(backgroundColor);
         setLayout(new BorderLayout(25, 25));
 
@@ -52,7 +50,7 @@ public class NorthPanel extends JPanel {
 
             // implement
 
-            // ADD CALLS
+            // .ADD CALLS
             scoreShadow.add(whiteScoreLabel, BorderLayout.NORTH);
             scoreShadow.add(blackScoreLabel, BorderLayout.SOUTH);
             scorePanel.add(scoreShadow);
@@ -78,7 +76,7 @@ public class NorthPanel extends JPanel {
             title.setForeground(textColor);
             setLabelFont(title, "Roboto", Font.BOLD, 56);
             
-            // ADD CALLS
+            // .ADD CALLS
             titleShadow.add(title);
             titlePanel.add(titleShadow);
             add(titlePanel, BorderLayout.CENTER);
@@ -109,7 +107,7 @@ public class NorthPanel extends JPanel {
 
             // implement
 
-            // ADD CALLS
+            // .ADD CALLS
             clockShadow.add(gameClockLabel, BorderLayout.NORTH);
             clockShadow.add(turnClockLabel, BorderLayout.SOUTH);
             clockPanel.add(clockShadow);
