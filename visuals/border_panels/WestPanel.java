@@ -20,29 +20,29 @@ public class WestPanel extends JPanel {
     public WestPanel() {
 
         setBackground(backgroundColor);
-        setLayout(new BorderLayout(25, 25));
+        setLayout(new BorderLayout(25, 25)); // LARGE: 25
 
         gameLogPanel = new JPanel();
 
         // WEST PANEL
             // WEST PANEL SETTINGS
-            gameLogPanel.setPreferredSize(new Dimension(300, 50));
+            gameLogPanel.setPreferredSize(new Dimension(300, 50)); // LARGE: 300
             gameLogPanel.setBackground(shadowColor);
 
             gameLogPanel.setLayout(new BorderLayout());
-            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // LARGE: 20
 
             // WEST SHADOW SETTINGS
             JPanel gameLogShadow = new JPanel();
             gameLogShadow.setBackground(darkShadowColor);
             gameLogShadow.setLayout(new BorderLayout());
-            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // LARGE: 10
 
             // LIGHT SHADOW SETTINGS
             JPanel lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
             lightShadow.setLayout(new BorderLayout());
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // LARGE: 10
 
             // GAME LOG PANEL
                 // GAME LOG PANEL SETTINGS

@@ -3,6 +3,7 @@ package visuals.border_panels;
 import javax.swing.*;
 import java.awt.*;
 
+import visuals.Screen;
 import visuals.user_interface.*;
 
 public class EastPanel extends JPanel {
@@ -19,29 +20,29 @@ public class EastPanel extends JPanel {
     public EastPanel() {
 
         setBackground(backgroundColor);
-        setLayout(new BorderLayout(25, 25));
+        setLayout(new BorderLayout((Screen.frameWidth/60), (Screen.frameHeight/50))); // LARGE: 25
 
         settingsPanel = new JPanel();
 
         // SETTINGS PANEL
             // SETINGS PANEL SETTINGS
-            settingsPanel.setPreferredSize(new Dimension(300, 50));
+            settingsPanel.setPreferredSize(new Dimension(300, 50)); // LARGE: 300
             settingsPanel.setBackground(shadowColor);
 
             settingsPanel.setLayout(new BorderLayout());
-            settingsPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            settingsPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // LARGE: 20
 
             // SETTINGS SHADOW SETTINGS
             JPanel settingsShadow = new JPanel();
             settingsShadow.setBackground(darkShadowColor);
             settingsShadow.setLayout(new BorderLayout());
-            settingsShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            settingsShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // LARGE: 10
 
             // LIGHT SHADOW SETTINGS
             JPanel lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
             lightShadow.setLayout(new BorderLayout());
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // LARGE: 10
 
             // PRESET MENU PANEL
                 // PRESET MENU PANEL SETTINGS
