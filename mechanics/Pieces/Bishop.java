@@ -3,7 +3,7 @@ import mechanics.Piece;
 import mechanics.Space;
 
 public class Bishop implements Piece {
-    int[] position;
+    private int[] position;
     boolean color; //white or black
     int id; //#id of piece (i.e. bishop 0 or bishop 1)
 
@@ -37,18 +37,64 @@ public class Bishop implements Piece {
         return this.color;
     }
 
-    public int[] moveTo(int dir, int dist, Space[][] board){
-        //implement proper method
-        //check pos, check adjacent valid spaces for occupants, then the next adjacent valid spaces, etc.
-        int[] newPos = this.position;
-        if (newPos[0]>7 || newPos[0]<0 || newPos[1]>7 || newPos[1]<0) { //check if it is not a valid space on the board
-            return null;
+    public Space[] validMoves(Space[][] board) { //return space array of valid moves
+        int[] pos = this.position;
+        Space[] moves = new Space[13];
+        int moveCounter = 0;
+        //check up right diagonal
+        for (int i=1;pos[0]+i<8 && pos[1]+i<8 && !board[pos[0]+i][pos[1]+i].containsAlly(this); i++){ //on the board and no ally occupant
+            moves[moveCounter]=board[pos[0]+i][pos[1]+i]; //valid move
+            moveCounter++;
+            if (board[pos[0]+i][pos[1]+i].containsEnemy(this)) { //if contains an enemy, go no further
+                i=10;
+            }
         }
-        if (board[newPos[0]][newPos[1]].occupant != null && board[newPos[0]][newPos[1]].occupant.getColor() == this.getColor()){ //check if it is occupied by a teammate
-            return null; 
+        //check down right diagonal
+        for (int i=1;pos[0]+i<8 && pos[1]-i>-1 && !board[pos[0]+i][pos[1]-i].containsAlly(this); i++){ //on the board and no ally occupant
+            moves[moveCounter]=board[pos[0]+i][pos[1]-i]; //valid move
+            moveCounter++;
+            if (board[pos[0]+i][pos[1]-i].containsEnemy(this)) { //if contains an enemy, go no further
+                i=10;
+            }
         }
-        this.position = newPos;
-        return newPos; //when move is valid, return new position
+        //check down left diagonal
+        for (int i=1;pos[0]-i>-1 && pos[1]-i>-1 && !board[pos[0]-i][pos[1]-i].containsAlly(this); i++){ //on the board and no ally occupant
+            moves[moveCounter]=board[pos[0]-i][pos[1]-i]; //valid move
+            moveCounter++;
+            if (board[pos[0]-i][pos[1]-i].containsEnemy(this)) { //if contains an enemy, go no further
+                i=10;
+            }
+        }
+        //check up left diagonal
+        for (int i=1;pos[0]-i>-1 && pos[1]+i<8 && !board[pos[0]-i][pos[1]+i].containsAlly(this); i++){ //on the board and no ally occupant
+            moves[moveCounter]=board[pos[0]-i][pos[1]-i]; //valid move
+            moveCounter++;
+            if (board[pos[0]-i][pos[1]-i].containsEnemy(this)) { //if contains an enemy, go no further
+                i=10;
+            }
+        }
+        return moves;
+    }
+
+    public int[] moveTo(int x, int y, Space[][] board){
+        Space [] moves = this.validMoves(board);
+        for (int i=0;i<moves.length; i++) {
+            if (moves[i].xcoord == x & moves[i].ycoord == y) { //if the coords are in the valid moves
+                board[this.position[0]][this.position[1]].occupant = null; //pick up the piece
+                if (board[moves[i].xcoord][moves[i].ycoord].containsEnemy(this)) { //if enemy
+                    board[moves[i].xcoord][moves[i].ycoord].occupant.remove(board); //remove the enemy from the board
+                }
+                board[moves[i].xcoord][moves[i].ycoord].occupant = this; //place the piece
+                int[] newCoords = new int[2];
+                newCoords[0] = moves[i].xcoord;
+                newCoords[1] = moves[i].ycoord; //update coords
+                this.position = newCoords; //update piece variable
+                //todo: figure out danger variables... Currently thinking they should be updated by the input handler compiling valid moves.
+                return newCoords; //return coords
+            }
+        }
+        return null; //return null if it failed
+        
     }
 
     public void remove(Space[][] board){
