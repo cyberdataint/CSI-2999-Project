@@ -2,6 +2,7 @@ package visuals.border_panels;
 
 import javax.swing.*;
 
+import visuals.Screen;
 import visuals.user_interface.GameLog;
 
 import java.awt.*;
@@ -20,29 +21,29 @@ public class WestPanel extends JPanel {
     public WestPanel() {
 
         setBackground(backgroundColor);
-        setLayout(new BorderLayout(25, 25)); // LARGE: 25
+        setLayout(new BorderLayout(Screen.scaleVar25, Screen.scaleVar25)); // LARGE: 25
 
         gameLogPanel = new JPanel();
 
         // WEST PANEL
             // WEST PANEL SETTINGS
-            gameLogPanel.setPreferredSize(new Dimension(300, 50)); // LARGE: 300
+            gameLogPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50)); // LARGE: 300
             gameLogPanel.setBackground(shadowColor);
 
             gameLogPanel.setLayout(new BorderLayout());
-            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // LARGE: 20
+            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20)); // LARGE: 20
 
             // WEST SHADOW SETTINGS
             JPanel gameLogShadow = new JPanel();
             gameLogShadow.setBackground(darkShadowColor);
             gameLogShadow.setLayout(new BorderLayout());
-            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // LARGE: 10
+            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10)); // LARGE: 10
 
             // LIGHT SHADOW SETTINGS
             JPanel lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
             lightShadow.setLayout(new BorderLayout());
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // LARGE: 10
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10)); // LARGE: 10
 
             // GAME LOG PANEL
                 // GAME LOG PANEL SETTINGS
