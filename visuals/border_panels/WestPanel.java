@@ -16,7 +16,6 @@ public class WestPanel extends JPanel {
     private static Color lightShadowColor = new Color(140, 170, 140);
     private static Color lightColor = new Color(220, 250, 220);
     private static Color darkShadowColor = new Color(60, 70, 60);
-    // private static Color textColor = new Color(255, 240, 240);
 
     public WestPanel() {
 

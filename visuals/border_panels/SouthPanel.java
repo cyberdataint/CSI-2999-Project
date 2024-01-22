@@ -10,14 +10,13 @@ public class SouthPanel extends JPanel {
     
     private static JPanel returnToMainMenuPanel;
     private static JPanel turnIndicatorPanel;
-    private static JPanel endTurnPanel;
+    private static JPanel restartGameButtonPanel;
     public static JPanel whitePanel;
     public static JPanel blackPanel;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
     private static Color lightShadowColor = new Color(140, 170, 140);
-    private static Color lightColor = new Color(220, 250, 220);
     private static Color darkShadowColor = new Color(60, 70, 60);
     private static Color textColor = new Color(255, 240, 240);
 
@@ -28,7 +27,7 @@ public class SouthPanel extends JPanel {
 
         returnToMainMenuPanel = new JPanel(); // WEST
         turnIndicatorPanel = new JPanel(); // CENTER
-        endTurnPanel = new JPanel(); // EAST
+        restartGameButtonPanel = new JPanel(); // EAST
 
         // RETURN TO MAIN MENU PANEL
             // RTMM PANEL SETTINGS
@@ -92,6 +91,7 @@ public class SouthPanel extends JPanel {
             // WHITE PANEL
             whitePanel = new JPanel();
             whitePanel.setPreferredSize(new Dimension(Screen.scaleVar325, 50));
+            whitePanel.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces
 
@@ -110,31 +110,31 @@ public class SouthPanel extends JPanel {
             add(turnIndicatorPanel, BorderLayout.CENTER);
         // -------------
 
-        // END TURN PANEL
-            // END TURN PANEL SETTINGS
-            endTurnPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
-            endTurnPanel.setBackground(shadowColor);
+        // RESTART GAME BUTTON PANEL
+            // RESTART GAME BUTTON PANEL SETTINGS
+            restartGameButtonPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
+            restartGameButtonPanel.setBackground(shadowColor);
 
-            endTurnPanel.setLayout(new BorderLayout());
-            endTurnPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+            restartGameButtonPanel.setLayout(new BorderLayout());
+            restartGameButtonPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
 
-            // END TURN SHADOW SETTINGS
-            JPanel endTurnShadow = new JPanel();
-            endTurnShadow.setBackground(darkShadowColor);
-            endTurnShadow.setLayout(new BorderLayout());
-            endTurnShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15));
+            // RESTART GAME BUTTON SHADOW SETTINGS
+            JPanel restartGameButtonShadow = new JPanel();
+            restartGameButtonShadow.setBackground(darkShadowColor);
+            restartGameButtonShadow.setLayout(new BorderLayout());
+            restartGameButtonShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15));
 
-            // END TURN BUTTON
-            EndTurnButton endTurnButton = new EndTurnButton("End Turn");
-            endTurnButton.setBackground(lightShadowColor);
-            endTurnButton.setForeground(textColor);
-            endTurnButton.setBorderPainted(false);
-            setTextFont(endTurnButton, "Roboto", Font.BOLD, Screen.scaleVar24);
+            // RESTART GAME BUTTON
+            RestartGameButton restartGameButton = new RestartGameButton("Restart Game");
+            restartGameButton.setBackground(lightShadowColor);
+            restartGameButton.setForeground(textColor);
+            restartGameButton.setBorderPainted(false);
+            setTextFont(restartGameButton, "Roboto", Font.BOLD, Screen.scaleVar24);
 
             // .ADD CALLS
-            endTurnShadow.add(endTurnButton);
-            endTurnPanel.add(endTurnShadow);
-            add(endTurnPanel, BorderLayout.EAST);
+            restartGameButtonShadow.add(restartGameButton);
+            restartGameButtonPanel.add(restartGameButtonShadow);
+            add(restartGameButtonPanel, BorderLayout.EAST);
         // -------------
 
     }

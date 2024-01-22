@@ -22,12 +22,10 @@ public class NorthPanel extends JPanel {
     private static JLabel whiteScoreLabel;
     private static JLabel blackScoreLabel;
     private static JLabel gameClockLabel;
-    private static JLabel turnClockLabel;
 
     private static int whiteScore = 0;
     private static int blackScore = 0;
     private static int gameSecondsElapsed = 0;
-    private static int turnSecondsElapsed = 0;
 
     private static Timer turnTimer;
 
@@ -106,58 +104,38 @@ public class NorthPanel extends JPanel {
             // CLOCK SHADOW SETTINGS
             JPanel clockShadow = new JPanel();
             clockShadow.setBackground(darkShadowColor);
-            clockShadow.setLayout(new BorderLayout());
+            clockShadow.setLayout(new GridLayout(2, 1));
             clockShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
 
             // CLOCK LABELS
-            gameClockLabel = new JLabel("Game Time: 00:00:00", SwingConstants.CENTER);
+            gameClockLabel = new JLabel("Game Time:", SwingConstants.CENTER);
             gameClockLabel.setForeground(textColor);
-            setLabelFont(gameClockLabel, "Roboto", Font.BOLD, Screen.scaleVar20);
-
-            turnClockLabel = new JLabel("Turn Time: 00:00:00", SwingConstants.CENTER);
-            turnClockLabel.setForeground(textColor);
-            setLabelFont(turnClockLabel, "Roboto", Font.BOLD, Screen.scaleVar20);
+            setLabelFont(gameClockLabel, "Roboto", Font.BOLD, Screen.scaleVar30);
 
             // GAME CLOCK
+            JLabel gameClock = new JLabel("00:00:00", SwingConstants.CENTER);
+            gameClock.setForeground(textColor);
+            setLabelFont(gameClock, "Roboto", Font.BOLD, Screen.scaleVar30);
+
             Timer gameTimer = new Timer(1000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
                     gameSecondsElapsed++;
                     String formattedTime = formatTime(gameSecondsElapsed);
-                    gameClockLabel.setText("Game Time: " + formattedTime);
-
-                }
-            });
-
-            // TURN CLOCK
-            turnTimer = new Timer(1000, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                    turnSecondsElapsed++;
-                    String formattedTime = formatTime(turnSecondsElapsed);
-                    turnClockLabel.setText("Turn Time: " + formattedTime);
+                    gameClock.setText(formattedTime);
 
                 }
             });
 
             gameTimer.start();
-            turnTimer.start();
 
             // .ADD CALLS
-            clockShadow.add(gameClockLabel, BorderLayout.NORTH);
-            clockShadow.add(turnClockLabel, BorderLayout.SOUTH);
+            clockShadow.add(gameClockLabel);
+            clockShadow.add(gameClock);
             clockPanel.add(clockShadow);
             add(clockPanel, BorderLayout.EAST);
         // -------------
-
-    }
-
-    public static void restartTurnTimer() {
-
-        turnTimer.restart();
-        turnSecondsElapsed = -1;
 
     }
 

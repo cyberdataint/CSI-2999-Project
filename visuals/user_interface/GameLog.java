@@ -13,7 +13,7 @@ public class GameLog extends JPanel {
      *  each log will include a time stamp using the above format
      *  and sample messages would include messages regarding:
      *      moves done:
-     *          (Knight [E4] -> [B7]) 
+     *          (White Knight [E4] -> [B7]) 
      *      pieces taken:
      *          (White Knight [E4] took  Black Bishop [B7])
      *      converting pawn to Queen, etc:

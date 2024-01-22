@@ -23,6 +23,8 @@ public class Screen extends JFrame {
         public static int scaleVar20 = frameWidth / 75;
         public static int scaleVar24 = (frameWidth * 2) / 125;
         public static int scaleVar25 = frameWidth / 60;
+    // 30-39
+        public static int scaleVar30 = frameWidth / 50;
     // 50-59
         public static int scaleVar50 = frameWidth / 30;
         public static int scaleVar56 = (frameWidth * 14) / 375;
