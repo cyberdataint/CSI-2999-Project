@@ -27,8 +27,6 @@ public class NorthPanel extends JPanel {
     private static int blackScore = 0;
     private static int gameSecondsElapsed = 0;
 
-    private static Timer turnTimer;
-
     public NorthPanel() {
 
         setBackground(backgroundColor);
