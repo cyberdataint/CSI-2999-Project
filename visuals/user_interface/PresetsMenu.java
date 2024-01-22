@@ -22,6 +22,9 @@ public class PresetsMenu extends JPanel {
         JLabel label = new JLabel("Presets:");
         String[] presets = {"Coral", "Dusk"};
         dropDown = new JComboBox<>(presets);
+
+        dropDown.setAlignmentX(SwingConstants.CENTER);
+        dropDown.setAlignmentY(SwingConstants.CENTER);
         
         dropDown.addActionListener(new ActionListener() {
             @Override

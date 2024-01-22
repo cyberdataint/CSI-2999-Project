@@ -2,17 +2,14 @@ package visuals.border_panels;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+import visuals.user_interface.*;
 
 public class SouthPanel extends JPanel {
     
     JPanel returnToMainMenuPanel;
     JPanel turnIndicatorPanel;
     JPanel endTurnPanel;
-
-    JButton returnToMainMenuButton;
-    JButton endTurnButton;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
@@ -44,7 +41,7 @@ public class SouthPanel extends JPanel {
             returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // RTMM BUTTON
-            returnToMainMenuButton = new JButton("Return to Main Menu");
+            ReturnToMainMenuButton returnToMainMenuButton = new ReturnToMainMenuButton("Return to Main Menu");
             returnToMainMenuButton.setBackground(lightShadowColor);
             returnToMainMenuButton.setForeground(textColor);
             returnToMainMenuButton.setBorderPainted(false);
@@ -93,10 +90,14 @@ public class SouthPanel extends JPanel {
             whitePanel.setPreferredSize(new Dimension(325, 50));
             whitePanel.setBackground(lightShadowColor);
 
+            // implement
+
             // BLACK PANEL
             JPanel blackPanel = new JPanel();
             blackPanel.setPreferredSize(new Dimension(325, 50));
             blackPanel.setBackground(lightShadowColor);
+
+            // implement
 
             // .ADD CALLS
             turnIndicatorShadow.add(labelPanel, BorderLayout.NORTH);
@@ -121,20 +122,11 @@ public class SouthPanel extends JPanel {
             endTurnShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // END TURN BUTTON
-            endTurnButton = new JButton("End Turn");
+            EndTurnButton endTurnButton = new EndTurnButton("End Turn");
             endTurnButton.setBackground(lightShadowColor);
             endTurnButton.setForeground(textColor);
             endTurnButton.setBorderPainted(false);
             setTextFont(endTurnButton, "Roboto", Font.BOLD, 24);
-
-            endTurnButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                    NorthPanel.restartTurnTimer();
-
-                }
-            });
 
             // .ADD CALLS
             endTurnShadow.add(endTurnButton);
