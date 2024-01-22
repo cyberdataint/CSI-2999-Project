@@ -2,6 +2,12 @@ package InputHandling;
 
 import javax.swing.JButton;
 
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+//import visuals.user_interface.Board;
+
 public class HandleInput {
     
     //New Function to add ActionListener to buttons that are currently set up
@@ -19,7 +25,7 @@ private void addButtonListener(){
             JButton button = squares[x][y];
             button.addActionListener(new ActionListener(){
                 @Override
-                public void ActionPerformed(ActionEvent e){
+                public void actionPerformed(ActionEvent e){
                     
                     //pass coordinates in call to this method
                     handleButtonPress(x, y);
