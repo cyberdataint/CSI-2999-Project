@@ -7,8 +7,8 @@ import visuals.border_panels.*;
 
 public class Screen extends JFrame {
 
-    public static int frameWidth = 960;
-    public static int frameHeight = 800;
+    public static int frameWidth = 1500;
+    public static int frameHeight = 1250;
 
     // SCALING VARIABLES // NUMBERS MEAN SIZE FOR LARGE PRESET
     // MORE EASILY ACCESSIBLE AND LEGIBLE FOR OTHER CLASSES
@@ -48,8 +48,6 @@ public class Screen extends JFrame {
     private static EastPanel eastPanel;
     private static WestPanel westPanel;
 
-    private static Object[] jpanels;
-
     public Screen() {
 
         // JFRAME SETTINGS
@@ -69,27 +67,25 @@ public class Screen extends JFrame {
     
         // BORDER PANELS
             centerPanel = new CenterPanel();
-            centerPanel.setPreferredSize(new Dimension(scaleVar500, scaleVar500)); // LARGE: 500 x 500
+            centerPanel.setPreferredSize(new Dimension(scaleVar500, scaleVar500));
             screenPanel.add(centerPanel, BorderLayout.CENTER);
 
             eastPanel = new EastPanel();
-            eastPanel.setPreferredSize(new Dimension(scaleVar300, 50)); // LARGE: 300
+            eastPanel.setPreferredSize(new Dimension(scaleVar300, 50));
             screenPanel.add(eastPanel, BorderLayout.EAST);
 
             westPanel = new WestPanel();
-            westPanel.setPreferredSize(new Dimension(scaleVar300, 50)); // LARGE: 300
+            westPanel.setPreferredSize(new Dimension(scaleVar300, 50));
             screenPanel.add(westPanel, BorderLayout.WEST);
 
             northPanel = new NorthPanel();
-            northPanel.setPreferredSize(new Dimension(50, scaleVar150)); // LARGE: 150
+            northPanel.setPreferredSize(new Dimension(50, scaleVar150));
             screenPanel.add(northPanel, BorderLayout.NORTH);
 
             southPanel = new SouthPanel();
-            southPanel.setPreferredSize(new Dimension(50, scaleVar200)); // LARGE: 200
+            southPanel.setPreferredSize(new Dimension(50, scaleVar200));
             screenPanel.add(southPanel, BorderLayout.SOUTH);
         // -------------
-
-        jpanels = new Object[] { screenPanel, northPanel, southPanel, westPanel, eastPanel, centerPanel };
 
         setContentPane(screenPanel);
 
@@ -101,15 +97,9 @@ public class Screen extends JFrame {
 
     public static void changeFrameDimensions(int width, int height) {
 
-        frameWidth = width;
-        frameHeight = height;
-
-        for (Object obj : jpanels) {
-
-            ((Component) obj).revalidate();
-            ((Component) obj).repaint();
-
-        }
+        // setSize(width, height);
+        // revalidate();
+        // repaint();
 
     }
 

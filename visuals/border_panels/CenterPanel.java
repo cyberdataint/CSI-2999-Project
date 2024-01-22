@@ -15,12 +15,12 @@ public class CenterPanel extends JPanel {
 
         setBackground(shadowColor);
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar25, Screen.scaleVar25, Screen.scaleVar25, Screen.scaleVar25)); // LARGE: 25
+        setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar25, Screen.scaleVar25, Screen.scaleVar25, Screen.scaleVar25));
 
         JPanel boardShadow = new JPanel();
         boardShadow.setBackground(darkShadowColor);
         boardShadow.setLayout(new BorderLayout());
-        boardShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10)); // LARGE: 10
+        boardShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10));
 
         Board board = new Board();
         board.setBackground(darkShadowColor);

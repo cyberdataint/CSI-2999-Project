@@ -8,20 +8,23 @@ import visuals.user_interface.*;
 
 public class SouthPanel extends JPanel {
     
-    JPanel returnToMainMenuPanel;
-    JPanel turnIndicatorPanel;
-    JPanel endTurnPanel;
+    private static JPanel returnToMainMenuPanel;
+    private static JPanel turnIndicatorPanel;
+    private static JPanel endTurnPanel;
+    public static JPanel whitePanel;
+    public static JPanel blackPanel;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
     private static Color lightShadowColor = new Color(140, 170, 140);
+    private static Color lightColor = new Color(220, 250, 220);
     private static Color darkShadowColor = new Color(60, 70, 60);
     private static Color textColor = new Color(255, 240, 240);
 
     public SouthPanel() {
 
         setBackground(backgroundColor);
-        setLayout(new BorderLayout(Screen.scaleVar25, Screen.scaleVar25)); // LARGE: 25
+        setLayout(new BorderLayout(Screen.scaleVar25, Screen.scaleVar25));
 
         returnToMainMenuPanel = new JPanel(); // WEST
         turnIndicatorPanel = new JPanel(); // CENTER
@@ -29,24 +32,24 @@ public class SouthPanel extends JPanel {
 
         // RETURN TO MAIN MENU PANEL
             // RTMM PANEL SETTINGS
-            returnToMainMenuPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50)); // LARGE: 300
+            returnToMainMenuPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
             returnToMainMenuPanel.setBackground(shadowColor);
 
             returnToMainMenuPanel.setLayout(new BorderLayout());
-            returnToMainMenuPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20)); // LARGE: 20
+            returnToMainMenuPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
 
             // RTMM SHADOW SETTINGS
             JPanel returnToMainMenuShadow = new JPanel();
             returnToMainMenuShadow.setBackground(darkShadowColor);
             returnToMainMenuShadow.setLayout(new BorderLayout());
-            returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15)); // LARGE: 15
+            returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15));
 
             // RTMM BUTTON
             ReturnToMainMenuButton returnToMainMenuButton = new ReturnToMainMenuButton("Return to Main Menu");
             returnToMainMenuButton.setBackground(lightShadowColor);
             returnToMainMenuButton.setForeground(textColor);
             returnToMainMenuButton.setBorderPainted(false);
-            setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, Screen.scaleVar18); // LARGE: 18
+            setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, Screen.scaleVar18);
 
             // .ADD CALLS
             returnToMainMenuShadow.add(returnToMainMenuButton);
@@ -56,49 +59,48 @@ public class SouthPanel extends JPanel {
 
         // TURN INDICATOR PANEL
             // TURN INDICATOR PANEL SETTINGS
-            turnIndicatorPanel.setPreferredSize(new Dimension(Screen.scaleVar800, 50)); // LARGE: 800
+            turnIndicatorPanel.setPreferredSize(new Dimension(Screen.scaleVar800, 50));
             turnIndicatorPanel.setBackground(shadowColor);
 
             turnIndicatorPanel.setLayout(new BorderLayout());
-            turnIndicatorPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20)); // LARGE: 20
+            turnIndicatorPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
 
             // TURN INDICATOR SHADOW SETTINGS
             JPanel turnIndicatorShadow = new JPanel();
             turnIndicatorShadow.setBackground(darkShadowColor);
             turnIndicatorShadow.setLayout(new BorderLayout());
-            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15)); // LARGE: 15
+            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15));
 
             // LABEL PANEL
             JPanel labelPanel = new JPanel();
-            labelPanel.setPreferredSize(new Dimension(50, Screen.scaleVar25)); // LARGE: 25
+            labelPanel.setPreferredSize(new Dimension(50, Screen.scaleVar25));
             labelPanel.setBackground(darkShadowColor);
 
                 JLabel whiteLabel = new JLabel("White", SwingConstants.CENTER);
                 whiteLabel.setForeground(textColor);
-                setTextFont(whiteLabel, "Roboto", Font.BOLD, Screen.scaleVar14); // LARGE: 14
+                setTextFont(whiteLabel, "Roboto", Font.BOLD, Screen.scaleVar14);
 
                 JLabel blackLabel = new JLabel("Black", SwingConstants.CENTER);
                 blackLabel.setForeground(textColor);
-                setTextFont(blackLabel, "Roboto", Font.BOLD, Screen.scaleVar14); // LARGE: 14
+                setTextFont(blackLabel, "Roboto", Font.BOLD, Screen.scaleVar14);
 
             labelPanel.setLayout(new BorderLayout());
-            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, Screen.scaleVar140, Screen.scaleVar10, Screen.scaleVar140)); // LARGE: 10 x 140
+            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, Screen.scaleVar140, Screen.scaleVar10, Screen.scaleVar140));
             labelPanel.add(whiteLabel, BorderLayout.WEST);
             labelPanel.add(blackLabel, BorderLayout.EAST);
 
             // WHITE PANEL
-            JPanel whitePanel = new JPanel();
-            whitePanel.setPreferredSize(new Dimension(Screen.scaleVar325, 50)); // LARGE: 325
-            whitePanel.setBackground(lightShadowColor);
+            whitePanel = new JPanel();
+            whitePanel.setPreferredSize(new Dimension(Screen.scaleVar325, 50));
 
-            // implement
+            // implement gridlayout[2][8] holds pictures of claimed pieces
 
             // BLACK PANEL
-            JPanel blackPanel = new JPanel();
-            blackPanel.setPreferredSize(new Dimension(Screen.scaleVar325, 50)); // LARGE: 325
+            blackPanel = new JPanel();
+            blackPanel.setPreferredSize(new Dimension(Screen.scaleVar325, 50));
             blackPanel.setBackground(lightShadowColor);
 
-            // implement
+            // implement gridlayout[2][8] holds pictures of claimed pieces
 
             // .ADD CALLS
             turnIndicatorShadow.add(labelPanel, BorderLayout.NORTH);
@@ -110,24 +112,24 @@ public class SouthPanel extends JPanel {
 
         // END TURN PANEL
             // END TURN PANEL SETTINGS
-            endTurnPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50)); // LARGE: 300
+            endTurnPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
             endTurnPanel.setBackground(shadowColor);
 
             endTurnPanel.setLayout(new BorderLayout());
-            endTurnPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20)); // LARGE: 20
+            endTurnPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
 
             // END TURN SHADOW SETTINGS
             JPanel endTurnShadow = new JPanel();
             endTurnShadow.setBackground(darkShadowColor);
             endTurnShadow.setLayout(new BorderLayout());
-            endTurnShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15)); // LARGE: 15
+            endTurnShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15));
 
             // END TURN BUTTON
             EndTurnButton endTurnButton = new EndTurnButton("End Turn");
             endTurnButton.setBackground(lightShadowColor);
             endTurnButton.setForeground(textColor);
             endTurnButton.setBorderPainted(false);
-            setTextFont(endTurnButton, "Roboto", Font.BOLD, Screen.scaleVar24); // LARGE: 24
+            setTextFont(endTurnButton, "Roboto", Font.BOLD, Screen.scaleVar24);
 
             // .ADD CALLS
             endTurnShadow.add(endTurnButton);
