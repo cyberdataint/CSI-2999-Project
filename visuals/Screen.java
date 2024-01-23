@@ -54,7 +54,7 @@ public class Screen extends JFrame {
 
         // JFRAME SETTINGS
             setTitle("Offline Chess Simulator");
-            Color backgroundColor = new Color(132, 136, 132); // SMOKE
+            Color backgroundColor = new Color(132, 136, 132);
             getContentPane().setBackground(backgroundColor);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setMinimumSize(new Dimension(frameWidth, frameHeight)); // 6:5 RATIO
