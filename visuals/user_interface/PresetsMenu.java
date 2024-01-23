@@ -42,8 +42,8 @@ public class PresetsMenu extends JPanel {
         String[] presets = {"Coral", "Dusk", "Marine", "Wheat", "Emerald", "Sandcastle"};
         dropDown = new JComboBox<>(presets);
 
-        setLayout(new GridLayout(1, 2, Screen.scaleVar5, Screen.scaleVar5));
-        setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10));
+        setLayout(new GridLayout(1, 2, 5, 5));
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
         dropDown.addActionListener(new ActionListener() {
             @Override

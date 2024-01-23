@@ -23,7 +23,7 @@ public class SouthPanel extends JPanel {
     public SouthPanel() {
 
         setBackground(backgroundColor);
-        setLayout(new BorderLayout(Screen.scaleVar25, Screen.scaleVar25));
+        setLayout(new BorderLayout(25, 25));
 
         returnToMainMenuPanel = new JPanel(); // WEST
         turnIndicatorPanel = new JPanel(); // CENTER
@@ -31,24 +31,24 @@ public class SouthPanel extends JPanel {
 
         // RETURN TO MAIN MENU PANEL
             // RTMM PANEL SETTINGS
-            returnToMainMenuPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
+            returnToMainMenuPanel.setPreferredSize(new Dimension(300, 50));
             returnToMainMenuPanel.setBackground(shadowColor);
 
             returnToMainMenuPanel.setLayout(new BorderLayout());
-            returnToMainMenuPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+            returnToMainMenuPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // RTMM SHADOW SETTINGS
             JPanel returnToMainMenuShadow = new JPanel();
             returnToMainMenuShadow.setBackground(darkShadowColor);
             returnToMainMenuShadow.setLayout(new BorderLayout());
-            returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15));
+            returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // RTMM BUTTON
             ReturnToMainMenuButton returnToMainMenuButton = new ReturnToMainMenuButton("Return to Main Menu");
             returnToMainMenuButton.setBackground(lightShadowColor);
             returnToMainMenuButton.setForeground(textColor);
             returnToMainMenuButton.setBorderPainted(false);
-            setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, Screen.scaleVar18);
+            setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, 18);
 
             // .ADD CALLS
             returnToMainMenuShadow.add(returnToMainMenuButton);
@@ -58,46 +58,46 @@ public class SouthPanel extends JPanel {
 
         // TURN INDICATOR PANEL
             // TURN INDICATOR PANEL SETTINGS
-            turnIndicatorPanel.setPreferredSize(new Dimension(Screen.scaleVar800, 50));
+            turnIndicatorPanel.setPreferredSize(new Dimension(800, 50));
             turnIndicatorPanel.setBackground(shadowColor);
 
             turnIndicatorPanel.setLayout(new BorderLayout());
-            turnIndicatorPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+            turnIndicatorPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // TURN INDICATOR SHADOW SETTINGS
             JPanel turnIndicatorShadow = new JPanel();
             turnIndicatorShadow.setBackground(darkShadowColor);
             turnIndicatorShadow.setLayout(new BorderLayout());
-            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15));
+            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // LABEL PANEL
             JPanel labelPanel = new JPanel();
-            labelPanel.setPreferredSize(new Dimension(50, Screen.scaleVar25));
+            labelPanel.setPreferredSize(new Dimension(50, 25));
             labelPanel.setBackground(darkShadowColor);
 
                 JLabel whiteLabel = new JLabel("White", SwingConstants.CENTER);
                 whiteLabel.setForeground(textColor);
-                setTextFont(whiteLabel, "Roboto", Font.BOLD, Screen.scaleVar14);
+                setTextFont(whiteLabel, "Roboto", Font.BOLD, 14);
 
                 JLabel blackLabel = new JLabel("Black", SwingConstants.CENTER);
                 blackLabel.setForeground(textColor);
-                setTextFont(blackLabel, "Roboto", Font.BOLD, Screen.scaleVar14);
+                setTextFont(blackLabel, "Roboto", Font.BOLD, 14);
 
             labelPanel.setLayout(new BorderLayout());
-            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, Screen.scaleVar140, Screen.scaleVar10, Screen.scaleVar140));
+            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, 140, 10, 140));
             labelPanel.add(whiteLabel, BorderLayout.WEST);
             labelPanel.add(blackLabel, BorderLayout.EAST);
 
             // WHITE PANEL
             whitePanel = new JPanel();
-            whitePanel.setPreferredSize(new Dimension(Screen.scaleVar325, 50));
+            whitePanel.setPreferredSize(new Dimension(325, 50));
             whitePanel.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces
 
             // BLACK PANEL
             blackPanel = new JPanel();
-            blackPanel.setPreferredSize(new Dimension(Screen.scaleVar325, 50));
+            blackPanel.setPreferredSize(new Dimension(325, 50));
             blackPanel.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces
@@ -112,24 +112,24 @@ public class SouthPanel extends JPanel {
 
         // RESTART GAME BUTTON PANEL
             // RESTART GAME BUTTON PANEL SETTINGS
-            restartGameButtonPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
+            restartGameButtonPanel.setPreferredSize(new Dimension(300, 50));
             restartGameButtonPanel.setBackground(shadowColor);
 
             restartGameButtonPanel.setLayout(new BorderLayout());
-            restartGameButtonPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+            restartGameButtonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // RESTART GAME BUTTON SHADOW SETTINGS
             JPanel restartGameButtonShadow = new JPanel();
             restartGameButtonShadow.setBackground(darkShadowColor);
             restartGameButtonShadow.setLayout(new BorderLayout());
-            restartGameButtonShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15, Screen.scaleVar15));
+            restartGameButtonShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // RESTART GAME BUTTON
             RestartGameButton restartGameButton = new RestartGameButton("Restart Game");
             restartGameButton.setBackground(lightShadowColor);
             restartGameButton.setForeground(textColor);
             restartGameButton.setBorderPainted(false);
-            setTextFont(restartGameButton, "Roboto", Font.BOLD, Screen.scaleVar24);
+            setTextFont(restartGameButton, "Roboto", Font.BOLD, 24);
 
             // .ADD CALLS
             restartGameButtonShadow.add(restartGameButton);
