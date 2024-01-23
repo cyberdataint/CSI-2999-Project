@@ -1,6 +1,6 @@
 package visuals;
 
-public class Main {
+public class Driver {
 
     public static void main(String[] args) {
             

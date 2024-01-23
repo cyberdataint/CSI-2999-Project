@@ -1,4 +1,4 @@
-package visuals.user_interface;
+package mechanics;
 
 import visuals.border_panels.NorthPanel;
 
