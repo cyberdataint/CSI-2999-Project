@@ -2,6 +2,9 @@ package visuals.user_interface;
 
 import java.awt.*;
 import javax.swing.*;
+
+import InputHandling.HandleInput;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -59,6 +62,8 @@ public class Board extends JPanel {
             public void actionPerformed(ActionEvent e) {
 
                 System.out.println("(" + x + ", " + y + ")");
+
+                HandleInput.handleButtonPress(x, y);
 
             }
         });
