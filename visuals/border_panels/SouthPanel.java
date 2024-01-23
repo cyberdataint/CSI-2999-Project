@@ -47,6 +47,7 @@ public class SouthPanel extends JPanel {
             returnToMainMenuButton.setBackground(lightShadowColor);
             returnToMainMenuButton.setForeground(textColor);
             returnToMainMenuButton.setBorderPainted(false);
+            returnToMainMenuButton.setFocusPainted(false);
             setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, 18);
 
             // .ADD CALLS
@@ -128,6 +129,7 @@ public class SouthPanel extends JPanel {
             restartGameButton.setBackground(lightShadowColor);
             restartGameButton.setForeground(textColor);
             restartGameButton.setBorderPainted(false);
+            restartGameButton.setFocusPainted(false);
             setTextFont(restartGameButton, "Roboto", Font.BOLD, 24);
 
             // .ADD CALLS

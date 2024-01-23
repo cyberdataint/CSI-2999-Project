@@ -41,14 +41,22 @@ public class EastPanel extends JPanel {
             lightShadow.setLayout(new GridLayout(0, 1, 10, 10));
             lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-            // PRESET MENU PANEL
-                // PRESET MENU PANEL SETTINGS
+            // PRESET MENU
+                // PRESET MENU SETTINGS
                 PresetsMenu presetsMenu = new PresetsMenu();
-                presetsMenu.setPreferredSize(new Dimension(50, 25));
                 presetsMenu.setBackground(lightColor);
 
                 // .ADD CALL
                 lightShadow.add(presetsMenu);
+            // -------------
+
+            // TOGGLE COORDINATES BUTTON
+                // TOGGLE COORDINATES BUTTON SETTINGS
+                ToggleCoordinatesButton toggleCoordinatesButton = new ToggleCoordinatesButton();
+                toggleCoordinatesButton.setBackground(lightColor);
+
+                // .ADD CALL
+                lightShadow.add(toggleCoordinatesButton);
             // -------------
 
             // .ADD CALLS

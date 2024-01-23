@@ -18,7 +18,8 @@ public class NorthPanel extends JPanel {
 
     private static JLabel whiteScoreLabel;
     private static JLabel blackScoreLabel;
-    private static JLabel gameClockLabel;
+    public static JLabel gameClockLabel;
+    public static JLabel gameClock;
 
     private static int whiteScore = 0;
     private static int blackScore = 0;
@@ -109,7 +110,7 @@ public class NorthPanel extends JPanel {
             setLabelFont(gameClockLabel, "Roboto", Font.BOLD, 30);
 
             // GAME CLOCK
-            JLabel gameClock = new JLabel("00:00:00", SwingConstants.CENTER);
+            gameClock = new JLabel("00:00:00", SwingConstants.CENTER);
             gameClock.setForeground(textColor);
             setLabelFont(gameClock, "Roboto", Font.BOLD, 30);
 
