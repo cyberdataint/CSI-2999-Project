@@ -10,8 +10,11 @@ public class SouthPanel extends JPanel {
     private static JPanel returnToMainMenuPanel;
     private static JPanel turnIndicatorPanel;
     private static JPanel restartGameButtonPanel;
-    public static JPanel whitePanel;
-    public static JPanel blackPanel;
+
+    public static JPanel whitePanelOne;
+    public static JPanel whitePanelTwo;
+    public static JPanel blackPanelOne;
+    public static JPanel blackPanelTwo;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
@@ -67,45 +70,47 @@ public class SouthPanel extends JPanel {
             // TURN INDICATOR SHADOW SETTINGS
             JPanel turnIndicatorShadow = new JPanel();
             turnIndicatorShadow.setBackground(darkShadowColor);
-            turnIndicatorShadow.setLayout(new BorderLayout());
-            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+            turnIndicatorShadow.setLayout(new GridLayout(3, 2, 15, 0));
+            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(5, 15, 15, 15));
 
-            // LABEL PANEL
-            JPanel labelPanel = new JPanel();
-            labelPanel.setPreferredSize(new Dimension(50, 25));
-            labelPanel.setBackground(darkShadowColor);
+            // LABEL PANELS
+            JLabel whiteLabel = new JLabel("White", SwingConstants.CENTER);
+            whiteLabel.setForeground(textColor);
+            setTextFont(whiteLabel, "Roboto", Font.BOLD, 24);
 
-                JLabel whiteLabel = new JLabel("White", SwingConstants.CENTER);
-                whiteLabel.setForeground(textColor);
-                setTextFont(whiteLabel, "Roboto", Font.BOLD, 14);
-
-                JLabel blackLabel = new JLabel("Black", SwingConstants.CENTER);
-                blackLabel.setForeground(textColor);
-                setTextFont(blackLabel, "Roboto", Font.BOLD, 14);
-
-            labelPanel.setLayout(new BorderLayout());
-            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, 150, 10, 150));
-            labelPanel.add(whiteLabel, BorderLayout.WEST);
-            labelPanel.add(blackLabel, BorderLayout.EAST);
+            JLabel blackLabel = new JLabel("Black", SwingConstants.CENTER);
+            blackLabel.setForeground(textColor);
+            setTextFont(blackLabel, "Roboto", Font.BOLD, 24);
 
             // WHITE PANEL
-            whitePanel = new JPanel();
-            whitePanel.setPreferredSize(new Dimension(350, 50));
-            whitePanel.setBackground(lightShadowColor);
+            whitePanelOne = new JPanel();
+            whitePanelOne.setPreferredSize(new Dimension(350, 50));
+            whitePanelOne.setBackground(lightShadowColor);
+
+            whitePanelTwo = new JPanel();
+            whitePanelTwo.setPreferredSize(new Dimension(350, 50));
+            whitePanelTwo.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces
 
             // BLACK PANEL
-            blackPanel = new JPanel();
-            blackPanel.setPreferredSize(new Dimension(350, 50));
-            blackPanel.setBackground(lightShadowColor);
+            blackPanelOne = new JPanel();
+            blackPanelOne.setPreferredSize(new Dimension(350, 50));
+            blackPanelOne.setBackground(lightShadowColor);
+
+            blackPanelTwo = new JPanel();
+            blackPanelTwo.setPreferredSize(new Dimension(350, 50));
+            blackPanelTwo.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces
 
             // .ADD CALLS
-            turnIndicatorShadow.add(labelPanel, BorderLayout.NORTH);
-            turnIndicatorShadow.add(whitePanel, BorderLayout.WEST);
-            turnIndicatorShadow.add(blackPanel, BorderLayout.EAST);
+            turnIndicatorShadow.add(whiteLabel);
+            turnIndicatorShadow.add(blackLabel);
+            turnIndicatorShadow.add(whitePanelOne);
+            turnIndicatorShadow.add(blackPanelOne);
+            turnIndicatorShadow.add(whitePanelTwo);
+            turnIndicatorShadow.add(blackPanelTwo);
             turnIndicatorPanel.add(turnIndicatorShadow);
             add(turnIndicatorPanel, BorderLayout.CENTER);
         // -------------
