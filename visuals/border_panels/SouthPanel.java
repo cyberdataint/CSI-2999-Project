@@ -11,10 +11,10 @@ public class SouthPanel extends JPanel {
     private static JPanel turnIndicatorPanel;
     private static JPanel restartGameButtonPanel;
 
-    public static JPanel whitePanelOne;
-    public static JPanel whitePanelTwo;
-    public static JPanel blackPanelOne;
-    public static JPanel blackPanelTwo;
+    public static JPanel whitePanelTop;
+    public static JPanel whitePanelBottom;
+    public static JPanel blackPanelTop;
+    public static JPanel blackPanelBottom;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
@@ -83,34 +83,34 @@ public class SouthPanel extends JPanel {
             setTextFont(blackLabel, "Roboto", Font.BOLD, 24);
 
             // WHITE PANEL
-            whitePanelOne = new JPanel();
-            whitePanelOne.setPreferredSize(new Dimension(350, 50));
-            whitePanelOne.setBackground(lightShadowColor);
+            whitePanelTop = new JPanel();
+            whitePanelTop.setPreferredSize(new Dimension(350, 50));
+            whitePanelTop.setBackground(lightShadowColor);
 
-            whitePanelTwo = new JPanel();
-            whitePanelTwo.setPreferredSize(new Dimension(350, 50));
-            whitePanelTwo.setBackground(lightShadowColor);
+            whitePanelBottom = new JPanel();
+            whitePanelBottom.setPreferredSize(new Dimension(350, 50));
+            whitePanelBottom.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces
 
             // BLACK PANEL
-            blackPanelOne = new JPanel();
-            blackPanelOne.setPreferredSize(new Dimension(350, 50));
-            blackPanelOne.setBackground(lightShadowColor);
+            blackPanelTop = new JPanel();
+            blackPanelTop.setPreferredSize(new Dimension(350, 50));
+            blackPanelTop.setBackground(lightShadowColor);
 
-            blackPanelTwo = new JPanel();
-            blackPanelTwo.setPreferredSize(new Dimension(350, 50));
-            blackPanelTwo.setBackground(lightShadowColor);
+            blackPanelBottom = new JPanel();
+            blackPanelBottom.setPreferredSize(new Dimension(350, 50));
+            blackPanelBottom.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces
 
             // .ADD CALLS
             turnIndicatorShadow.add(whiteLabel);
             turnIndicatorShadow.add(blackLabel);
-            turnIndicatorShadow.add(whitePanelOne);
-            turnIndicatorShadow.add(blackPanelOne);
-            turnIndicatorShadow.add(whitePanelTwo);
-            turnIndicatorShadow.add(blackPanelTwo);
+            turnIndicatorShadow.add(whitePanelTop);
+            turnIndicatorShadow.add(blackPanelTop);
+            turnIndicatorShadow.add(whitePanelBottom);
+            turnIndicatorShadow.add(blackPanelBottom);
             turnIndicatorPanel.add(turnIndicatorShadow);
             add(turnIndicatorPanel, BorderLayout.CENTER);
         // -------------
