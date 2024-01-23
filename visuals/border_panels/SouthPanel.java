@@ -86,23 +86,23 @@ public class SouthPanel extends JPanel {
             whitePanelTop = new JPanel();
             whitePanelTop.setPreferredSize(new Dimension(350, 50));
             whitePanelTop.setBackground(lightShadowColor);
+            whitePanelTop.setLayout(new GridLayout(1, 8, 5, 5));
 
             whitePanelBottom = new JPanel();
             whitePanelBottom.setPreferredSize(new Dimension(350, 50));
             whitePanelBottom.setBackground(lightShadowColor);
-
-            // implement gridlayout[2][8] holds pictures of claimed pieces
+            whitePanelBottom.setLayout(new GridLayout(1, 8, 5, 5));
 
             // BLACK PANEL
             blackPanelTop = new JPanel();
             blackPanelTop.setPreferredSize(new Dimension(350, 50));
             blackPanelTop.setBackground(lightShadowColor);
+            blackPanelTop.setLayout(new GridLayout(1, 8, 5, 5));
 
             blackPanelBottom = new JPanel();
             blackPanelBottom.setPreferredSize(new Dimension(350, 50));
             blackPanelBottom.setBackground(lightShadowColor);
-
-            // implement gridlayout[2][8] holds pictures of claimed pieces
+            blackPanelBottom.setLayout(new GridLayout(1, 8, 5, 5));
 
             // .ADD CALLS
             turnIndicatorShadow.add(whiteLabel);
@@ -156,6 +156,12 @@ public class SouthPanel extends JPanel {
 
         Font newFont = new Font(fontFamily, fontStyle, fontSize);
         button.setFont(newFont);
+
+    }
+
+    public static boolean isGridLayoutFull(JPanel panel, int rows, int cols) {
+
+        return panel.getComponentCount() == (rows * cols);
 
     }
     

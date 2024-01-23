@@ -21,9 +21,11 @@ public class NorthPanel extends JPanel {
     public static JLabel gameClockLabel;
     public static JLabel gameClock;
 
-    private static int whiteScore = 0;
-    private static int blackScore = 0;
-    private static int gameSecondsElapsed = 0;
+    public static int whiteScore = 0;
+    public static int blackScore = 0;
+    public static int gameSecondsElapsed = 0;
+
+    public static Timer gameTimer;
 
     public NorthPanel() {
 
@@ -114,7 +116,7 @@ public class NorthPanel extends JPanel {
             gameClock.setForeground(textColor);
             setLabelFont(gameClock, "Roboto", Font.BOLD, 30);
 
-            Timer gameTimer = new Timer(1000, new ActionListener() {
+            gameTimer = new Timer(1000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
@@ -124,8 +126,6 @@ public class NorthPanel extends JPanel {
 
                 }
             });
-
-            gameTimer.start();
 
             // .ADD CALLS
             clockShadow.add(gameClockLabel);

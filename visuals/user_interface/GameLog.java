@@ -3,7 +3,7 @@ package visuals.user_interface;
 import javax.swing.*;
 import java.awt.*;
 
-import visuals.border_panels.NorthPanel;;
+import visuals.border_panels.NorthPanel;
 
 public class GameLog extends JPanel {
 
@@ -28,17 +28,7 @@ public class GameLog extends JPanel {
      *  scroll up to see previous messages
      */
 
-    private static int[][] coords = {
-        { 8, 8 },     // { x, y },
-        { 8, 8 }      // { x, y }
-    };
-
-    private static int count = 0;
-
-    private static String firstInput;
-    private static String secondInput;
-
-    private static JTextArea textArea;
+    public static JTextArea textArea;
     
     public GameLog() {
 
@@ -60,88 +50,56 @@ public class GameLog extends JPanel {
 
     }
 
-    public static void getCoordinates(int x, int y) {
+    public static String formatMessage(boolean isAttacking, boolean isTransforming, boolean isFirstWhite, String firstInput, boolean isSecondWhite, String secondInput) {
 
-        if ( count == 0) {
+        String gameClock = NorthPanel.gameClock.getText();
 
-            coords[0][0] = x;
-            coords[0][1] = y;
+        if (isAttacking && isTransforming) {
 
-            count++;
+            return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " took " 
+                    + isWhiteToString(isSecondWhite) + " " + secondInput + " and became " 
+                    + isWhiteToString(isFirstWhite) + firstInput + "\n";
 
-            System.out.println("FIRST ARRAY FILLED");
-            System.out.println("(" +  x + ", " + y + ")");
+        }
+        else if (isTransforming) {
+
+            return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " became " 
+                    + isWhiteToString(isSecondWhite) + " " + secondInput + "\n";
+
+        }
+        else if (isAttacking) {
+
+            return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " took " 
+                    + isWhiteToString(isSecondWhite) + " " + secondInput + "\n";
 
         }
         else {
 
-            coords[1][0] = x;
-            coords[1][1] = y;
-
-            count = 0;
-
-            System.out.println("SECOND ARRAY FILLED");
-            System.out.println("(" +  x + ", " + y + ")");
+            return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " -> " 
+                    + isWhiteToString(isSecondWhite) + " " + secondInput + "\n";
 
         }
 
     }
 
-    public static void compareCoordinates() {
+    private static String isWhiteToString(boolean isWhite) {
 
-        if (coords[1][1] != 8) {
-            // CHECK TO MAKE SURE COORDINATES ARE NOT EQUAL IN CASE OF DESELECTION
-            if ((coords[0][0] == coords[1][0]) && (coords[0][1] == coords[1][1])) {
-
-                System.out.println("MATCHED");
-
-                for (int j = 0; j < 2; j++) {
-                    for (int i = 0; i < 2; i++) {
-
-                        coords[i][j] = 8;
-
-                    }
-                }
-
-            }
-            else {
-
-                firstInput = formatCoordinates(coords[0][0], coords[0][1]);
-                secondInput = formatCoordinates(coords[1][0], coords[1][1]);
-
-                textArea.append("[" + NorthPanel.gameClock.getText() + "] " + firstInput + " -> " + secondInput + "\n\n");
-
-                firstInput = "";
-                secondInput = "";
-
-                for (int j = 0; j < 2; j++) {
-                    for (int i = 0; i < 2; i++) {
-
-                        coords[i][j] = 8;
-
-                    }
-                }
-                
-            }
-
+        if (isWhite) {
+            return "White";
         }
         else {
-
-            // wait for second input
-
-            System.out.println("WAITING FOR SECOND INPUT");
-
+            return "Black";
         }
 
     }
 
-    private static String formatCoordinates(int x, int y) {
+    public static String formatCoordinates(int[] input) {
 
         String formattedCoords;
         String formattedXCoord = "";
         int formattedYCoord = 0;
 
-        switch (x) {
+        switch (input[0]) { // x
             case 0:
                 formattedXCoord = "A";
                 break;
@@ -170,7 +128,7 @@ public class GameLog extends JPanel {
                 break;
         }
 
-        switch (y) {
+        switch (input[1]) { // y
             case 0:
                 formattedYCoord = 8;
                 break;

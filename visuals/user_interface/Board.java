@@ -2,6 +2,9 @@ package visuals.user_interface;
 
 import java.awt.*;
 import javax.swing.*;
+
+import mechanics.HandleInput;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,7 +33,7 @@ public class Board extends JPanel {
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
 
-                JButton button = createChessButton(x, y);
+                JButton button = createChessButton(null, x, y);
                 squares[x][y] = button;
                 add(button);
 
@@ -43,7 +46,7 @@ public class Board extends JPanel {
     }
 
 
-    private JButton createChessButton(int x, int y) {
+    private JButton createChessButton(ImageIcon imageIcon, int x, int y) {
 
         JButton button = new JButton();
         
@@ -60,8 +63,8 @@ public class Board extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                GameLog.getCoordinates(x, y);
-                GameLog.compareCoordinates();
+                HandleInput.getCoordinates(x, y);
+                HandleInput.compareCoordinates();
 
             }
         });
