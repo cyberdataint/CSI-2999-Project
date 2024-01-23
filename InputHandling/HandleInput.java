@@ -17,5 +17,16 @@ public class HandleInput {
 private void handleButtonPress(int x, int y){
 
     //add logic for handling button press event
+
+    /*  1.  Retrieve piece/ know which piece has been clicked
+     * 
+     *  2.  Detect danger
+     * 
+     *  3.  View Valid moves
+     * 
+     * 
+     *  4. Move Piece to desired valid location
+     * 
+     */
 }
 }
