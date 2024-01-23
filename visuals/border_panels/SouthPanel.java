@@ -83,20 +83,20 @@ public class SouthPanel extends JPanel {
                 setTextFont(blackLabel, "Roboto", Font.BOLD, 14);
 
             labelPanel.setLayout(new BorderLayout());
-            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, 140, 10, 140));
+            labelPanel.setBorder(BorderFactory.createEmptyBorder(0, 150, 10, 150));
             labelPanel.add(whiteLabel, BorderLayout.WEST);
             labelPanel.add(blackLabel, BorderLayout.EAST);
 
             // WHITE PANEL
             whitePanel = new JPanel();
-            whitePanel.setPreferredSize(new Dimension(325, 50));
+            whitePanel.setPreferredSize(new Dimension(350, 50));
             whitePanel.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces
 
             // BLACK PANEL
             blackPanel = new JPanel();
-            blackPanel.setPreferredSize(new Dimension(325, 50));
+            blackPanel.setPreferredSize(new Dimension(350, 50));
             blackPanel.setBackground(lightShadowColor);
 
             // implement gridlayout[2][8] holds pictures of claimed pieces

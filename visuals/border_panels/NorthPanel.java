@@ -44,6 +44,7 @@ public class NorthPanel extends JPanel {
             // SCORE SHADOW SETTINGS
             JPanel scoreShadow = new JPanel();
             scoreShadow.setBackground(darkShadowColor);
+
             scoreShadow.setLayout(new BorderLayout());
             scoreShadow.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 

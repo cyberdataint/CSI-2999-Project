@@ -40,7 +40,7 @@ public class WestPanel extends JPanel {
             JPanel lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
             lightShadow.setLayout(new BorderLayout());
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 10));
 
             // GAME LOG PANEL
                 // GAME LOG PANEL SETTINGS

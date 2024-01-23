@@ -20,10 +20,9 @@ public class EastPanel extends JPanel {
         setBackground(backgroundColor);
         setLayout(new BorderLayout(25, 25));
 
-        settingsPanel = new JPanel();
-
         // SETTINGS PANEL
             // SETINGS PANEL SETTINGS
+            settingsPanel = new JPanel();
             settingsPanel.setPreferredSize(new Dimension(300, 50));
             settingsPanel.setBackground(shadowColor);
 
