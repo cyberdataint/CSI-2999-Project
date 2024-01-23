@@ -1,11 +1,9 @@
 package visuals.border_panels;
 
 import javax.swing.*;
-
-import visuals.Screen;
-import visuals.user_interface.GameLog;
-
 import java.awt.*;
+
+import visuals.user_interface.GameLog;
 
 public class WestPanel extends JPanel {
     

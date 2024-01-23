@@ -3,7 +3,6 @@ package visuals.border_panels;
 import javax.swing.*;
 import java.awt.*;
 
-import visuals.Screen;
 import visuals.user_interface.*;
 
 public class EastPanel extends JPanel {
