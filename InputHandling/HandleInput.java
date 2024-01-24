@@ -1,21 +1,18 @@
 package InputHandling;
 
 import javax.swing.JButton;
-<<<<<<< Updated upstream
 
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
 //import visuals.user_interface.Board;
-=======
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import mechanics.GameBoard;
 import mechanics.Space;
 import mechanics.Piece;
 import visuals.user_interface.Board;
->>>>>>> Stashed changes
 
 public class HandleInput {
     
@@ -23,7 +20,6 @@ public class HandleInput {
 
 //New Function to handle button press events
 
-<<<<<<< Updated upstream
 private void handleButtonPress(int x, int y){
 
     //add logic for handling button press event
@@ -31,7 +27,6 @@ private void handleButtonPress(int x, int y){
     /*  1.  Retrieve piece/ know which piece has been clicked
      * 
      *  2.  Detect danger
-=======
 //variables
 boolean turn = false;
 
@@ -51,7 +46,6 @@ public void handleButtonPress(int x, int y){
     /*  1.  Retrieve piece/ know which piece has been clicked
      * 
      *  2.  Detect danger?
->>>>>>> Stashed changes
      * 
      *  3.  View Valid moves
      * 
@@ -59,9 +53,7 @@ public void handleButtonPress(int x, int y){
      *  4. Move Piece to desired valid location
      * 
      */
-<<<<<<< Updated upstream
 }
-=======
 
      //step 1
 
@@ -128,5 +120,4 @@ public void handleButtonPress(int x, int y){
 }
 
 
->>>>>>> Stashed changes
 }
