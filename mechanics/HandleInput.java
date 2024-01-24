@@ -73,6 +73,7 @@ public class HandleInput {
                 secondInput[1] = coords[1][1];
 
                 sendMessage();
+                Game.changeTurn();
 
                 firstInput[0] = 8;
                 firstInput[1] = 8;
@@ -101,10 +102,22 @@ public class HandleInput {
 
     }
 
+    public static void getIsAttacking() {
+
+        // implement
+
+    }
+
+    public static void getIsTransforming() {
+
+
+
+    }
+
     public static void sendMessage() {
 
         // implement a getIsAttacking and a getIsTransforming and a getIsWhite
-        String message = GameLog.formatMessage(false, false, true, GameLog.formatCoordinates(firstInput), false, GameLog.formatCoordinates(secondInput));
+        String message = GameLog.formatMessage(false, false, Game.isWhite, GameLog.formatCoordinates(firstInput), GameLog.formatCoordinates(secondInput));
         
         GameLog.textArea.append(message);
         GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());;

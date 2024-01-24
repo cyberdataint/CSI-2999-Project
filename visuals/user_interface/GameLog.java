@@ -50,33 +50,33 @@ public class GameLog extends JPanel {
 
     }
 
-    public static String formatMessage(boolean isAttacking, boolean isTransforming, boolean isFirstWhite, String firstInput, boolean isSecondWhite, String secondInput) {
+    public static String formatMessage(boolean isAttacking, boolean isTransforming, boolean isFirstWhite, String firstInput, String secondInput) {
 
         String gameClock = NorthPanel.gameClock.getText();
 
         if (isAttacking && isTransforming) {
 
             return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " took " 
-                    + isWhiteToString(isSecondWhite) + " " + secondInput + " and became " 
-                    + isWhiteToString(isFirstWhite) + firstInput + "\n";
+                    + isWhiteToString(!isFirstWhite) + " " + secondInput + " and became " 
+                    + isWhiteToString(isFirstWhite) + secondInput + "\n";
 
         }
         else if (isTransforming) {
 
             return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " became " 
-                    + isWhiteToString(isSecondWhite) + " " + secondInput + "\n";
+                    + isWhiteToString(isFirstWhite) + " " + secondInput + "\n";
 
         }
         else if (isAttacking) {
 
             return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " took " 
-                    + isWhiteToString(isSecondWhite) + " " + secondInput + "\n";
+                    + isWhiteToString(!isFirstWhite) + " " + secondInput + "\n";
 
         }
         else {
 
             return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " -> " 
-                    + isWhiteToString(isSecondWhite) + " " + secondInput + "\n";
+                    + secondInput + "\n";
 
         }
 
