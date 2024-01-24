@@ -57,6 +57,8 @@ public class Game {
 
     public static void changeTurn() {
 
+        // needs to disable selecting opposing turn's pieces
+
         if (isWhite) { // change to black's turn
             SouthPanel.whitePanelTop.setBackground(lightShadowColor);
             SouthPanel.whitePanelBottom.setBackground(lightShadowColor);

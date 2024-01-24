@@ -50,6 +50,7 @@ public class GameLog extends JPanel {
 
     }
 
+    // needs to include piece names
     public static String formatMessage(boolean isAttacking, boolean isTransforming, boolean isFirstWhite, String firstInput, String secondInput) {
 
         String gameClock = NorthPanel.gameClock.getText();

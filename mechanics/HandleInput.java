@@ -1,5 +1,6 @@
 package mechanics;
 
+import visuals.border_panels.NorthPanel;
 import visuals.user_interface.GameLog;
 
 public class HandleInput {
@@ -13,12 +14,9 @@ public class HandleInput {
 
     private static int[] firstInput = new int[2];
     private static int[] secondInput = new int[2];
- 
-    public HandleInput() {
 
-        // pass
-
-    }
+    // remove true when implementation is added
+    public static boolean isValid = true;
 
     public static void getCoordinates(int x, int y) {
 
@@ -64,31 +62,48 @@ public class HandleInput {
                 }
 
             }
-            else {
+            else { // needs to make sure move is valid
+                if (isValid) {
 
-                firstInput[0] = coords[0][0];
-                firstInput[1] = coords[0][1];
+                    firstInput[0] = coords[0][0];
+                    firstInput[1] = coords[0][1];
 
-                secondInput[0] = coords[1][0];
-                secondInput[1] = coords[1][1];
+                    secondInput[0] = coords[1][0];
+                    secondInput[1] = coords[1][1];
 
-                sendMessage();
-                Game.changeTurn();
+                    sendMessage();
+                    Game.changeTurn();
 
-                firstInput[0] = 8;
-                firstInput[1] = 8;
+                    firstInput[0] = 8;
+                    firstInput[1] = 8;
 
-                secondInput[0] = 8;
-                secondInput[1] = 8;
+                    secondInput[0] = 8;
+                    secondInput[1] = 8;
 
-                for (int j = 0; j < 2; j++) {
-                    for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        for (int i = 0; i < 2; i++) {
 
-                        coords[i][j] = 8;
+                            coords[i][j] = 8;
 
+                        }
                     }
+
                 }
-                
+                else {
+
+                    System.out.println("INVALID MOVE");
+
+                    sendMessage(isValid);
+
+                    for (int j = 0; j < 2; j++) {
+                        for (int i = 0; i < 2; i++) {
+
+                            coords[i][j] = 8;
+
+                        }
+                    }
+
+                }
             }
 
         }
@@ -104,23 +119,34 @@ public class HandleInput {
 
     public static void getIsAttacking() {
 
+        // checks to see if its a valid move
+
         // implement
 
     }
 
     public static void getIsTransforming() {
 
-
+        // implement
 
     }
 
     public static void sendMessage() {
 
-        // implement a getIsAttacking and a getIsTransforming and a getIsWhite
+        // implement a getIsAttacking and a getIsTransforming
         String message = GameLog.formatMessage(false, false, Game.isWhite, GameLog.formatCoordinates(firstInput), GameLog.formatCoordinates(secondInput));
         
         GameLog.textArea.append(message);
-        GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());;
+        GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());
+
+    }
+
+    public static void sendMessage(boolean isValid) {
+
+        String message = "[" + NorthPanel.gameClock.getText() + "] Sorry! Your move was invalid! Try Again!\n";
+
+        GameLog.textArea.append(message);
+        GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());
 
     }
 
