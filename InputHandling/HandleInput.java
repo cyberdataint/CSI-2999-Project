@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
-//import visuals.user_interface.Board;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import mechanics.GameBoard;
@@ -19,18 +19,20 @@ public class HandleInput {
     //New Function to add ActionListener to buttons that are currently set up
 
 //New Function to handle button press events
-boolean turn = false;
-
-GameBoard chess = new GameBoard();
-
-private void handleButtonPress(int x, int y){
-
-    //add logic for handling button press event
 
     /*  1.  Retrieve piece/ know which piece has been clicked
      * 
-     *  2.  Detect danger
-//variables
+     *  2.  Detect danger?
+     * 
+     *  3.  View Valid moves
+     * 
+     * 
+     *  4. Move Piece to desired valid location
+     * 
+     */
+
+
+
 boolean turn = false;
 
 Piece activePiece = null;
@@ -44,116 +46,65 @@ public void handleButtonPress(int x, int y){
 
         //add logic for handling button press event
    
-    System.out.println("Button handled");
+        System.out.println("Button handled");
 
-    /*  1.  Retrieve piece/ know which piece has been clicked
-     * 
-     *  2.  Detect danger?
-     * 
-     *  3.  View Valid moves
-     * 
-     * 
-     *  4. Move Piece to desired valid location
-     * 
-     */
-}
+        //get the space at the clicked coordinates
+        Space clickedSpace = chess.gameBoard[x][y];
 
-     //add logic for handling button press event
+        //check if space is occupied
+        if (clickedSpace.occupant != null){
 
-    /*  1.  Retrieve piece/ know which piece has been clicked
-     * 
-     *  2.  Detect danger
-//variables
-boolean turn = false;
+        Piece clickedPiece = clickedSpace.occupant;
+        this.activePiece = clickedPiece;
 
-Piece activePiece = null;
+        //retrieve info about clicked piece
+        boolean isWhite = clickedPiece.getColor();
+        int[] position = clickedPiece.getPos();
+        int id = clickedPiece.getId();
 
-GameBoard chess = new GameBoard();
+        Space[] validMoves = clickedPiece.validMoves(chess.gameBoard);
+
+        //light up valid move spaces
+
+        //highlight clicked piece
 
 
-public void handleButtonPress(int x, int y){
+        turn = true;  //pt 1 of 2 click turn is complete
 
-    if (turn == false) {
-
-        //add logic for handling button press event
-   
-    System.out.println("Button handled");
-
-    /*  1.  Retrieve piece/ know which piece has been clicked
-     * 
-     *  2.  Detect danger?
-     * 
-     *  3.  View Valid moves
-     * 
-     * 
-     *  4. Move Piece to desired valid location
-     * 
-     */
-}
-
-//step 1
-
-//retrieve the game board instance
-
-
-//get the space at the clicked coordinates
-Space clickedSpace = chess.gameBoard[x][y];
-
-//check if space is occupied
-if (clickedSpace.occupant != null){
-
-   Piece clickedPiece = clickedSpace.occupant;
-   this.activePiece = clickedPiece;
-
-   //retrieve info about clicked piece
-   boolean isWhite = clickedPiece.getColor();
-   int[] position = clickedPiece.getPos();
-   int id = clickedPiece.getId();
-
-   Space[] validMoves = clickedPiece.validMoves(chess.gameBoard);
-
-   //light up valid move spaces
-
-   //highlight clicked piece
-
-
-   turn = true;  //pt 1 of 2 click turn is complete
-
-}
+        }   
+    }
 
 
 
-
-}
-
-if (turn == true) {
+    if (turn == true) {
 
 
 
-   if (this.activePiece.moveTo( x, y, chess.gameBoard) == null) {
+        if (this.activePiece.moveTo( x, y, chess.gameBoard) == null) {
 
-       //tell user its null
-       System.out.println("Invalid Move Selected!");
+        //tell user its null
+        System.out.println("Invalid Move Selected!");
 
-       return;
+        turn = false;  //complete turn
+        this.activePiece = null;
+
+
+        return;
 
        
 
-   }
+            }
+
+        }
 
 
 
 
 
-
-
-   turn = false;  //complete turn
-   this.activePiece = null;
-
-}
-
-
-}
+   
+    }
 
 
 }
+
+
