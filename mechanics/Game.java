@@ -10,7 +10,7 @@ public class Game {
     private static Color lightColor = new Color(220, 250, 220);
     private static Color lightShadowColor = new Color(140, 170, 140);
 
-    public static boolean isWhite;
+    public static boolean isWhiteTurn;
     
     public Game() {
 
@@ -30,7 +30,7 @@ public class Game {
     
         GameLog.textArea.append("[" + NorthPanel.gameClock.getText() + "] " + "Game Start!\n\n");
 
-        isWhite = true;
+        isWhiteTurn = true;
     
     }
     
@@ -51,7 +51,7 @@ public class Game {
         GameLog.textArea.append("\n\n[" + NorthPanel.gameClock.getText() + "] " + "New Game Start!\n\n\n");
         GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());;
 
-        isWhite = true;
+        isWhiteTurn = true;
     
     }
 
@@ -59,14 +59,14 @@ public class Game {
 
         // needs to disable selecting opposing turn's pieces
 
-        if (isWhite) { // change to black's turn
+        if (isWhiteTurn) { // change to black's turn
             SouthPanel.whitePanelTop.setBackground(lightShadowColor);
             SouthPanel.whitePanelBottom.setBackground(lightShadowColor);
 
             SouthPanel.blackPanelTop.setBackground(lightColor);
             SouthPanel.blackPanelBottom.setBackground(lightColor);
 
-            isWhite = false;
+            isWhiteTurn = false;
         }
         else { // change to white's turn
             SouthPanel.whitePanelTop.setBackground(lightColor);
@@ -75,7 +75,7 @@ public class Game {
             SouthPanel.blackPanelTop.setBackground(lightShadowColor);
             SouthPanel.blackPanelBottom.setBackground(lightShadowColor);
 
-            isWhite = true;
+            isWhiteTurn = true;
         }
 
     }

@@ -124,7 +124,7 @@ public class HandleInput {
     public static void sendMessage() {
 
         // implement a getIsAttacking and a getIsTransforming
-        String message = GameLog.formatMessage(false, false, Game.isWhite, GameLog.formatCoordinates(firstInput), GameLog.formatCoordinates(secondInput));
+        String message = GameLog.formatMessage(false, false, Game.isWhiteTurn, GameLog.formatCoordinates(firstInput), GameLog.formatCoordinates(secondInput));
         
         GameLog.textArea.append(message);
         GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());
