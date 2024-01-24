@@ -54,22 +54,22 @@ public void handleButtonPress(int x, int y){
         //check if space is occupied
         if (clickedSpace.occupant != null){
 
-        Piece clickedPiece = clickedSpace.occupant;
-        this.activePiece = clickedPiece;
+            Piece clickedPiece = clickedSpace.occupant;
+            this.activePiece = clickedPiece;
 
-        //retrieve info about clicked piece
-        boolean isWhite = clickedPiece.getColor();
-        int[] position = clickedPiece.getPos();
-        int id = clickedPiece.getId();
+            //retrieve info about clicked piece
+            boolean isWhite = clickedPiece.getColor();
+            int[] position = clickedPiece.getPos();
+            int id = clickedPiece.getId();
 
-        Space[] validMoves = clickedPiece.validMoves(chess.gameBoard);
+            Space[] validMoves = clickedPiece.validMoves(chess.gameBoard);
 
-        //light up valid move spaces
+            //light up valid move spaces
 
-        //highlight clicked piece
+            //highlight clicked piece
 
 
-        turn = true;  //pt 1 of 2 click turn is complete
+            turn = true;  //pt 1 of 2 click turn is complete
 
         }   
     }
@@ -82,14 +82,14 @@ public void handleButtonPress(int x, int y){
 
         if (this.activePiece.moveTo( x, y, chess.gameBoard) == null) {
 
-        //tell user its null
-        System.out.println("Invalid Move Selected!");
+            //tell user its null
+            System.out.println("Invalid Move Selected!");
 
-        turn = false;  //complete turn
-        this.activePiece = null;
+            turn = false;  //complete turn
+            this.activePiece = null;
 
 
-        return;
+            return;
 
        
 
