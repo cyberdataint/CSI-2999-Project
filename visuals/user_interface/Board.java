@@ -4,7 +4,10 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
 import InputHandling.HandleInput;
+=======
+>>>>>>> main
 
 public class Board extends JPanel {
 
@@ -61,8 +64,11 @@ public class Board extends JPanel {
 
                 System.out.println("(" + x + ", " + y + ")");
 
+<<<<<<< HEAD
                 HandleInput.handleButtonPress(x, y);
 
+=======
+>>>>>>> main
             }
         });
 
