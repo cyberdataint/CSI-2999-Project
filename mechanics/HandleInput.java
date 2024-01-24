@@ -27,9 +27,6 @@ public class HandleInput {
 
             count++;
 
-            System.out.println("FIRST ARRAY FILLED");
-            System.out.println("(" +  x + ", " + y + ")");
-
         }
         else {
 
@@ -37,9 +34,6 @@ public class HandleInput {
             coords[1][1] = y;
 
             count = 0;
-
-            System.out.println("SECOND ARRAY FILLED");
-            System.out.println("(" +  x + ", " + y + ")");
 
         }
 
@@ -51,8 +45,6 @@ public class HandleInput {
             // CHECK TO MAKE SURE COORDINATES ARE NOT EQUAL IN CASE OF DESELECTION
             if ((coords[0][0] == coords[1][0]) && (coords[0][1] == coords[1][1])) {
 
-                System.out.println("MATCHED");
-
                 for (int j = 0; j < 2; j++) {
                     for (int i = 0; i < 2; i++) {
 
@@ -62,7 +54,7 @@ public class HandleInput {
                 }
 
             }
-            else { // needs to make sure move is valid
+            else {
                 if (isValid) {
 
                     firstInput[0] = coords[0][0];
@@ -91,8 +83,6 @@ public class HandleInput {
                 }
                 else {
 
-                    System.out.println("INVALID MOVE");
-
                     sendMessage(isValid);
 
                     for (int j = 0; j < 2; j++) {
@@ -109,9 +99,7 @@ public class HandleInput {
         }
         else {
 
-            // wait for second input
-
-            System.out.println("WAITING FOR SECOND INPUT");
+            // waiting for second input
 
         }
 
@@ -119,13 +107,15 @@ public class HandleInput {
 
     public static void getIsAttacking() {
 
-        // checks to see if its a valid move
+        // checks to see if its a valid move and opposing square is an opposing color
 
         // implement
 
     }
 
     public static void getIsTransforming() {
+
+        // checks to see if its a valid move and its the opposing row of selected color
 
         // implement
 
