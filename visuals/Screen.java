@@ -1,6 +1,7 @@
 package visuals;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 import visuals.border_panels.*;
@@ -8,8 +9,9 @@ import visuals.border_panels.*;
 public class Screen extends JFrame {
 
     // 6:5 RATIO
-    public static int frameWidth = 1500;
-    public static int frameHeight = 1200;
+
+    private final static Border border20 = BorderFactory.createEmptyBorder(20, 20, 20, 20);
+    private final static Border border30 = BorderFactory.createEmptyBorder(30, 30, 30, 30);
 
     private static JPanel screenPanel;
     private static JPanel screenShadowPanel;
@@ -28,16 +30,16 @@ public class Screen extends JFrame {
             setTitle("Offline Chess Simulator");
             getContentPane().setBackground(backgroundColor);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setExtendedState(Screen.MAXIMIZED_BOTH);
+            setResizable(false);
 
             screenShadowPanel = new JPanel(new BorderLayout());
-            screenShadowPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            screenShadowPanel.setBorder(border20);
             screenShadowPanel.setBackground(shadowColor);
 
             screenPanel = new JPanel(new BorderLayout(25, 25));
-            screenPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+            screenPanel.setBorder(border30);
             screenPanel.setBackground(backgroundColor);
-            screenPanel.setPreferredSize(new Dimension(1500, 1200));
+            screenPanel.setPreferredSize(new Dimension(1500, 1250));
         // ------------
 
     
@@ -68,6 +70,105 @@ public class Screen extends JFrame {
         pack();
         setVisible(true);
         setLocationRelativeTo(null);
+
+    }
+
+    public static void changeSize(int value) {
+
+        switch (value) {
+            case 1: // TARGETS 1080p
+                // SCREEN
+                    // screenShadowPanel.setLayout(new BorderLayout());
+                    // screenShadowPanel.setBorder(border20);
+
+                    // screenPanel.setLayout(new BorderLayout(25, 25));
+                    // screenPanel.setBorder(border30);
+                    screenPanel.setSize(new Dimension(960, 800));
+                // -------------
+
+                // CENTER PANEL
+
+                // -------------
+
+                // EAST PANEL
+
+                // -------------
+
+                // NORTH PANEL
+
+                // -------------
+
+                // SOUTH PANEL
+
+                // -------------
+
+                // WEST PANEL
+
+                // -------------
+                break;
+            case 2: // DEFAULT // TARGETS 1440p
+                // SCREEN
+                    screenShadowPanel.setLayout(new BorderLayout());
+                    screenShadowPanel.setBorder(border20);
+
+                    screenPanel.setLayout(new BorderLayout(25, 25));
+                    screenPanel.setBorder(border30);
+                    screenPanel.setSize(new Dimension(1500, 1250));
+                // -------------
+
+                // CENTER PANEL
+
+                // -------------
+
+                // EAST PANEL
+
+                // -------------
+
+                // NORTH PANEL
+
+                // -------------
+
+                // SOUTH PANEL
+
+                // -------------
+
+                // WEST PANEL
+
+                // -------------
+                break;
+            case 3: // TARGETS 2160p
+                // SCREEN
+                    // screenShadowPanel.setLayout(new BorderLayout());
+                    // screenShadowPanel.setBorder(border20);
+
+                    // screenPanel.setLayout(new BorderLayout(25, 25));
+                    // screenPanel.setBorder(border30);
+                    screenPanel.setSize(new Dimension(1920, 1600));
+                // -------------
+
+                // CENTER PANEL
+
+                // -------------
+
+                // EAST PANEL
+
+                // -------------
+
+                // NORTH PANEL
+
+                // -------------
+
+                // SOUTH PANEL
+
+                // -------------
+
+                // WEST PANEL
+
+                // -------------
+                break;
+            default:
+                break;
+        }
 
     }
 

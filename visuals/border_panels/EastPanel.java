@@ -50,6 +50,15 @@ public class EastPanel extends JPanel {
                 lightShadow.add(presetsMenu);
             // -------------
 
+            // SIZE SLIDER
+                // SIZE SLIDER SETTINGS
+                SizeSlider sizeSlider = new SizeSlider();
+                sizeSlider.setBackground(lightColor);
+
+                // .ADD CALL
+                lightShadow.add(sizeSlider);
+            // -------------
+
             // TOGGLE COORDINATES BUTTON
                 // TOGGLE COORDINATES BUTTON SETTINGS
                 ToggleCoordinatesButton toggleCoordinatesButton = new ToggleCoordinatesButton();
