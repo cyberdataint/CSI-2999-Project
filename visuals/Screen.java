@@ -73,101 +73,17 @@ public class Screen extends JFrame {
 
     }
 
-    public static void changeSize(int value) {
+    public static void changeSize(boolean isToggled) {
 
-        switch (value) {
-            case 1: // TARGETS 1080p
-                // SCREEN
-                    // screenShadowPanel.setLayout(new BorderLayout());
-                    // screenShadowPanel.setBorder(border20);
+        if (isToggled) {
 
-                    // screenPanel.setLayout(new BorderLayout(25, 25));
-                    // screenPanel.setBorder(border30);
-                    screenPanel.setSize(new Dimension(960, 800));
-                // -------------
+            // make defualt (small)
 
-                // CENTER PANEL
+        }
+        else {
 
-                // -------------
+            // make large
 
-                // EAST PANEL
-
-                // -------------
-
-                // NORTH PANEL
-
-                // -------------
-
-                // SOUTH PANEL
-
-                // -------------
-
-                // WEST PANEL
-
-                // -------------
-                break;
-            case 2: // DEFAULT // TARGETS 1440p
-                // SCREEN
-                    screenShadowPanel.setLayout(new BorderLayout());
-                    screenShadowPanel.setBorder(border20);
-
-                    screenPanel.setLayout(new BorderLayout(25, 25));
-                    screenPanel.setBorder(border30);
-                    screenPanel.setSize(new Dimension(1500, 1250));
-                // -------------
-
-                // CENTER PANEL
-
-                // -------------
-
-                // EAST PANEL
-
-                // -------------
-
-                // NORTH PANEL
-
-                // -------------
-
-                // SOUTH PANEL
-
-                // -------------
-
-                // WEST PANEL
-
-                // -------------
-                break;
-            case 3: // TARGETS 2160p
-                // SCREEN
-                    // screenShadowPanel.setLayout(new BorderLayout());
-                    // screenShadowPanel.setBorder(border20);
-
-                    // screenPanel.setLayout(new BorderLayout(25, 25));
-                    // screenPanel.setBorder(border30);
-                    screenPanel.setSize(new Dimension(1920, 1600));
-                // -------------
-
-                // CENTER PANEL
-
-                // -------------
-
-                // EAST PANEL
-
-                // -------------
-
-                // NORTH PANEL
-
-                // -------------
-
-                // SOUTH PANEL
-
-                // -------------
-
-                // WEST PANEL
-
-                // -------------
-                break;
-            default:
-                break;
         }
 
     }

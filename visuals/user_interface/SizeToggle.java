@@ -1,15 +1,17 @@
 package visuals.user_interface;
 
+import java.awt.*;
 import javax.swing.*;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ToggleCoordinatesButton extends JToggleButton {
+import visuals.Screen;
+
+public class SizeToggle extends JToggleButton {
     
-    public ToggleCoordinatesButton() {
+    public SizeToggle() {
 
-        setText("<html><center>Toggle Coordinates</center></html>");
+        setText("<html><center>Set Large</center></html>");
         Font font = new Font("Roboto", Font.BOLD, 20);
         setFont(font);
         setBorderPainted(false);
@@ -19,14 +21,16 @@ public class ToggleCoordinatesButton extends JToggleButton {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (isSelected()) {
-                    Board.toggleCoordinates(true);
+                    Screen.changeSize(true);
+                    setText("<html><center>Set Small</center></html>");
                 }
                 else {
-                    Board.toggleCoordinates(false);
+                    Screen.changeSize(false);
+                    setText("<html><center>Set Large</center></html>");
                 }
             }
         });
 
-    }
+    } 
 
 }

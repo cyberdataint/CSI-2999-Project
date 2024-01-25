@@ -38,8 +38,8 @@ public class EastPanel extends JPanel {
             // LIGHT SHADOW SETTINGS
             JPanel lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
-            lightShadow.setLayout(new GridLayout(0, 1, 10, 10));
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            lightShadow.setLayout(new GridLayout(0, 1, 10, 40));
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(40, 20, 40, 20));
 
             // PRESET MENU
                 // PRESET MENU SETTINGS
@@ -52,7 +52,7 @@ public class EastPanel extends JPanel {
 
             // SIZE SLIDER
                 // SIZE SLIDER SETTINGS
-                SizeSlider sizeSlider = new SizeSlider();
+                SizeToggle sizeSlider = new SizeToggle();
                 sizeSlider.setBackground(lightColor);
 
                 // .ADD CALL

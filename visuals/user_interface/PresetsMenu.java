@@ -35,11 +35,13 @@ public class PresetsMenu extends JPanel {
 
     public PresetsMenu() {
 
-        JLabel label = new JLabel("Color Presets:");
+        JLabel label = new JLabel("Color Presets:", SwingConstants.CENTER);
+        Font font = new Font("Roboto", Font.BOLD, 20);
+        label.setFont(font);
         String[] presets = {"Coral", "Dusk", "Marine", "Wheat", "Emerald", "Sandcastle"};
         dropDown = new JComboBox<>(presets);
 
-        setLayout(new GridLayout(1, 2, 5, 5));
+        setLayout(new GridLayout(2, 1, 5, 5));
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
         dropDown.addActionListener(new ActionListener() {
