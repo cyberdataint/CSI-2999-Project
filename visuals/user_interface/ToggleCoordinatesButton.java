@@ -9,7 +9,7 @@ public class ToggleCoordinatesButton extends JToggleButton {
     
     public ToggleCoordinatesButton() {
 
-        setText("<html><center>Toggle Coordinates</center></html>");
+        setText("<html><center>Toggle<br>Coordinates</center></html>");
         Font font = new Font("Roboto", Font.BOLD, 20);
         setFont(font);
         setBorderPainted(false);

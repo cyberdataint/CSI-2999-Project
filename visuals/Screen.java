@@ -1,7 +1,6 @@
 package visuals;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 import visuals.border_panels.*;
@@ -9,9 +8,6 @@ import visuals.border_panels.*;
 public class Screen extends JFrame {
 
     // 6:5 RATIO
-
-    private final static Border border20 = BorderFactory.createEmptyBorder(20, 20, 20, 20);
-    private final static Border border30 = BorderFactory.createEmptyBorder(30, 30, 30, 30);
 
     private static JPanel screenPanel;
     private static JPanel screenShadowPanel;
@@ -33,35 +29,35 @@ public class Screen extends JFrame {
             setResizable(false);
 
             screenShadowPanel = new JPanel(new BorderLayout());
-            screenShadowPanel.setBorder(border20);
+            screenShadowPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             screenShadowPanel.setBackground(shadowColor);
 
             screenPanel = new JPanel(new BorderLayout(25, 25));
-            screenPanel.setBorder(border30);
+            screenPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
             screenPanel.setBackground(backgroundColor);
-            screenPanel.setPreferredSize(new Dimension(1500, 1250));
+            screenPanel.setSize(new Dimension(1500, 1250));
         // ------------
 
     
         // BORDER PANELS
             centerPanel = new CenterPanel();
-            centerPanel.setPreferredSize(new Dimension(500, 500));
+            centerPanel.setSize(new Dimension(500, 500));
             screenPanel.add(centerPanel, BorderLayout.CENTER);
 
             eastPanel = new EastPanel();
-            eastPanel.setPreferredSize(new Dimension(300, 50));
+            eastPanel.setSize(new Dimension(300, 50));
             screenPanel.add(eastPanel, BorderLayout.EAST);
 
             westPanel = new WestPanel();
-            westPanel.setPreferredSize(new Dimension(300, 50));
+            westPanel.setSize(new Dimension(300, 50));
             screenPanel.add(westPanel, BorderLayout.WEST);
 
             northPanel = new NorthPanel();
-            northPanel.setPreferredSize(new Dimension(50, 150));
+            northPanel.setSize(new Dimension(50, 150));
             screenPanel.add(northPanel, BorderLayout.NORTH);
 
             southPanel = new SouthPanel();
-            southPanel.setPreferredSize(new Dimension(50, 200));
+            southPanel.setSize(new Dimension(50, 200));
             screenPanel.add(southPanel, BorderLayout.SOUTH);
         // -------------
 
@@ -75,14 +71,28 @@ public class Screen extends JFrame {
 
     public static void changeSize(boolean isToggled) {
 
-        if (isToggled) {
+        if (isToggled) { // make big
 
-            // make defualt (small)
+            // SCREEN
+                screenShadowPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+                
+                screenPanel.setLayout(new BorderLayout(25, 25));
+                screenPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+                screenPanel.setSize(new Dimension(1500, 1250));
+            // ------
+
+            // CALLS
+                centerPanel.changeSize(isToggled);
+                eastPanel.changeSize(isToggled);
+                westPanel.changeSize(isToggled);
+                northPanel.changeSize(isToggled);
+                southPanel.changeSize(isToggled);
+            // ------
 
         }
-        else {
+        else { // make small
 
-            // make large
+            // make small (default)
 
         }
 

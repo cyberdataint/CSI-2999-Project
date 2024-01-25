@@ -33,11 +33,12 @@ public class SouthPanel extends JPanel {
 
         // RETURN TO MAIN MENU PANEL
             // RTMM PANEL SETTINGS
-            returnToMainMenuPanel.setPreferredSize(new Dimension(300, 50));
+            returnToMainMenuPanel.setSize(new Dimension(300, 50));
             returnToMainMenuPanel.setBackground(shadowColor);
 
             returnToMainMenuPanel.setLayout(new BorderLayout());
             returnToMainMenuPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            returnToMainMenuPanel.setPreferredSize(new Dimension(250, 200));
 
             // RTMM SHADOW SETTINGS
             JPanel returnToMainMenuShadow = new JPanel();
@@ -46,12 +47,12 @@ public class SouthPanel extends JPanel {
             returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // RTMM BUTTON
-            ReturnToMainMenuButton returnToMainMenuButton = new ReturnToMainMenuButton("Return to Main Menu");
+            ReturnToMainMenuButton returnToMainMenuButton = new ReturnToMainMenuButton("<html><center>Return to<br>Main Menu</center></html>");
             returnToMainMenuButton.setBackground(lightShadowColor);
             returnToMainMenuButton.setForeground(textColor);
             returnToMainMenuButton.setBorderPainted(false);
             returnToMainMenuButton.setFocusPainted(false);
-            setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, 18);
+            setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, 24);
 
             // .ADD CALLS
             returnToMainMenuShadow.add(returnToMainMenuButton);
@@ -61,7 +62,7 @@ public class SouthPanel extends JPanel {
 
         // TURN INDICATOR PANEL
             // TURN INDICATOR PANEL SETTINGS
-            turnIndicatorPanel.setPreferredSize(new Dimension(800, 50));
+            turnIndicatorPanel.setSize(new Dimension(800, 50));
             turnIndicatorPanel.setBackground(shadowColor);
 
             turnIndicatorPanel.setLayout(new BorderLayout());
@@ -84,23 +85,23 @@ public class SouthPanel extends JPanel {
 
             // WHITE PANEL
             whitePanelTop = new JPanel();
-            whitePanelTop.setPreferredSize(new Dimension(350, 50));
+            whitePanelTop.setSize(new Dimension(350, 50));
             whitePanelTop.setBackground(lightShadowColor);
             whitePanelTop.setLayout(new GridLayout(1, 8, 5, 5));
 
             whitePanelBottom = new JPanel();
-            whitePanelBottom.setPreferredSize(new Dimension(350, 50));
+            whitePanelBottom.setSize(new Dimension(350, 50));
             whitePanelBottom.setBackground(lightShadowColor);
             whitePanelBottom.setLayout(new GridLayout(1, 8, 5, 5));
 
             // BLACK PANEL
             blackPanelTop = new JPanel();
-            blackPanelTop.setPreferredSize(new Dimension(350, 50));
+            blackPanelTop.setSize(new Dimension(350, 50));
             blackPanelTop.setBackground(lightShadowColor);
             blackPanelTop.setLayout(new GridLayout(1, 8, 5, 5));
 
             blackPanelBottom = new JPanel();
-            blackPanelBottom.setPreferredSize(new Dimension(350, 50));
+            blackPanelBottom.setSize(new Dimension(350, 50));
             blackPanelBottom.setBackground(lightShadowColor);
             blackPanelBottom.setLayout(new GridLayout(1, 8, 5, 5));
 
@@ -117,11 +118,12 @@ public class SouthPanel extends JPanel {
 
         // RESTART GAME BUTTON PANEL
             // RESTART GAME BUTTON PANEL SETTINGS
-            restartGameButtonPanel.setPreferredSize(new Dimension(300, 50));
+            restartGameButtonPanel.setSize(new Dimension(300, 50));
             restartGameButtonPanel.setBackground(shadowColor);
 
             restartGameButtonPanel.setLayout(new BorderLayout());
             restartGameButtonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            restartGameButtonPanel.setPreferredSize(new Dimension(250, 200));
 
             // RESTART GAME BUTTON SHADOW SETTINGS
             JPanel restartGameButtonShadow = new JPanel();
@@ -130,7 +132,7 @@ public class SouthPanel extends JPanel {
             restartGameButtonShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // RESTART GAME BUTTON
-            RestartGameButton restartGameButton = new RestartGameButton("Restart Game");
+            RestartGameButton restartGameButton = new RestartGameButton("<html><center>Restart<br>Game</center></html>");
             restartGameButton.setBackground(lightShadowColor);
             restartGameButton.setForeground(textColor);
             restartGameButton.setBorderPainted(false);
@@ -162,6 +164,21 @@ public class SouthPanel extends JPanel {
     public static boolean isGridLayoutFull(JPanel panel, int rows, int cols) {
 
         return panel.getComponentCount() == (rows * cols);
+
+    }
+
+    public void changeSize(boolean isToggled) {
+
+        if (isToggled) {
+
+            // make large
+
+        }
+        else {
+
+            // make small (default)
+
+        }
 
     }
     

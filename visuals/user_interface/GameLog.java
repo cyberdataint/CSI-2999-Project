@@ -44,7 +44,7 @@ public class GameLog extends JPanel {
 
         textArea.append("[00:00:00] Welcome to Offline Chess Simulator!\n\n");
 
-        scrollPane.setPreferredSize(new Dimension(200, 700));
+        scrollPane.setPreferredSize(new Dimension(200, 405));
 
         add(scrollPane);
 

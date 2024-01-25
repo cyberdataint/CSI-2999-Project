@@ -7,6 +7,8 @@ import visuals.user_interface.Board;
 
 public class CenterPanel extends JPanel {
 
+    public static JPanel boardShadow;
+
     public CenterPanel() {
 
         Color shadowColor = new Color(90, 100, 90);
@@ -15,8 +17,9 @@ public class CenterPanel extends JPanel {
         setBackground(shadowColor);
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
+        setPreferredSize(new Dimension(500, 500));
 
-        JPanel boardShadow = new JPanel();
+        boardShadow = new JPanel();
         boardShadow.setBackground(darkShadowColor);
         boardShadow.setLayout(new BorderLayout());
         boardShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -26,6 +29,24 @@ public class CenterPanel extends JPanel {
 
         boardShadow.add(board);
         add(boardShadow, BorderLayout.CENTER);
+
+    }
+
+    public void changeSize(boolean isToggled) {
+
+        if (isToggled) {
+
+            setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
+            setSize(new Dimension(500, 500));
+
+            boardShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        }
+        else {
+
+            // make small (default)
+
+        }
 
     }
     

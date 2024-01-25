@@ -23,7 +23,7 @@ public class EastPanel extends JPanel {
         // SETTINGS PANEL
             // SETINGS PANEL SETTINGS
             settingsPanel = new JPanel();
-            settingsPanel.setPreferredSize(new Dimension(300, 50));
+            settingsPanel.setPreferredSize(new Dimension(300, 500));
             settingsPanel.setBackground(shadowColor);
 
             settingsPanel.setLayout(new BorderLayout());
@@ -39,7 +39,7 @@ public class EastPanel extends JPanel {
             JPanel lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
             lightShadow.setLayout(new GridLayout(0, 1, 10, 40));
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(40, 20, 40, 20));
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // PRESET MENU
                 // PRESET MENU SETTINGS
@@ -73,6 +73,21 @@ public class EastPanel extends JPanel {
             settingsPanel.add(settingsShadow);
             add(settingsPanel);
         // -------------
+
+    }
+
+    public void changeSize(boolean isToggled) {
+
+        if (isToggled) {
+
+            // make large
+
+        }
+        else {
+
+            // make small (default)
+
+        }
 
     }
     

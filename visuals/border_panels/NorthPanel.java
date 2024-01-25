@@ -38,7 +38,7 @@ public class NorthPanel extends JPanel {
 
         // SCORE PANEL
             // SCORE PANEL SETTINGS
-            scorePanel.setPreferredSize(new Dimension(300, 50));
+            scorePanel.setSize(new Dimension(300, 50));
             scorePanel.setBackground(shadowColor);
 
             scorePanel.setLayout(new BorderLayout());
@@ -69,7 +69,7 @@ public class NorthPanel extends JPanel {
             
         // TITLE PANEL
             // TITLE PANEL SETTINGS
-            titlePanel.setPreferredSize(new Dimension(800, 50));
+            titlePanel.setSize(new Dimension(800, 50));
             titlePanel.setBackground(shadowColor);
 
             titlePanel.setLayout(new BorderLayout());
@@ -79,12 +79,12 @@ public class NorthPanel extends JPanel {
             JPanel titleShadow = new JPanel();
             titleShadow.setBackground(darkShadowColor);
             titleShadow.setLayout(new BorderLayout());
-            titleShadow.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            titleShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // TITLE LABEL
             JLabel title = new JLabel("Offline Chess Simulator", SwingConstants.CENTER);
             title.setForeground(textColor);
-            setLabelFont(title, "Roboto", Font.BOLD, 56);
+            setLabelFont(title, "Roboto", Font.BOLD, 50);
             
             // .ADD CALLS
             titleShadow.add(title);
@@ -94,7 +94,7 @@ public class NorthPanel extends JPanel {
 
         // CLOCK PANEL
             // CLOCK PANEL SETTINGS
-            clockPanel.setPreferredSize(new Dimension(300, 50));
+            clockPanel.setSize(new Dimension(300, 50));
             clockPanel.setBackground(shadowColor);
 
             clockPanel.setLayout(new BorderLayout());
@@ -161,6 +161,21 @@ public class NorthPanel extends JPanel {
 
         Font newFont = new Font(fontFamily, fontStyle, fontSize);
         label.setFont(newFont);
+
+    }
+
+    public void changeSize(boolean isToggled) {
+
+        if (isToggled) {
+
+            // make large
+
+        }
+        else {
+
+            // make small (default)
+
+        }
 
     }
     

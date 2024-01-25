@@ -24,7 +24,7 @@ public class WestPanel extends JPanel {
 
         // WEST PANEL
             // WEST PANEL SETTINGS
-            gameLogPanel.setPreferredSize(new Dimension(300, 50));
+            gameLogPanel.setPreferredSize(new Dimension(300, 500));
             gameLogPanel.setBackground(shadowColor);
 
             gameLogPanel.setLayout(new BorderLayout());
@@ -56,6 +56,21 @@ public class WestPanel extends JPanel {
             gameLogPanel.add(gameLogShadow);
             add(gameLogPanel);
         // -------------
+
+    }
+
+    public void changeSize(boolean isToggled) {
+
+        if (isToggled) {
+
+            // make large
+
+        }
+        else {
+
+            // make small (default)
+
+        }
 
     }
 
