@@ -104,7 +104,7 @@ public class Board extends JPanel {
                 for(int x = 0; x < 8; x++) {
     
                     JButton square = squares[x][y];
-                    setButtonFont(square, "Roboto", Font.BOLD, 8);
+                    setButtonFont(square, "Roboto", Font.BOLD, 12);
                     square.setText(formatCoordinates(x, y));
                     square.setForeground(darkShadowColor);
     
