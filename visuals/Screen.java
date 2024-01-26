@@ -10,7 +10,6 @@ public class Screen extends JFrame {
     // 6:5 RATIO
 
     private static JPanel screenPanel;
-    private static JPanel screenShadowPanel;
     private static CenterPanel centerPanel;
     private static NorthPanel northPanel;
     private static SouthPanel southPanel;
