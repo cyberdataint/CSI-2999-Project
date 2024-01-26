@@ -2,6 +2,7 @@ package InputHandling;
 
 import javax.swing.JButton;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
@@ -65,8 +66,12 @@ public void handleButtonPress(int x, int y){
             Space[] validMoves = clickedPiece.validMoves(chess.gameBoard);
 
             //light up valid move spaces
+            highlightValidMoves(validMoves);
+            //JButton button = space.getButton();  possibility?
 
             //highlight clicked piece
+            //Jbutton clickedButton = clickedSpace.getBtton();
+            //clickedButton.setBackground(Color.YELLOW);
 
 
             turn = true;  //pt 1 of 2 click turn is complete
@@ -102,6 +107,12 @@ public void handleButtonPress(int x, int y){
 
 
    
+    }
+    public void highlightValidMoves(Space[] validMoves){
+        for (Space space: validMoves){
+            //need to get the button on this space to use setBackground
+            space.setBackground(Color.YELLOW);
+        }
     }
 
 
