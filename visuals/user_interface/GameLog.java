@@ -170,27 +170,5 @@ public class GameLog extends JPanel {
         textArea.setFont(newFont);
 
     }
-
-    public static void changeSize(boolean isToggled) {
-
-        if (isToggled) {
-
-            setTextAreaFont(textArea, "Roboto", Font.BOLD, 12);
-            textArea.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-
-            // scrollPane.setPreferredSize(new Dimension(200, 405));
-            scrollPane.setSize(new Dimension(200, 405));
-
-        }
-        else {
-
-            setTextAreaFont(textArea, "Roboto", Font.BOLD, 12);
-            textArea.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
-
-            // scrollPane.setPreferredSize(new Dimension(160, 324));
-            scrollPane.setSize(new Dimension(160, 324));
-        }
-
-    }
     
 }

@@ -61,45 +61,4 @@ public class WestPanel extends JPanel {
 
     }
 
-    public void changeSize(boolean isToggled) {
-
-        if (isToggled) {
-
-            setLayout(new BorderLayout(20, 20));
-
-            // gameLogPanel.setPreferredSize(new Dimension(240, 400));
-            gameLogPanel.setSize(new Dimension(240, 400));
-            gameLogPanel.setLayout(new BorderLayout());
-            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
-
-            gameLogShadow.setLayout(new BorderLayout());
-            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
-
-            lightShadow.setLayout(new BorderLayout());
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
-
-            GameLog.changeSize(isToggled);
-
-        }
-        else {
-
-            setLayout(new BorderLayout(16, 16));
-
-            // gameLogPanel.setPreferredSize(new Dimension(192, 320));
-            gameLogPanel.setSize(new Dimension(192, 320));
-            gameLogPanel.setLayout(new BorderLayout());
-            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
-
-            gameLogShadow.setLayout(new BorderLayout());
-            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(6, 6, 6, 6));
-
-            lightShadow.setLayout(new BorderLayout());
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(6, 6, 6, 6));
-
-            GameLog.changeSize(!isToggled);
-
-        }
-
-    }
-
 }

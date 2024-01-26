@@ -52,15 +52,6 @@ public class EastPanel extends JPanel {
                 lightShadow.add(presetsMenu);
             // -------------
 
-            // SIZE SLIDER
-                // SIZE SLIDER SETTINGS
-                SizeToggle sizeSlider = new SizeToggle();
-                sizeSlider.setBackground(lightColor);
-
-                // .ADD CALL
-                // lightShadow.add(sizeSlider);
-            // -------------
-
             // TOGGLE COORDINATES BUTTON
                 // TOGGLE COORDINATES BUTTON SETTINGS
                 ToggleCoordinatesButton toggleCoordinatesButton = new ToggleCoordinatesButton();
@@ -75,39 +66,6 @@ public class EastPanel extends JPanel {
             settingsPanel.add(settingsShadow);
             add(settingsPanel);
         // -------------
-
-    }
-
-    public void changeSize(boolean isToggled) {
-
-        if (isToggled) {
-
-            setLayout(new BorderLayout(25, 25));
-
-            // settingsPanel.setPreferredSize(new Dimension(300, 500));
-            settingsPanel.setSize(new Dimension(300, 500));
-            settingsPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
-            settingsShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-            lightShadow.setLayout(new GridLayout(0, 1, 10, 40));
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        }
-        else {
-
-            setLayout(new BorderLayout(20, 20));
-
-            // settingsPanel.setPreferredSize(new Dimension(240, 400));
-            settingsPanel.setSize(new Dimension(240, 400));
-            settingsPanel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
-
-            settingsShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
-
-            lightShadow.setLayout(new GridLayout(0, 1, 8, 32));
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
-
-        }
 
     }
     

@@ -31,28 +31,5 @@ public class CenterPanel extends JPanel {
         add(boardShadow, BorderLayout.CENTER);
 
     }
-
-    public void changeSize(boolean isToggled) {
-
-        if (isToggled) {
-
-            setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-            // setPreferredSize(new Dimension(400, 400));
-            setSize(new Dimension(500, 500));
-
-            boardShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        }
-        else {
-
-            setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-            // setPreferredSize(new Dimension(400, 400));
-            setSize(new Dimension(400, 400));
-
-            boardShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
-
-        }
-
-    }
     
 }

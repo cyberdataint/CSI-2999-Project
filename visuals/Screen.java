@@ -75,41 +75,4 @@ public class Screen extends JFrame {
 
     }
 
-    public static void changeSize(boolean isToggled) {
-
-        if (isToggled) { // make big
-
-            screenShadowPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-                
-            screenPanel.setLayout(new BorderLayout(25, 25));
-            screenPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
-            // screenPanel.setPreferredSize(new Dimension(1500, 1250));
-            screenPanel.setSize(new Dimension(1500, 1250));
-
-            centerPanel.changeSize(isToggled);
-            eastPanel.changeSize(isToggled);
-            westPanel.changeSize(isToggled);
-            northPanel.changeSize(isToggled);
-            southPanel.changeSize(isToggled);
-
-        }
-        else { // make small
-
-            screenShadowPanel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
-                
-            screenPanel.setLayout(new BorderLayout(20, 20));
-            screenPanel.setBorder(BorderFactory.createEmptyBorder(24, 24, 24, 24));
-            // screenPanel.setPreferredSize(new Dimension(1200, 1000));
-            screenPanel.setSize(new Dimension(1200, 1000));
-
-            centerPanel.changeSize(!isToggled);
-            eastPanel.changeSize(!isToggled);
-            westPanel.changeSize(!isToggled);
-            northPanel.changeSize(!isToggled);
-            southPanel.changeSize(!isToggled);
-
-        }
-
-    }
-
 }
