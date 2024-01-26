@@ -1,15 +1,15 @@
 package visuals.border_panels;
 
 import javax.swing.*;
-
-import visuals.Screen;
-import visuals.user_interface.GameLog;
-
 import java.awt.*;
+
+import visuals.user_interface.GameLog;
 
 public class WestPanel extends JPanel {
     
     private static JPanel gameLogPanel;
+    private static JPanel gameLogShadow;
+    private static JPanel lightShadow;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
@@ -20,29 +20,29 @@ public class WestPanel extends JPanel {
     public WestPanel() {
 
         setBackground(backgroundColor);
-        setLayout(new BorderLayout(Screen.scaleVar25, Screen.scaleVar25));
+        setLayout(new BorderLayout(25, 25));
 
         gameLogPanel = new JPanel();
 
         // WEST PANEL
             // WEST PANEL SETTINGS
-            gameLogPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
+            gameLogPanel.setPreferredSize(new Dimension(300, 500));
             gameLogPanel.setBackground(shadowColor);
 
             gameLogPanel.setLayout(new BorderLayout());
-            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // WEST SHADOW SETTINGS
-            JPanel gameLogShadow = new JPanel();
+            gameLogShadow = new JPanel();
             gameLogShadow.setBackground(darkShadowColor);
             gameLogShadow.setLayout(new BorderLayout());
-            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10));
+            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // LIGHT SHADOW SETTINGS
-            JPanel lightShadow = new JPanel();
+            lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
             lightShadow.setLayout(new BorderLayout());
-            lightShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10));
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // GAME LOG PANEL
                 // GAME LOG PANEL SETTINGS
@@ -50,7 +50,7 @@ public class WestPanel extends JPanel {
                 gameLog.setBackground(lightColor);
 
                 // .ADD CALL
-                lightShadow.add(gameLog);
+                lightShadow.add(gameLog, BorderLayout.CENTER);
             // -------------
 
             // .ADD CALLS

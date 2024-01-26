@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import mechanics.Game;
+
 public class RestartGameButton extends JButton {
     
     public RestartGameButton(String text) {
@@ -14,7 +16,7 @@ public class RestartGameButton extends JButton {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                // implement
+                Game.restartGame();
 
             }
         });
