@@ -45,6 +45,12 @@ public class Bishop implements Piece {
         for (int i=1;pos[0]+i<8 && pos[1]+i<8 && !board[pos[0]+i][pos[1]+i].containsAlly(this); i++){ //on the board and no ally occupant
             moves[moveCounter]=board[pos[0]+i][pos[1]+i]; //valid move
             moveCounter++;
+            if (this.color) {
+                board[pos[0]+i][pos[1]+i].wdanger=true;
+            }
+            else {
+                board[pos[0]+i][pos[1]+i].bdanger=true;
+            }
             if (board[pos[0]+i][pos[1]+i].containsEnemy(this)) { //if contains an enemy, go no further
                 i=10;
             }
@@ -53,6 +59,12 @@ public class Bishop implements Piece {
         for (int i=1;pos[0]+i<8 && pos[1]-i>-1 && !board[pos[0]+i][pos[1]-i].containsAlly(this); i++){ //on the board and no ally occupant
             moves[moveCounter]=board[pos[0]+i][pos[1]-i]; //valid move
             moveCounter++;
+            if (this.color) {
+                board[pos[0]+i][pos[1]-i].wdanger=true;
+            }
+            else {
+                board[pos[0]+i][pos[1]-i].bdanger=true;
+            }
             if (board[pos[0]+i][pos[1]-i].containsEnemy(this)) { //if contains an enemy, go no further
                 i=10;
             }
@@ -61,15 +73,27 @@ public class Bishop implements Piece {
         for (int i=1;pos[0]-i>-1 && pos[1]-i>-1 && !board[pos[0]-i][pos[1]-i].containsAlly(this); i++){ //on the board and no ally occupant
             moves[moveCounter]=board[pos[0]-i][pos[1]-i]; //valid move
             moveCounter++;
+            if (this.color) {
+                board[pos[0]-i][pos[1]-i].wdanger=true;
+            }
+            else {
+                board[pos[0]-i][pos[1]-i].bdanger=true;
+            }
             if (board[pos[0]-i][pos[1]-i].containsEnemy(this)) { //if contains an enemy, go no further
                 i=10;
             }
         }
         //check up left diagonal
         for (int i=1;pos[0]-i>-1 && pos[1]+i<8 && !board[pos[0]-i][pos[1]+i].containsAlly(this); i++){ //on the board and no ally occupant
-            moves[moveCounter]=board[pos[0]-i][pos[1]-i]; //valid move
+            moves[moveCounter]=board[pos[0]-i][pos[1]+i]; //valid move
             moveCounter++;
-            if (board[pos[0]-i][pos[1]-i].containsEnemy(this)) { //if contains an enemy, go no further
+            if (this.color) {
+                board[pos[0]-i][pos[1]+i].wdanger=true;
+            }
+            else {
+                board[pos[0]-i][pos[1]+i].bdanger=true;
+            }
+            if (board[pos[0]-i][pos[1]+i].containsEnemy(this)) { //if contains an enemy, go no further
                 i=10;
             }
         }
@@ -99,6 +123,7 @@ public class Bishop implements Piece {
 
     public void remove(Space[][] board){
         board[this.position[0]][this.position[1]].occupant = null;
+        this.position = null;
     }
 
 }
