@@ -41,7 +41,7 @@ Piece activePiece = null;
 GameBoard chess = new GameBoard();
 
 
-public void handleButtonPress(int x, int y){
+public static void handleButtonPress(int x, int y){
 
     if (turn == false) {
 
@@ -56,7 +56,7 @@ public void handleButtonPress(int x, int y){
         if (clickedSpace.occupant != null){
 
             Piece clickedPiece = clickedSpace.occupant;
-            this.activePiece = clickedPiece;
+            activePiece = clickedPiece;
 
             //retrieve info about clicked piece
             boolean isWhite = clickedPiece.getColor();
@@ -85,13 +85,13 @@ public void handleButtonPress(int x, int y){
 
 
 
-        if (this.activePiece.moveTo( x, y, chess.gameBoard) == null) {
+        if (activePiece.moveTo( x, y, chess.gameBoard) == null) {
 
             //tell user its null
             System.out.println("Invalid Move Selected!");
 
             turn = false;  //complete turn
-            this.activePiece = null;
+            activePiece = null;
 
 
             return;

@@ -2,6 +2,9 @@ package visuals.user_interface;
 
 import java.awt.*;
 import javax.swing.*;
+
+import InputHandling.HandleInput;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 <<<<<<< HEAD
