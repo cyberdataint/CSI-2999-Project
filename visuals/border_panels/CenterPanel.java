@@ -16,7 +16,7 @@ public class CenterPanel extends JPanel {
 
         setBackground(shadowColor);
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
+        setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         setPreferredSize(new Dimension(500, 500));
 
         boardShadow = new JPanel();
@@ -36,7 +36,8 @@ public class CenterPanel extends JPanel {
 
         if (isToggled) {
 
-            setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
+            setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            // setPreferredSize(new Dimension(400, 400));
             setSize(new Dimension(500, 500));
 
             boardShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -44,7 +45,11 @@ public class CenterPanel extends JPanel {
         }
         else {
 
-            // make small (default)
+            setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            // setPreferredSize(new Dimension(400, 400));
+            setSize(new Dimension(400, 400));
+
+            boardShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
         }
 

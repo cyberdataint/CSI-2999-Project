@@ -29,11 +29,12 @@ public class GameLog extends JPanel {
      */
 
     public static JTextArea textArea;
+    private static JScrollPane scrollPane;
     
     public GameLog() {
 
         textArea = new JTextArea();
-        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane = new JScrollPane(textArea);
 
         setTextAreaFont(textArea, "Roboto", Font.BOLD, 12);
         textArea.setLineWrap(true);
@@ -44,7 +45,7 @@ public class GameLog extends JPanel {
 
         textArea.append("[00:00:00] Welcome to Offline Chess Simulator!\n\n");
 
-        scrollPane.setPreferredSize(new Dimension(200, 405));
+        scrollPane.setPreferredSize(new Dimension(190, 330));
 
         add(scrollPane);
 
@@ -167,6 +168,28 @@ public class GameLog extends JPanel {
 
         Font newFont = new Font(fontFamily, fontStyle, fontSize);
         textArea.setFont(newFont);
+
+    }
+
+    public static void changeSize(boolean isToggled) {
+
+        if (isToggled) {
+
+            setTextAreaFont(textArea, "Roboto", Font.BOLD, 12);
+            textArea.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+            // scrollPane.setPreferredSize(new Dimension(200, 405));
+            scrollPane.setSize(new Dimension(200, 405));
+
+        }
+        else {
+
+            setTextAreaFont(textArea, "Roboto", Font.BOLD, 12);
+            textArea.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+
+            // scrollPane.setPreferredSize(new Dimension(160, 324));
+            scrollPane.setSize(new Dimension(160, 324));
+        }
 
     }
     

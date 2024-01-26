@@ -10,6 +10,9 @@ public class SouthPanel extends JPanel {
     private static JPanel returnToMainMenuPanel;
     private static JPanel turnIndicatorPanel;
     private static JPanel restartGameButtonPanel;
+    private static JPanel returnToMainMenuShadow;
+    private static JPanel turnIndicatorShadow;
+    private static JPanel restartGameButtonShadow;
 
     public static JPanel whitePanelTop;
     public static JPanel whitePanelBottom;
@@ -33,18 +36,16 @@ public class SouthPanel extends JPanel {
 
         // RETURN TO MAIN MENU PANEL
             // RTMM PANEL SETTINGS
-            returnToMainMenuPanel.setSize(new Dimension(300, 50));
             returnToMainMenuPanel.setBackground(shadowColor);
-
             returnToMainMenuPanel.setLayout(new BorderLayout());
             returnToMainMenuPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-            returnToMainMenuPanel.setPreferredSize(new Dimension(250, 200));
+            returnToMainMenuPanel.setPreferredSize(new Dimension(225, 150));
 
             // RTMM SHADOW SETTINGS
-            JPanel returnToMainMenuShadow = new JPanel();
+            returnToMainMenuShadow = new JPanel();
             returnToMainMenuShadow.setBackground(darkShadowColor);
             returnToMainMenuShadow.setLayout(new BorderLayout());
-            returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+            returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // RTMM BUTTON
             ReturnToMainMenuButton returnToMainMenuButton = new ReturnToMainMenuButton("<html><center>Return to<br>Main Menu</center></html>");
@@ -52,7 +53,7 @@ public class SouthPanel extends JPanel {
             returnToMainMenuButton.setForeground(textColor);
             returnToMainMenuButton.setBorderPainted(false);
             returnToMainMenuButton.setFocusPainted(false);
-            setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, 24);
+            setTextFont(returnToMainMenuButton, "Roboto", Font.BOLD, 20);
 
             // .ADD CALLS
             returnToMainMenuShadow.add(returnToMainMenuButton);
@@ -69,19 +70,19 @@ public class SouthPanel extends JPanel {
             turnIndicatorPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // TURN INDICATOR SHADOW SETTINGS
-            JPanel turnIndicatorShadow = new JPanel();
+            turnIndicatorShadow = new JPanel();
             turnIndicatorShadow.setBackground(darkShadowColor);
-            turnIndicatorShadow.setLayout(new GridLayout(3, 2, 15, 0));
-            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(5, 15, 15, 15));
+            turnIndicatorShadow.setLayout(new GridLayout(3, 2, 10, 0));
+            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 10));
 
             // LABEL PANELS
             JLabel whiteLabel = new JLabel("White", SwingConstants.CENTER);
             whiteLabel.setForeground(textColor);
-            setTextFont(whiteLabel, "Roboto", Font.BOLD, 24);
+            setTextFont(whiteLabel, "Roboto", Font.BOLD, 16);
 
             JLabel blackLabel = new JLabel("Black", SwingConstants.CENTER);
             blackLabel.setForeground(textColor);
-            setTextFont(blackLabel, "Roboto", Font.BOLD, 24);
+            setTextFont(blackLabel, "Roboto", Font.BOLD, 16);
 
             // WHITE PANEL
             whitePanelTop = new JPanel();
@@ -118,18 +119,16 @@ public class SouthPanel extends JPanel {
 
         // RESTART GAME BUTTON PANEL
             // RESTART GAME BUTTON PANEL SETTINGS
-            restartGameButtonPanel.setSize(new Dimension(300, 50));
             restartGameButtonPanel.setBackground(shadowColor);
-
             restartGameButtonPanel.setLayout(new BorderLayout());
             restartGameButtonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-            restartGameButtonPanel.setPreferredSize(new Dimension(250, 200));
+            restartGameButtonPanel.setPreferredSize(new Dimension(225, 150));
 
             // RESTART GAME BUTTON SHADOW SETTINGS
-            JPanel restartGameButtonShadow = new JPanel();
+            restartGameButtonShadow = new JPanel();
             restartGameButtonShadow.setBackground(darkShadowColor);
             restartGameButtonShadow.setLayout(new BorderLayout());
-            restartGameButtonShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+            restartGameButtonShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // RESTART GAME BUTTON
             RestartGameButton restartGameButton = new RestartGameButton("<html><center>Restart<br>Game</center></html>");
@@ -137,7 +136,7 @@ public class SouthPanel extends JPanel {
             restartGameButton.setForeground(textColor);
             restartGameButton.setBorderPainted(false);
             restartGameButton.setFocusPainted(false);
-            setTextFont(restartGameButton, "Roboto", Font.BOLD, 24);
+            setTextFont(restartGameButton, "Roboto", Font.BOLD, 20);
 
             // .ADD CALLS
             restartGameButtonShadow.add(restartGameButton);
@@ -171,12 +170,100 @@ public class SouthPanel extends JPanel {
 
         if (isToggled) {
 
-            // make large
+            setLayout(new BorderLayout(25, 25));
+
+            returnToMainMenuPanel.setLayout(new BorderLayout());
+            returnToMainMenuPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            // returnToMainMenuPanel.setPreferredSize(new Dimension(250, 200));
+            returnToMainMenuPanel.setSize(new Dimension(250, 200));
+
+            returnToMainMenuShadow.setLayout(new BorderLayout());
+            returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+
+            // turnIndicatorPanel.setPreferredSize(new Dimension(800, 50));
+            turnIndicatorPanel.setSize(new Dimension(800, 50));
+            turnIndicatorPanel.setLayout(new BorderLayout());
+            turnIndicatorPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+            turnIndicatorShadow.setLayout(new GridLayout(3, 2, 15, 0));
+            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(5, 15, 15, 15));
+
+            // whitePanelTop.setPreferredSize(new Dimension(350, 50));
+            whitePanelTop.setSize(new Dimension(350, 50));
+            whitePanelTop.setLayout(new GridLayout(1, 8, 5, 5));
+
+            // whitePanelBottom.setPreferredSize(new Dimension(350, 50));
+            whitePanelBottom.setSize(new Dimension(350, 50));
+            whitePanelBottom.setLayout(new GridLayout(1, 8, 5, 5));
+
+            // blackPanelTop.setPreferredSize(new Dimension(350, 50));
+            blackPanelTop.setSize(new Dimension(350, 50));
+            blackPanelTop.setLayout(new GridLayout(1, 8, 5, 5));
+
+            // blackPanelBottom.setPreferredSize(new Dimension(350, 50));
+            blackPanelBottom.setSize(new Dimension(350, 50));
+            blackPanelBottom.setLayout(new GridLayout(1, 8, 5, 5));
+
+            // restartGameButtonPanel.setPreferredSize(new Dimension(300, 50));
+            restartGameButtonPanel.setSize(new Dimension(300, 50));
+            restartGameButtonPanel.setBackground(shadowColor);
+
+            restartGameButtonPanel.setLayout(new BorderLayout());
+            restartGameButtonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            // restartGameButtonPanel.setPreferredSize(new Dimension(250, 200));
+            restartGameButtonPanel.setSize(new Dimension(250, 200));
+
+            restartGameButtonShadow.setLayout(new BorderLayout());
+            restartGameButtonShadow.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
         }
         else {
 
-            // make small (default)
+            setLayout(new BorderLayout(20, 20));
+
+            returnToMainMenuPanel.setLayout(new BorderLayout());
+            returnToMainMenuPanel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+            // returnToMainMenuPanel.setPreferredSize(new Dimension(200, 160));
+            returnToMainMenuPanel.setSize(new Dimension(200, 160));
+
+            returnToMainMenuShadow.setLayout(new BorderLayout());
+            returnToMainMenuShadow.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
+
+            // turnIndicatorPanel.setPreferredSize(new Dimension(640, 40));
+            turnIndicatorPanel.setSize(new Dimension(640, 40));
+            turnIndicatorPanel.setLayout(new BorderLayout());
+            turnIndicatorPanel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+
+            turnIndicatorShadow.setLayout(new GridLayout(3, 2, 12, 0));
+            turnIndicatorShadow.setBorder(BorderFactory.createEmptyBorder(4, 12, 12, 12));
+
+            // whitePanelTop.setPreferredSize(new Dimension(280, 40));
+            whitePanelTop.setSize(new Dimension(280, 40));
+            whitePanelTop.setLayout(new GridLayout(1, 8, 4, 4));
+
+            // whitePanelBottom.setPreferredSize(new Dimension(280, 40));
+            whitePanelBottom.setSize(new Dimension(280, 40));
+            whitePanelBottom.setLayout(new GridLayout(1, 8, 4, 4));
+
+            // blackPanelTop.setPreferredSize(new Dimension(280, 40));
+            blackPanelTop.setSize(new Dimension(280, 40));
+            blackPanelTop.setLayout(new GridLayout(1, 8, 4, 4));
+
+            // blackPanelBottom.setPreferredSize(new Dimension(280, 40));
+            blackPanelBottom.setSize(new Dimension(280, 40));
+            blackPanelBottom.setLayout(new GridLayout(1, 8, 4, 4));
+
+            // restartGameButtonPanel.setPreferredSize(new Dimension(240, 40));
+            restartGameButtonPanel.setSize(new Dimension(240, 40));
+            restartGameButtonPanel.setBackground(shadowColor);
+
+            restartGameButtonPanel.setLayout(new BorderLayout());
+            restartGameButtonPanel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+            // restartGameButtonPanel.setPreferredSize(new Dimension(200, 160));
+            restartGameButtonPanel.setSize(new Dimension(200, 160));
+
+            restartGameButtonShadow.setLayout(new BorderLayout());
+            restartGameButtonShadow.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
 
         }
 

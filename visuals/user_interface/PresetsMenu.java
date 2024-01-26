@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class PresetsMenu extends JPanel {
     
     private JComboBox<String> dropDown;
+    public static JLabel label;
 
     // Coral Color Preset
     private Color lightCoral = new Color(177, 228, 185);
@@ -35,7 +36,7 @@ public class PresetsMenu extends JPanel {
 
     public PresetsMenu() {
 
-        JLabel label = new JLabel("Color Presets:", SwingConstants.CENTER);
+        label = new JLabel("Color Presets:", SwingConstants.CENTER);
         Font font = new Font("Roboto", Font.BOLD, 20);
         label.setFont(font);
         String[] presets = {"Coral", "Dusk", "Marine", "Wheat", "Emerald", "Sandcastle"};

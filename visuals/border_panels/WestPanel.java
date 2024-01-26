@@ -8,6 +8,8 @@ import visuals.user_interface.GameLog;
 public class WestPanel extends JPanel {
     
     private static JPanel gameLogPanel;
+    private static JPanel gameLogShadow;
+    private static JPanel lightShadow;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
@@ -28,16 +30,16 @@ public class WestPanel extends JPanel {
             gameLogPanel.setBackground(shadowColor);
 
             gameLogPanel.setLayout(new BorderLayout());
-            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // WEST SHADOW SETTINGS
-            JPanel gameLogShadow = new JPanel();
+            gameLogShadow = new JPanel();
             gameLogShadow.setBackground(darkShadowColor);
             gameLogShadow.setLayout(new BorderLayout());
             gameLogShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // LIGHT SHADOW SETTINGS
-            JPanel lightShadow = new JPanel();
+            lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
             lightShadow.setLayout(new BorderLayout());
             lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -63,12 +65,38 @@ public class WestPanel extends JPanel {
 
         if (isToggled) {
 
-            // make large
+            setLayout(new BorderLayout(20, 20));
+
+            // gameLogPanel.setPreferredSize(new Dimension(240, 400));
+            gameLogPanel.setSize(new Dimension(240, 400));
+            gameLogPanel.setLayout(new BorderLayout());
+            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+
+            gameLogShadow.setLayout(new BorderLayout());
+            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+
+            lightShadow.setLayout(new BorderLayout());
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+
+            GameLog.changeSize(isToggled);
 
         }
         else {
 
-            // make small (default)
+            setLayout(new BorderLayout(16, 16));
+
+            // gameLogPanel.setPreferredSize(new Dimension(192, 320));
+            gameLogPanel.setSize(new Dimension(192, 320));
+            gameLogPanel.setLayout(new BorderLayout());
+            gameLogPanel.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
+
+            gameLogShadow.setLayout(new BorderLayout());
+            gameLogShadow.setBorder(BorderFactory.createEmptyBorder(6, 6, 6, 6));
+
+            lightShadow.setLayout(new BorderLayout());
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(6, 6, 6, 6));
+
+            GameLog.changeSize(!isToggled);
 
         }
 

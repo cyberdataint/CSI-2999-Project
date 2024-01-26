@@ -8,6 +8,8 @@ import visuals.user_interface.*;
 public class EastPanel extends JPanel {
 
     private static JPanel settingsPanel;
+    private static JPanel settingsShadow;
+    private static JPanel lightShadow;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
@@ -27,18 +29,18 @@ public class EastPanel extends JPanel {
             settingsPanel.setBackground(shadowColor);
 
             settingsPanel.setLayout(new BorderLayout());
-            settingsPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            settingsPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
             // SETTINGS SHADOW SETTINGS
-            JPanel settingsShadow = new JPanel();
+            settingsShadow = new JPanel();
             settingsShadow.setBackground(darkShadowColor);
             settingsShadow.setLayout(new BorderLayout());
             settingsShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // LIGHT SHADOW SETTINGS
-            JPanel lightShadow = new JPanel();
+            lightShadow = new JPanel();
             lightShadow.setBackground(lightShadowColor);
-            lightShadow.setLayout(new GridLayout(0, 1, 10, 40));
+            lightShadow.setLayout(new GridLayout(0, 1, 10, 10));
             lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // PRESET MENU
@@ -56,7 +58,7 @@ public class EastPanel extends JPanel {
                 sizeSlider.setBackground(lightColor);
 
                 // .ADD CALL
-                lightShadow.add(sizeSlider);
+                // lightShadow.add(sizeSlider);
             // -------------
 
             // TOGGLE COORDINATES BUTTON
@@ -80,12 +82,30 @@ public class EastPanel extends JPanel {
 
         if (isToggled) {
 
-            // make large
+            setLayout(new BorderLayout(25, 25));
+
+            // settingsPanel.setPreferredSize(new Dimension(300, 500));
+            settingsPanel.setSize(new Dimension(300, 500));
+            settingsPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+            settingsShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+            lightShadow.setLayout(new GridLayout(0, 1, 10, 40));
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         }
         else {
 
-            // make small (default)
+            setLayout(new BorderLayout(20, 20));
+
+            // settingsPanel.setPreferredSize(new Dimension(240, 400));
+            settingsPanel.setSize(new Dimension(240, 400));
+            settingsPanel.setBorder(BorderFactory.createEmptyBorder(16, 16, 16, 16));
+
+            settingsShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+
+            lightShadow.setLayout(new GridLayout(0, 1, 8, 32));
+            lightShadow.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
         }
 
