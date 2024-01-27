@@ -14,7 +14,7 @@ public class Board extends JPanel {
     private static Color darkColor = new Color(112, 162, 163);
     private static Color darkShadowColor = new Color(60, 70, 60);
 
-    private static JButton[][] squares;
+    public static JButton[][] squares;
     
     public Board() {
 
