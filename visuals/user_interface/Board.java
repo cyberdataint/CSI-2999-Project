@@ -2,11 +2,10 @@ package visuals.user_interface;
 
 import java.awt.*;
 import javax.swing.*;
-
-import mechanics.HandleInput;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import mechanics.HandleInput;
 
 public class Board extends JPanel {
 
@@ -33,7 +32,7 @@ public class Board extends JPanel {
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
 
-                JButton button = createChessButton(null, x, y);
+                JButton button = createChessButton(x, y);
                 squares[x][y] = button;
                 add(button);
 
@@ -46,7 +45,7 @@ public class Board extends JPanel {
     }
 
 
-    private JButton createChessButton(ImageIcon imageIcon, int x, int y) {
+    private JButton createChessButton(int x, int y) {
 
         JButton button = new JButton();
         
@@ -104,12 +103,15 @@ public class Board extends JPanel {
         if (isToggled) {
             for(int y = 0; y < 8; y++) {
                 for(int x = 0; x < 8; x++) {
-    
-                    JButton square = squares[x][y];
-                    setButtonFont(square, "Roboto", Font.BOLD, 12);
-                    square.setText(formatCoordinates(x, y));
-                    square.setForeground(darkShadowColor);
-    
+                    if (squares[x][y].getIcon() == null) {
+                        JButton square = squares[x][y];
+                        setButtonFont(square, "Roboto", Font.BOLD, 12);
+                        square.setText(formatCoordinates(x, y));
+                        square.setForeground(darkShadowColor);
+                    }
+                    else {
+                        // pass
+                    }
                 }
             }
         }
