@@ -6,9 +6,11 @@ public class Bishop implements Piece {
     private int[] position;
     boolean color; //white or black
     int id; //#id of piece (i.e. bishop 0 or bishop 1)
+    String name;
 
     public Bishop(boolean col, int id, Space[][] board) { //constructor, initialize variable values;
         position = new int[2];
+        this.name = "Bishop";
         this.color = col;
         this.id = id;
         //initially placing piece based on color and id
@@ -35,6 +37,9 @@ public class Bishop implements Piece {
     }
     public boolean getColor() {
         return this.color;
+    }
+    public String getName() {
+        return this.name;
     }
 
     public Space[] validMoves(Space[][] board) { //return space array of valid moves
@@ -106,6 +111,7 @@ public class Bishop implements Piece {
             if (moves[i].xcoord == x & moves[i].ycoord == y) { //if the coords are in the valid moves
                 board[this.position[0]][this.position[1]].occupant = null; //pick up the piece
                 if (board[moves[i].xcoord][moves[i].ycoord].containsEnemy(this)) { //if enemy
+                    //todo: notify of attack
                     board[moves[i].xcoord][moves[i].ycoord].occupant.remove(board); //remove the enemy from the board
                 }
                 board[moves[i].xcoord][moves[i].ycoord].occupant = this; //place the piece
