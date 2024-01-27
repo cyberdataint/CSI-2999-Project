@@ -14,7 +14,7 @@ public class Board extends JPanel {
     private static Color lightColor = new Color(177, 228, 185);
     private static Color darkColor = new Color(112, 162, 163);
 
-    private static JButton[][] squares;
+    public static JButton[][] squares;
     
     public Board() {
 
@@ -65,6 +65,8 @@ public class Board extends JPanel {
                 System.out.println("(" + x + ", " + y + ")");
 
                 HandleInput.handleButtonPress(x, y);
+
+                //HandleInput.highlightValidMoves();
 
             }
         });
