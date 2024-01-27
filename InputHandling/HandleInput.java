@@ -34,11 +34,13 @@ public class HandleInput {
 
 
 
-boolean turn = false;
+public static boolean turn = false;
 
-Piece activePiece = null;
+public static Piece activePiece = null;
 
-GameBoard chess = new GameBoard();
+public static GameBoard chess = new GameBoard();
+
+public static Color[] original_color = null;
 
 
 public static void handleButtonPress(int x, int y){
@@ -67,11 +69,12 @@ public static void handleButtonPress(int x, int y){
 
             //light up valid move spaces
             highlightValidMoves(validMoves);
-            //JButton button = space.getButton();  possibility?
+
+
+            
 
             //highlight clicked piece
-            //Jbutton clickedButton = clickedSpace.getBtton();
-            //clickedButton.setBackground(Color.YELLOW);
+          
 
 
             turn = true;  //pt 1 of 2 click turn is complete
@@ -94,6 +97,17 @@ public static void handleButtonPress(int x, int y){
             activePiece = null;
 
 
+            int count = 0;
+            for (Space space: activePiece.validMoves(chess.gameBoard)){
+                //need to get the button on this space to use setBackground
+                if (space != null) {
+                    Board.squares[space.xcoord][space.ycoord].setBackground(original_color[count]);
+                    count++;
+                }
+                
+            }
+            original_color = null;
+
             return;
 
        
@@ -108,10 +122,25 @@ public static void handleButtonPress(int x, int y){
 
    
     }
-    public void highlightValidMoves(Space[] validMoves){
+    public static void highlightValidMoves(Space[] validMoves){
+
+
+
+        original_color = new Color[validMoves.length];
+
+        int count = 0;
+
         for (Space space: validMoves){
             //need to get the button on this space to use setBackground
-            space.setBackground(Color.YELLOW);
+            if (space != null) {
+
+                original_color[count] = Board.squares[space.xcoord][space.ycoord].getBackground();
+
+                Board.squares[space.xcoord][space.ycoord].setBackground(Color.YELLOW);
+
+                count++;
+            }
+            
         }
     }
 
