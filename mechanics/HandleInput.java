@@ -15,8 +15,7 @@ public class HandleInput {
     private static int[] firstInput = new int[2];
     private static int[] secondInput = new int[2];
 
-    // remove true when implementation is added
-    public static boolean isValid = true;
+    public static boolean isValid;
 
     public static void getCoordinates(int x, int y) {
 
@@ -63,7 +62,7 @@ public class HandleInput {
                     secondInput[0] = coords[1][0];
                     secondInput[1] = coords[1][1];
 
-                    sendMessage();
+                    sendMessage(isValid);
                     Game.changeTurn();
 
                     firstInput[0] = 8;
@@ -83,7 +82,7 @@ public class HandleInput {
                 }
                 else {
 
-                    sendMessage(isValid);
+                    sendMessage(!isValid);
 
                     for (int j = 0; j < 2; j++) {
                         for (int i = 0; i < 2; i++) {
@@ -105,38 +104,45 @@ public class HandleInput {
 
     }
 
-    public static void getIsAttacking() {
+    public static boolean getIsAttacking() {
 
         // checks to see if its a valid move and opposing square is an opposing color
 
         // implement
 
+        return false;
+
     }
 
-    public static void getIsTransforming() {
+    public static boolean getIsTransforming() {
 
         // checks to see if its a valid move and its the opposing row of selected color
 
         // implement
 
-    }
-
-    public static void sendMessage() {
-
-        // implement a getIsAttacking and a getIsTransforming
-        String message = GameLog.formatMessage(false, false, Game.isWhiteTurn, GameLog.formatCoordinates(firstInput), GameLog.formatCoordinates(secondInput));
-        
-        GameLog.textArea.append(message);
-        GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());
+        return false;
 
     }
 
     public static void sendMessage(boolean isValid) {
 
-        String message = "[" + NorthPanel.gameClock.getText() + "] Sorry! Your move was invalid! Try Again!\n";
+        if (isValid) {
 
-        GameLog.textArea.append(message);
-        GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());
+            // implement a getIsAttacking and a getIsTransforming
+            String message = GameLog.formatMessage(getIsAttacking(), getIsTransforming(), Game.isWhiteTurn, GameLog.formatCoordinates(firstInput), GameLog.formatCoordinates(secondInput));
+        
+            GameLog.textArea.append(message);
+            GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());
+
+        }
+        else {
+
+            String message = "[" + NorthPanel.gameClock.getText() + "] Sorry! Your move was invalid! Try Again!\n";
+
+            GameLog.textArea.append(message);
+            GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());
+
+        }
 
     }
 
