@@ -53,10 +53,12 @@ public class Board extends JPanel {
         if ((x + y) % 2 == 0) {
             button.setBackground(lightColor);
             button.setBorderPainted(false);
+            button.setFocusPainted(false);
         }
         else {
             button.setBackground(darkColor);
             button.setBorderPainted(false);
+            button.setFocusPainted(false);
         }
 
         button.addActionListener(new ActionListener() {

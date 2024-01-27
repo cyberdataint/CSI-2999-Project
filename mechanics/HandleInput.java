@@ -15,7 +15,7 @@ public class HandleInput {
     private static int[] firstInput = new int[2];
     private static int[] secondInput = new int[2];
 
-    public static boolean isValid;
+    public static boolean isValid = true;
 
     public static void getCoordinates(int x, int y) {
 
