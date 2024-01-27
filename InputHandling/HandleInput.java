@@ -116,11 +116,6 @@ public static void handleButtonPress(int x, int y){
 
         }
 
-
-
-
-
-   
     }
     public static void highlightValidMoves(Space[] validMoves){
 
