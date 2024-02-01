@@ -56,9 +56,6 @@ public class Bishop implements Piece {
     public String getPieceName() {
         return this.pieceName;
     }
-    public String getImagePath() {
-        return this.imagePath;
-    }
 
     public Space[] validMoves(Space[][] board) { //return space array of valid moves
         int[] pos = this.position;
