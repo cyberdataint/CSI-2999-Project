@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import mechanics.HandleInput;
+// import mechanics.HandleInput;
 
 public class Board extends JPanel {
 
@@ -64,8 +64,8 @@ public class Board extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                HandleInput.getCoordinates(x, y);
-                HandleInput.compareCoordinates();
+                // HandleInput.getCoordinates(x, y);
+                // HandleInput.compareCoordinates();
 
             }
         });

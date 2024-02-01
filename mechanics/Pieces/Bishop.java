@@ -9,6 +9,7 @@ import visuals.user_interface.Board;
 public class Bishop implements Piece {
     private int[] position;
     boolean color; //white or black
+    String pieceName;
     int id; //#id of piece (i.e. bishop 0 or bishop 1)
     ImageIcon sprite;
     String imagePath;
@@ -16,9 +17,12 @@ public class Bishop implements Piece {
     public Bishop(boolean col, int id, Space[][] board) { //constructor, initialize variable values;
         position = new int[2];
         this.color = col;
+        this.pieceName = "Bishop";
         this.id = id;
-        String whiteImagePath = "D:" + File.separator + "Coding" + File.separator + "Github" + File.separator + "CSI-2999-Project" + File.separator + "visuals" + File.separator + "piece_sprites" + File.separator + "bishopLight.png";
-        String blackImagePath = "D:" + File.separator + "Coding" + File.separator + "Github" + File.separator + "CSI-2999-Project" + File.separator + "visuals" + File.separator + "piece_sprites" + File.separator + "bishopDark.png";
+        // IMPORTANT!! TO CALL THE IMAGEPATH YOU USE: Bishop.class.getResource(imagePath)
+        // this grabs the URL since everyone's file structure may look different
+        String whiteImagePath = "visuals" + File.separator + "piece_sprites" + File.separator + "bishopLight.png";
+        String blackImagePath = "visuals" + File.separator + "piece_sprites" + File.separator + "bishopDark.png";
         //initially placing piece based on color and id
         if (col){
             this.position[1]=0;
@@ -48,6 +52,9 @@ public class Bishop implements Piece {
     }
     public boolean getColor() {
         return this.color;
+    }
+    public String getPieceName() {
+        return this.pieceName;
     }
     public String getImagePath() {
         return this.imagePath;
