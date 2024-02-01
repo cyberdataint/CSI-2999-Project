@@ -2,8 +2,9 @@ package mechanics;
 
 import java.awt.Color;
 
-import visuals.border_panels.*;
-import visuals.user_interface.*;
+import visuals.border_panels.NorthPanel;
+import visuals.border_panels.SouthPanel;
+import visuals.user_interface.GameLog;
 
 public class Game {
 

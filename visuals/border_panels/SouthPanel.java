@@ -1,9 +1,19 @@
 package visuals.border_panels;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
 
-import visuals.user_interface.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import visuals.user_interface.RestartGameButton;
+import visuals.user_interface.ReturnToMainMenuButton;
 
 public class SouthPanel extends JPanel {
     

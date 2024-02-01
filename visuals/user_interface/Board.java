@@ -1,11 +1,13 @@
 package visuals.user_interface;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// import mechanics.HandleInput;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class Board extends JPanel {
 
@@ -64,8 +66,7 @@ public class Board extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                // HandleInput.getCoordinates(x, y);
-                // HandleInput.compareCoordinates();
+                // handle input goes here
 
             }
         });
