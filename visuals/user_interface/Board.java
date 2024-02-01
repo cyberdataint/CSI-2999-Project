@@ -129,6 +129,12 @@ public class Board extends JPanel {
 
     }
 
+    public static void updatePieces() {
+
+        // implement updating images to reflect state of the board
+
+    }
+
     private static String formatCoordinates(int x, int y) {
 
         String formattedCoords;

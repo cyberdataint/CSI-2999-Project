@@ -19,6 +19,7 @@ public class Game {
 
     }
 
+    // only called at startup
     public static void startGame() {
 
         // starts game clock, highlights turnindicator, places chess pieces, sends game start message in game log, sets isWhite true
@@ -27,7 +28,7 @@ public class Game {
         SouthPanel.whitePanelTop.setBackground(lightColor);
         SouthPanel.whitePanelBottom.setBackground(lightColor);
     
-        // Board.intializePieces();
+        // GameBoard.intializePieces();
     
         GameLog.textArea.append("[" + NorthPanel.gameClock.getText() + "] " + "Game Start!\n\n");
 
@@ -35,6 +36,7 @@ public class Game {
     
     }
     
+    // called by RestartGameButton
     public static void restartGame() {
     
         // to be called by RestartGameButton
@@ -47,7 +49,7 @@ public class Game {
         SouthPanel.blackPanelTop.setBackground(lightShadowColor);
         SouthPanel.blackPanelBottom.setBackground(lightShadowColor);
     
-        // Board.intializePieces();
+        // GameBoard.intializePieces();
     
         GameLog.textArea.append("\n\n[" + NorthPanel.gameClock.getText() + "] " + "New Game Start!\n\n\n");
         GameLog.textArea.setCaretPosition(GameLog.textArea.getDocument().getLength());;
@@ -56,6 +58,7 @@ public class Game {
     
     }
 
+    // only occurs when GameBoard updates
     public static void changeTurn() {
 
         // needs to disable selecting opposing turn's pieces
@@ -78,6 +81,15 @@ public class Game {
 
             isWhiteTurn = true;
         }
+
+    }
+
+    public static void endGame() {
+
+        // implement procedure for when game is won
+        
+        // possibly have it linked to the king piece being taken
+        // within the king class
 
     }
 
