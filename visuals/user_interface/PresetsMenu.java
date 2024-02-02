@@ -1,9 +1,6 @@
 package visuals.user_interface;
 
 import javax.swing.*;
-
-import visuals.Screen;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +8,7 @@ import java.awt.event.ActionListener;
 public class PresetsMenu extends JPanel {
     
     private JComboBox<String> dropDown;
+    public static JLabel label;
 
     // Coral Color Preset
     private Color lightCoral = new Color(177, 228, 185);
@@ -38,12 +36,14 @@ public class PresetsMenu extends JPanel {
 
     public PresetsMenu() {
 
-        JLabel label = new JLabel("Color Presets:");
+        label = new JLabel("Color Presets:", SwingConstants.CENTER);
+        Font font = new Font("Roboto", Font.BOLD, 20);
+        label.setFont(font);
         String[] presets = {"Coral", "Dusk", "Marine", "Wheat", "Emerald", "Sandcastle"};
         dropDown = new JComboBox<>(presets);
 
-        setLayout(new GridLayout(1, 2, Screen.scaleVar5, Screen.scaleVar5));
-        setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10));
+        setLayout(new GridLayout(2, 1, 5, 5));
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
         dropDown.addActionListener(new ActionListener() {
             @Override

@@ -1,9 +1,6 @@
 package visuals.border_panels;
 
 import javax.swing.*;
-
-import visuals.Screen;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +10,9 @@ public class NorthPanel extends JPanel {
     private static JPanel scorePanel;
     private static JPanel titlePanel;
     private static JPanel clockPanel;
+    private static JPanel scoreShadow;
+    private static JPanel titleShadow;
+    private static JPanel clockShadow;
 
     private static Color backgroundColor = new Color(132, 136, 132);
     private static Color shadowColor = new Color(90, 100, 90);
@@ -21,16 +21,19 @@ public class NorthPanel extends JPanel {
 
     private static JLabel whiteScoreLabel;
     private static JLabel blackScoreLabel;
-    private static JLabel gameClockLabel;
+    public static JLabel gameClockLabel;
+    public static JLabel gameClock;
 
-    private static int whiteScore = 0;
-    private static int blackScore = 0;
-    private static int gameSecondsElapsed = 0;
+    public static int whiteScore = 0;
+    public static int blackScore = 0;
+    public static int gameSecondsElapsed = 0;
+
+    public static Timer gameTimer;
 
     public NorthPanel() {
 
         setBackground(backgroundColor);
-        setLayout(new BorderLayout(Screen.scaleVar25, Screen.scaleVar25));
+        setLayout(new BorderLayout(25, 25));
 
         scorePanel = new JPanel(); // WEST
         titlePanel = new JPanel(); // CENTER
@@ -38,52 +41,53 @@ public class NorthPanel extends JPanel {
 
         // SCORE PANEL
             // SCORE PANEL SETTINGS
-            scorePanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
+            scorePanel.setSize(new Dimension(300, 50));
             scorePanel.setBackground(shadowColor);
 
             scorePanel.setLayout(new BorderLayout());
-            scorePanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+            scorePanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // SCORE SHADOW SETTINGS
-            JPanel scoreShadow = new JPanel();
+            scoreShadow = new JPanel();
             scoreShadow.setBackground(darkShadowColor);
-            scoreShadow.setLayout(new BorderLayout());
-            scoreShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+
+            scoreShadow.setLayout(new GridLayout(2, 1));
+            scoreShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // SCORE LABELS
             whiteScoreLabel = new JLabel("White Score: " + whiteScore, SwingConstants.CENTER);
             whiteScoreLabel.setForeground(textColor);
-            setLabelFont(whiteScoreLabel, "Roboto", Font.BOLD, Screen.scaleVar24);
+            setLabelFont(whiteScoreLabel, "Roboto", Font.BOLD, 20);
 
             blackScoreLabel = new JLabel("Black Score: " + blackScore, SwingConstants.CENTER);
             blackScoreLabel.setForeground(textColor);
-            setLabelFont(blackScoreLabel, "Roboto", Font.BOLD, Screen.scaleVar24);
+            setLabelFont(blackScoreLabel, "Roboto", Font.BOLD, 20);
 
             // .ADD CALLS
-            scoreShadow.add(whiteScoreLabel, BorderLayout.NORTH);
-            scoreShadow.add(blackScoreLabel, BorderLayout.SOUTH);
+            scoreShadow.add(whiteScoreLabel);
+            scoreShadow.add(blackScoreLabel);
             scorePanel.add(scoreShadow);
             add(scorePanel, BorderLayout.WEST);
         // -------------
             
         // TITLE PANEL
             // TITLE PANEL SETTINGS
-            titlePanel.setPreferredSize(new Dimension(Screen.scaleVar800, 50));
+            titlePanel.setSize(new Dimension(800, 50));
             titlePanel.setBackground(shadowColor);
 
             titlePanel.setLayout(new BorderLayout());
-            titlePanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar25, Screen.scaleVar25, Screen.scaleVar25, Screen.scaleVar25));
+            titlePanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // TITLE SHADOW SETTINGS
-            JPanel titleShadow = new JPanel();
+            titleShadow = new JPanel();
             titleShadow.setBackground(darkShadowColor);
             titleShadow.setLayout(new BorderLayout());
-            titleShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar5, Screen.scaleVar5, Screen.scaleVar5, Screen.scaleVar5));
+            titleShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // TITLE LABEL
             JLabel title = new JLabel("Offline Chess Simulator", SwingConstants.CENTER);
             title.setForeground(textColor);
-            setLabelFont(title, "Roboto", Font.BOLD, Screen.scaleVar56);
+            setLabelFont(title, "Roboto", Font.BOLD, 42);
             
             // .ADD CALLS
             titleShadow.add(title);
@@ -93,29 +97,29 @@ public class NorthPanel extends JPanel {
 
         // CLOCK PANEL
             // CLOCK PANEL SETTINGS
-            clockPanel.setPreferredSize(new Dimension(Screen.scaleVar300, 50));
+            clockPanel.setSize(new Dimension(300, 50));
             clockPanel.setBackground(shadowColor);
 
             clockPanel.setLayout(new BorderLayout());
-            clockPanel.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+            clockPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
             // CLOCK SHADOW SETTINGS
-            JPanel clockShadow = new JPanel();
+            clockShadow = new JPanel();
             clockShadow.setBackground(darkShadowColor);
             clockShadow.setLayout(new GridLayout(2, 1));
-            clockShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20, Screen.scaleVar20));
+            clockShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
             // CLOCK LABELS
             gameClockLabel = new JLabel("Game Time:", SwingConstants.CENTER);
             gameClockLabel.setForeground(textColor);
-            setLabelFont(gameClockLabel, "Roboto", Font.BOLD, Screen.scaleVar30);
+            setLabelFont(gameClockLabel, "Roboto", Font.BOLD, 20);
 
             // GAME CLOCK
-            JLabel gameClock = new JLabel("00:00:00", SwingConstants.CENTER);
+            gameClock = new JLabel("00:00:00", SwingConstants.CENTER);
             gameClock.setForeground(textColor);
-            setLabelFont(gameClock, "Roboto", Font.BOLD, Screen.scaleVar30);
+            setLabelFont(gameClock, "Roboto", Font.BOLD, 20);
 
-            Timer gameTimer = new Timer(1000, new ActionListener() {
+            gameTimer = new Timer(1000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
@@ -125,8 +129,6 @@ public class NorthPanel extends JPanel {
 
                 }
             });
-
-            gameTimer.start();
 
             // .ADD CALLS
             clockShadow.add(gameClockLabel);

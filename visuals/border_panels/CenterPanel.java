@@ -3,10 +3,11 @@ package visuals.border_panels;
 import javax.swing.*;
 import java.awt.*;
 
-import visuals.Screen;
 import visuals.user_interface.Board;
 
 public class CenterPanel extends JPanel {
+
+    public static JPanel boardShadow;
 
     public CenterPanel() {
 
@@ -15,12 +16,13 @@ public class CenterPanel extends JPanel {
 
         setBackground(shadowColor);
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar25, Screen.scaleVar25, Screen.scaleVar25, Screen.scaleVar25));
+        setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        setPreferredSize(new Dimension(500, 500));
 
-        JPanel boardShadow = new JPanel();
+        boardShadow = new JPanel();
         boardShadow.setBackground(darkShadowColor);
         boardShadow.setLayout(new BorderLayout());
-        boardShadow.setBorder(BorderFactory.createEmptyBorder(Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10, Screen.scaleVar10));
+        boardShadow.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         Board board = new Board();
         board.setBackground(darkShadowColor);
