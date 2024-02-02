@@ -3,10 +3,10 @@ package visuals.user_interface;
 import java.awt.*;
 import javax.swing.*;
 
-import mechanics.HandleInput;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import InputHandling.HandleInput;
 
 public class Board extends JPanel {
 
@@ -14,7 +14,7 @@ public class Board extends JPanel {
     private static Color darkColor = new Color(112, 162, 163);
     private static Color darkShadowColor = new Color(60, 70, 60);
 
-    private static JButton[][] squares;
+    public static JButton[][] squares;
     
     public Board() {
 
@@ -65,6 +65,10 @@ public class Board extends JPanel {
 
                 HandleInput.getCoordinates(x, y);
                 HandleInput.compareCoordinates();
+
+                HandleInput.handleButtonPress(x, y);
+
+                //HandleInput.highlightValidMoves();
 
             }
         });
