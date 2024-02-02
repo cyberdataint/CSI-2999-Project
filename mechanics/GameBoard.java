@@ -45,4 +45,10 @@ public class GameBoard {
             }
         }
     }
+
+    public void intializePieces() {
+
+        // implement
+
+    }
 }
