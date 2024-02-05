@@ -1,22 +1,38 @@
 package mechanics.Pieces;
+import java.io.File;
+
+import javax.swing.ImageIcon;
 import mechanics.Piece;
 import mechanics.Space;
+import visuals.user_interface.Board;
 
 public class Bishop implements Piece {
     private int[] position;
     boolean color; //white or black
+    String pieceName;
     int id; //#id of piece (i.e. bishop 0 or bishop 1)
+    ImageIcon sprite;
+    String imagePath;
 
     public Bishop(boolean col, int id, Space[][] board) { //constructor, initialize variable values;
         position = new int[2];
         this.color = col;
+        this.pieceName = "Bishop";
         this.id = id;
+        // IMPORTANT!! TO CALL THE IMAGEPATH YOU USE: Bishop.class.getResource(imagePath)
+        // this grabs the URL since everyone's file structure may look different
+        String whiteImagePath = "visuals" + File.separator + "piece_sprites" + File.separator + "bishopLight.png";
+        String blackImagePath = "visuals" + File.separator + "piece_sprites" + File.separator + "bishopDark.png";
         //initially placing piece based on color and id
         if (col){
             this.position[1]=0;
+            sprite = new ImageIcon(whiteImagePath);
+            imagePath = whiteImagePath;
         }
         else {
             this.position[1]=7;
+            sprite = new ImageIcon(blackImagePath);
+            imagePath = blackImagePath;
         }
         if (id > 0) {
             this.position[0]=5;
@@ -24,6 +40,7 @@ public class Bishop implements Piece {
         else {
             this.position[0]=2;
         }
+        Board.squares[this.position[0]][this.position[1]].setIcon(sprite);
         board[this.position[0]][this.position[1]].occupant = this;
     }
 
@@ -35,6 +52,9 @@ public class Bishop implements Piece {
     }
     public boolean getColor() {
         return this.color;
+    }
+    public String getPieceName() {
+        return this.pieceName;
     }
 
     public Space[] validMoves(Space[][] board) { //return space array of valid moves

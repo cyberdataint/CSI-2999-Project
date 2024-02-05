@@ -1,9 +1,12 @@
 package visuals.user_interface;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Font;
 
-import visuals.border_panels.NorthPanel;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class GameLog extends JPanel {
 
@@ -52,46 +55,9 @@ public class GameLog extends JPanel {
     }
 
     // needs to include piece names
-    public static String formatMessage(boolean isAttacking, boolean isTransforming, boolean isFirstWhite, String firstInput, String secondInput) {
+    public static String formatMessage() {
 
-        String gameClock = NorthPanel.gameClock.getText();
-
-        if (isAttacking && isTransforming) {
-
-            return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " took " 
-                    + isWhiteToString(!isFirstWhite) + " " + secondInput + " and became " 
-                    + isWhiteToString(isFirstWhite) + secondInput + "\n";
-
-        }
-        else if (isTransforming) {
-
-            return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " became " 
-                    + isWhiteToString(isFirstWhite) + " " + secondInput + "\n";
-
-        }
-        else if (isAttacking) {
-
-            return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " took " 
-                    + isWhiteToString(!isFirstWhite) + " " + secondInput + "\n";
-
-        }
-        else {
-
-            return "[" + gameClock + "] " + isWhiteToString(isFirstWhite) + " " + firstInput + " -> " 
-                    + secondInput + "\n";
-
-        }
-
-    }
-
-    private static String isWhiteToString(boolean isWhite) {
-
-        if (isWhite) {
-            return "White";
-        }
-        else {
-            return "Black";
-        }
+        return "implement";
 
     }
 
