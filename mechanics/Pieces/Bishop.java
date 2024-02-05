@@ -2,23 +2,26 @@ package mechanics.Pieces;
 import java.io.File;
 
 import javax.swing.ImageIcon;
+
 import mechanics.Piece;
 import mechanics.Space;
+
 import visuals.user_interface.Board;
 
 public class Bishop implements Piece {
     private int[] position;
     boolean color; //white or black
-    String pieceName;
     int id; //#id of piece (i.e. bishop 0 or bishop 1)
+    String name;
     ImageIcon sprite;
     String imagePath;
 
     public Bishop(boolean col, int id, Space[][] board) { //constructor, initialize variable values;
         position = new int[2];
+        this.name = "Bishop";
         this.color = col;
-        this.pieceName = "Bishop";
         this.id = id;
+      
         // IMPORTANT!! TO CALL THE IMAGEPATH YOU USE: Bishop.class.getResource(imagePath)
         // this grabs the URL since everyone's file structure may look different
         String whiteImagePath = "visuals" + File.separator + "piece_sprites" + File.separator + "bishopLight.png";
@@ -53,8 +56,8 @@ public class Bishop implements Piece {
     public boolean getColor() {
         return this.color;
     }
-    public String getPieceName() {
-        return this.pieceName;
+    public String getName() {
+        return this.name;
     }
 
     public Space[] validMoves(Space[][] board) { //return space array of valid moves
@@ -126,6 +129,7 @@ public class Bishop implements Piece {
             if (moves[i].xcoord == x & moves[i].ycoord == y) { //if the coords are in the valid moves
                 board[this.position[0]][this.position[1]].occupant = null; //pick up the piece
                 if (board[moves[i].xcoord][moves[i].ycoord].containsEnemy(this)) { //if enemy
+                    //todo: notify of attack
                     board[moves[i].xcoord][moves[i].ycoord].occupant.remove(board); //remove the enemy from the board
                 }
                 board[moves[i].xcoord][moves[i].ycoord].occupant = this; //place the piece

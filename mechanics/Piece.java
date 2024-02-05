@@ -8,6 +8,7 @@ public interface Piece {
     public Space[] validMoves(Space[][] board); //returns valid spaces, sets danger variables
     public int[] moveTo(int x, int y, Space[][] board); //returns null or coords of successful move
     public void remove(Space[][] board);
+    public String getName(); // return name of piece (e.g. Bishop, Knight)
 }
 
 //all pieces must implement this interface.
