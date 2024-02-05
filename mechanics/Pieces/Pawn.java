@@ -1,4 +1,8 @@
 package mechanics.Pieces;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import mechanics.Piece;
 import mechanics.Space;
 
@@ -6,6 +10,7 @@ public class Pawn implements Piece {
     private int x, y;
     private boolean isWhite;
     private int id;
+    private String name = "Pawn";
 
     @Override
     public boolean getColor() {
@@ -23,6 +28,10 @@ public class Pawn implements Piece {
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
     public boolean isValidMove(int x, int y, Space[][] board) {
         int direction = isWhite ? -1 : 1;
         // regular move

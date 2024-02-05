@@ -9,6 +9,7 @@ public class Queen implements Piece {
     private int x, y;
     private boolean isWhite;
     private int id;
+    private String name = "Queen";
 
     @Override
     public boolean getColor() {
@@ -26,6 +27,10 @@ public class Queen implements Piece {
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
     public boolean isValidMove(int x, int y, Space[][] board) {
         if (!(this.x == x || this.y == y || Math.abs(this.x - x) == Math.abs(this.y - y))) {
             return false; 
