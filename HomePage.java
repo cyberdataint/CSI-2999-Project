@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class HomePage extends JFrame {
 
-    // Color schemes for different themes
+
     private static final Map<String, ColorScheme> colorSchemes = new HashMap<>();
 
     static {
@@ -21,11 +21,10 @@ public class HomePage extends JFrame {
         colorSchemes.put("Default", new ColorScheme(Color.GRAY, Color.BLACK, new Color(128, 128, 128), Color.darkGray));
     }
 
-    // GUI components
     private JLabel titleLabel;
     private JPanel mainPanel;
 
-    // Inner class to represent a color scheme
+
     private static class ColorScheme {
         private Color buttonColor;
         private Color buttonTextColor;
@@ -102,7 +101,7 @@ private class GameButtonActionListener implements ActionListener {
                                     JOptionPane.ERROR_MESSAGE
                             );
                         }
-                        // setState(Frame.NORMAL);
+                       
                     });
                 } catch (IOException | InterruptedException ex) {
                     ex.printStackTrace();
@@ -159,16 +158,16 @@ private class AboutActionListener implements ActionListener {
         // Set the frame to start in a maximized state
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        // Create a title with a centered and styled font
+        // title 
         titleLabel = new JLabel("CSI 2999 Project", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 48));
 
-        // Create colorful buttons for each game
+        // buttons for each game
         JButton game1Button = createGameButton("Chess", "visuals\\Driver.java");
         JButton game2Button = createGameButton("Game 2", "Game2.java");
         JButton game3Button = createGameButton("Game 3", "Game3.java");
 
-        // Add buttons to the main panel with spacing
+        // Add buttons to the main panel
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(4, 1, 20, 20));
         mainPanel.add(titleLabel);
@@ -254,16 +253,13 @@ private class AboutActionListener implements ActionListener {
 
     // Display a help page with the specified content
     private void displayHelpPage(String content) {
-        JOptionPane.showMessageDialog(this, content, "Help", JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    // Update the color scheme for the GUI components
-    private void setColors(ColorScheme colorScheme) {
-        // Update the color scheme for title, buttons, background, and title panel
+            JOptionPane.showMessageDialog(this, content, "Help", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        private void setColors(ColorScheme colorScheme) {
         titleLabel.setForeground(colorScheme.getTitleColor());
         mainPanel.setBackground(colorScheme.getBackgroundColor());
 
-        // Update color scheme for each button in the main panel
         for (Component component : mainPanel.getComponents()) {
             if (component instanceof JButton) {
                 JButton button = (JButton) component;
@@ -273,7 +269,6 @@ private class AboutActionListener implements ActionListener {
         }
     }
 
-    // Main method to start the application
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -281,7 +276,6 @@ private class AboutActionListener implements ActionListener {
             e.printStackTrace();
         }
 
-        // Create an instance of the HomePage class
         SwingUtilities.invokeLater(() -> {
             new HomePage();
         });
