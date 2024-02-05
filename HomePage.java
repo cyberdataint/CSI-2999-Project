@@ -167,7 +167,7 @@ private class AboutActionListener implements ActionListener {
         JButton game2Button = createGameButton("Game 2", "Game2.java");
         JButton game3Button = createGameButton("Game 3", "Game3.java");
 
-        // Add buttons to the main panel
+        // Add buttons to the main panel 
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(4, 1, 20, 20));
         mainPanel.add(titleLabel);
