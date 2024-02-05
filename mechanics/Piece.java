@@ -2,6 +2,7 @@ package mechanics;
 
 public interface Piece {
     public boolean getColor(); //black or white
+    public String getPieceName(); // name of the piece
     public int getId(); //#id of piece (i.e. bishop0, bishop1, pawn0/1/2/3/etc.)
     public int[] getPos();
     public Space[] validMoves(Space[][] board); //returns valid spaces, sets danger variables
