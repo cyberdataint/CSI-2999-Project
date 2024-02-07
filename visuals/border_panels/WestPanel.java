@@ -1,7 +1,11 @@
 package visuals.border_panels;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
 
 import visuals.user_interface.GameLog;
 
