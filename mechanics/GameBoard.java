@@ -1,11 +1,14 @@
 package mechanics;
 import mechanics.Pieces.Bishop;
 import mechanics.Pieces.Knight;
+import mechanics.Pieces.King;
 //import other pieces when ready
 
 public class GameBoard {
     public static Space[][] gameBoard;
-    
+    public Space wKingSpace;
+    public Space bKingSpace;
+
     public GameBoard() {
         Space[][] board = new Space[8][8];
         for (int i=0; i<8; i++) {
@@ -27,7 +30,12 @@ public class GameBoard {
         new Bishop(true, 1, board);
         new Bishop(false, 0, board);
         new Bishop(false, 1, board);
+
+        new King(true, 0, board);
+        new King(false, 0, board);
         gameBoard = board;
+        wKingSpace = gameBoard[4][0];
+        bKingSpace = gameBoard[4][7];
     }
 
     public void updateBoard() { //to be called after each turn
@@ -40,15 +48,24 @@ public class GameBoard {
         for (int i=0; i<8; i++) {
             for (int j=0; j<8; j++) {
                 if (gameBoard[i][j].occupant != null) {
+                    if (gameBoard[i][j].occupant.getName() == "King"){
+                        if (gameBoard[i][j].occupant.getColor()) {
+                            wKingSpace = gameBoard[i][j];
+                        }
+                        else {
+                            bKingSpace = gameBoard[i][j];
+                        }
+                    }
                     gameBoard[i][j].occupant.validMoves(gameBoard);
                 }
             }
         }
     }
 
-    public void intializePieces() {
-
-        // implement
-
+    public boolean whiteChecked() {
+        return wKingSpace.bdanger;
+    }
+    public boolean blackChecked() {
+        return bKingSpace.wdanger;
     }
 }
