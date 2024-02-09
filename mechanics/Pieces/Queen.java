@@ -1,32 +1,28 @@
 package mechanics.Pieces;
 import mechanics.Piece;
 import mechanics.Space;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Queen implements Piece {
+    private Integer x = null, y = null;
     private int x, y;
     private boolean isWhite;
     private int id;
 
-    @Override
     public boolean getColor() {
         return isWhite;
     }
 
-    @Override
     public int getId() {
         return id;
     }
 
-    @Override
     public int[] getPos() {
         return new int[]{x, y};
     }
 
-    @Override
-    public boolean isValidMove(int x, int y, Space[][] board) {
+    private boolean isValidMove(int x, int y, Space[][] board) {
         if (!(this.x == x || this.y == y || Math.abs(this.x - x) == Math.abs(this.y - y))) {
             return false; 
         }
@@ -47,22 +43,69 @@ public class Queen implements Piece {
         return true; 
     }
 
-    @Override
     public Space[] validMoves(Space[][] board) {
-        // moves for queen
-    }
-
-    @Override
-    public int[] moveTo(int x, int y, Space[][] board) {
-        if (isValidMove(x, y, board)) {
-            // moving queen
+        List<Space> validMoves = new ArrayList<>();
+        int[][] directions = {
+            {0, 1}, // Up
+            {0, -1}, // Down
+            {1, 0}, // Right
+            {-1, 0}, // Left
+            {1, 1}, // Up-Right Diagonal
+            {-1, -1}, // Down-Left Diagonal
+            {1, -1}, // Down-Right Diagonal
+            {-1, 1} // Up-Left Diagonal
+        };
+        
+        for (int[] dir : directions) {
+            int nextX = x;
+            int nextY = y;
+            
+            while (true) {
+                nextX += dir[0];
+                nextY += dir[1];
+                
+                // check if off board
+                if (nextX < 0 || nextX >= board.length || nextY < 0 || nextY >= board[0].length) {
+                    break;
+                }
+                
+                // check if space is taken
+                Space nextSpace = board[nextX][nextY];
+                if (nextSpace.isOccupied()) {
+                    if (nextSpace.containsEnemy(this)) {
+                        validMoves.add(nextSpace);
+                    }
+                    break;
+                }
+                
+                validMoves.add(nextSpace);
+            }
         }
-        return null;
+        
+        return validMoves.toArray(new Space[0]);
     }
 
-    @Override
+    public int[] moveTo(int newX, int newY, Space[][] board) {
+        if (isValidMove(newX, newY, board)) {
+            // remove queen
+            board[x][y].occupant = null;
+    
+            // new queen position
+            board[newX][newY].occupant = this;
+    
+            this.x = newX;
+            this.y = newY;
+    
+            return new int[]{newX, newY}; // back to position
+        }
+        return null; // bad move
+
     public void remove(Space[][] board) {
-        // removing queen
+        if (x != null && y != null) {
+            board[x][y].occupant = null;
+            this.x = null;
+            this.y = null;
+        }
     }
 
     public void updateDangerVariables(Space[][] board) {
