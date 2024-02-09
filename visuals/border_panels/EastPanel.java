@@ -1,9 +1,15 @@
 package visuals.border_panels;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 
-import visuals.user_interface.*;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+
+import visuals.user_interface.PresetsMenu;
+import visuals.user_interface.ToggleCoordinatesButton;
 
 public class EastPanel extends JPanel {
 

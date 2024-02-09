@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Queen implements Piece {
-    private Integer x = null, y = null;
+    private String name = "Queen";
     private int x, y;
     private boolean isWhite;
     private int id;
@@ -21,25 +21,28 @@ public class Queen implements Piece {
     public int[] getPos() {
         return new int[]{x, y};
     }
+    public String getName() {
+        return name;
+    }
 
     private boolean isValidMove(int x, int y, Space[][] board) {
         if (!(this.x == x || this.y == y || Math.abs(this.x - x) == Math.abs(this.y - y))) {
             return false; 
         }
-
-        // check for block
+    
         int dx = Integer.signum(x - this.x);
         int dy = Integer.signum(y - this.y);
         int steps = Math.max(Math.abs(x - this.x), Math.abs(y - this.y));
-
+    
         for (int i = 1; i < steps; i++) {
             int checkX = this.x + i * dx;
             int checkY = this.y + i * dy;
-            if (board[checkX][checkY].isOccupied()) {
+            Space nextSpace = board[checkX][checkY];
+            if (nextSpace.containsAlly(this)) { // Assuming containsAlly(this) checks if the space is occupied by an ally
                 return false; 
             }
         }
-
+    
         return true; 
     }
 
@@ -64,21 +67,19 @@ public class Queen implements Piece {
                 nextX += dir[0];
                 nextY += dir[1];
                 
-                // check if off board
                 if (nextX < 0 || nextX >= board.length || nextY < 0 || nextY >= board[0].length) {
                     break;
                 }
                 
-                // check if space is taken
                 Space nextSpace = board[nextX][nextY];
-                if (nextSpace.isOccupied()) {
-                    if (nextSpace.containsEnemy(this)) {
-                        validMoves.add(nextSpace);
-                    }
+                if (nextSpace.containsAlly(this)) { // Block move if an ally is in the way
                     break;
+                } else if (nextSpace.containsEnemy(this)) { // Can move if an enemy is there, but stop checking further
+                    validMoves.add(nextSpace);
+                    break;
+                } else {
+                    validMoves.add(nextSpace); // Add as a valid move if empty
                 }
-                
-                validMoves.add(nextSpace);
             }
         }
         
@@ -99,12 +100,13 @@ public class Queen implements Piece {
             return new int[]{newX, newY}; // back to position
         }
         return null; // bad move
+    }
 
     public void remove(Space[][] board) {
-        if (x != null && y != null) {
+        if (x != 0 && y != 0) {
             board[x][y].occupant = null;
-            this.x = null;
-            this.y = null;
+            this.x = 0;
+            this.y = 0;
         }
     }
 

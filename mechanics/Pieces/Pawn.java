@@ -1,4 +1,8 @@
 package mechanics.Pieces;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import mechanics.Piece;
 import mechanics.Space;
 import java.util.ArrayList;
@@ -8,6 +12,7 @@ public class Pawn implements Piece {
     private int x, y;
     private boolean isWhite;
     private int id;
+    private String name = "Pawn";
 
     public boolean getColor() {
         return isWhite;
@@ -21,7 +26,11 @@ public class Pawn implements Piece {
         return new int[]{x, y};
     }
 
-    private boolean isValidMove(int x, int y, Space[][] board) {
+    public String getName() {
+        return name;
+    }
+
+    public boolean isValidMove(int x, int y, Space[][] board) {
         int direction = isWhite ? -1 : 1;
         // regular move
         if (x == this.x && y == this.y + direction && board[x][y].occupant == null) {
@@ -77,9 +86,6 @@ public class Pawn implements Piece {
         board[x][y].occupant = null;
     }
 
-    public String getName() {
-        return "Pawn"; // name of piece
-    }
 
     public void updateDangerVariables(Space[][] board) {
         int direction = isWhite ? -1 : 1;

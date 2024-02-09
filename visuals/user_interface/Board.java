@@ -1,12 +1,13 @@
 package visuals.user_interface;
 
-import java.awt.*;
-import javax.swing.*;
-
-import mechanics.HandleInput;
-
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class Board extends JPanel {
 
@@ -14,7 +15,7 @@ public class Board extends JPanel {
     private static Color darkColor = new Color(112, 162, 163);
     private static Color darkShadowColor = new Color(60, 70, 60);
 
-    private static JButton[][] squares;
+    public static JButton[][] squares;
     
     public Board() {
 
@@ -33,7 +34,7 @@ public class Board extends JPanel {
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
 
-                JButton button = createChessButton(null, x, y);
+                JButton button = createChessButton(x, y);
                 squares[x][y] = button;
                 add(button);
 
@@ -46,25 +47,26 @@ public class Board extends JPanel {
     }
 
 
-    private JButton createChessButton(ImageIcon imageIcon, int x, int y) {
+    private JButton createChessButton(int x, int y) {
 
         JButton button = new JButton();
         
         if ((x + y) % 2 == 0) {
             button.setBackground(lightColor);
             button.setBorderPainted(false);
+            button.setFocusPainted(false);
         }
         else {
             button.setBackground(darkColor);
             button.setBorderPainted(false);
+            button.setFocusPainted(false);
         }
 
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                HandleInput.getCoordinates(x, y);
-                HandleInput.compareCoordinates();
+                // handle input goes here
 
             }
         });
@@ -102,12 +104,15 @@ public class Board extends JPanel {
         if (isToggled) {
             for(int y = 0; y < 8; y++) {
                 for(int x = 0; x < 8; x++) {
-    
-                    JButton square = squares[x][y];
-                    setButtonFont(square, "Roboto", Font.BOLD, 12);
-                    square.setText(formatCoordinates(x, y));
-                    square.setForeground(darkShadowColor);
-    
+                    if (squares[x][y].getIcon() == null) {
+                        JButton square = squares[x][y];
+                        setButtonFont(square, "Roboto", Font.BOLD, 12);
+                        square.setText(formatCoordinates(x, y));
+                        square.setForeground(darkShadowColor);
+                    }
+                    else {
+                        // pass
+                    }
                 }
             }
         }
@@ -121,6 +126,12 @@ public class Board extends JPanel {
                 }
             }
         }
+
+    }
+
+    public static void updatePieces() {
+
+        // implement updating images to reflect state of the board
 
     }
 
