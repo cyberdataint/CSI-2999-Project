@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rook implements Piece {
+    private String name = "Rook";
     private int x, y;
     private boolean isWhite;
     private int id;
@@ -20,9 +21,13 @@ public class Rook implements Piece {
     public int[] getPos() {
         return new int[]{x, y};
     }
+    public String getName() {
+        return name;
+    }
+
 
     public boolean isValidMove(int x, int y, Space[][] board) {
-        // horizontal and vertical
+        // Horizontal and vertical
         if (!(this.x == x || this.y == y)) {
             return false;
         }
@@ -34,7 +39,8 @@ public class Rook implements Piece {
         for (int i = 1; i < steps; i++) {
             int checkX = this.x + i * dx;
             int checkY = this.y + i * dy;
-            if (board[checkX][checkY].isOccupied()) {
+            Space nextSpace = board[checkX][checkY];
+            if (nextSpace.containsAlly(this)) { // Use containsAlly to check for blockage
                 return false;
             }
         }
@@ -51,11 +57,17 @@ public class Rook implements Piece {
             while (true) {
                 nextX += dir[0];
                 nextY += dir[1];
-                if (nextX < 0 || nextX >= 8 || nextY < 0 || nextY >= 8 || (board[nextX][nextY].isOccupied() && board[nextX][nextY].containsAlly(this))) {
+                if (nextX < 0 || nextX >= board.length || nextY < 0 || nextY >= board[0].length) {
+                    break; // Check board boundaries
+                }
+                
+                Space nextSpace = board[nextX][nextY];
+                if (nextSpace.containsAlly(this)) { // Stop if an ally is in the way
                     break;
                 }
-                moves.add(board[nextX][nextY]);
-                if (board[nextX][nextY].isOccupied() && board[nextX][nextY].containsEnemy(this)) {
+                moves.add(nextSpace); // Add as a valid move
+                
+                if (nextSpace.containsEnemy(this)) { // Stop if an enemy is encountered
                     break;
                 }
             }
@@ -76,10 +88,10 @@ public class Rook implements Piece {
     }
 
     public void remove(Space[][] board) {
-        if (x != null && y != null) {
+        if (x != 0 && y != 0) {
             board[x][y].occupant = null; 
-            x = null; 
-            y = null;
+            x = 0; 
+            y = 0;
         }
     }
 
