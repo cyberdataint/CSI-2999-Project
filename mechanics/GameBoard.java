@@ -33,6 +33,7 @@ public class GameBoard {
 
         new King(true, 0, board);
         new King(false, 0, board);
+        
         gameBoard = board;
         wKingSpace = gameBoard[4][0];
         bKingSpace = gameBoard[4][7];

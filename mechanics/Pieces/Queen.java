@@ -130,9 +130,6 @@ public class Queen implements Piece {
                 } else {
                     board[nextX][nextY].bdanger = true;
                 }
-                if (board[nextX][nextY].isOccupied()) {
-                    break;
-                }
             }
         }
     }

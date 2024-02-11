@@ -115,9 +115,6 @@ public class Rook implements Piece {
                 } else {
                     board[nextX][nextY].bdanger = true;
                 }
-                if (board[nextX][nextY].isOccupied()) {
-                    break; // occupied space
-                }
             }
         }
     }
