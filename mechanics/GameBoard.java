@@ -6,8 +6,8 @@ import mechanics.Pieces.King;
 
 public class GameBoard {
     public static Space[][] gameBoard;
-    public Space wKingSpace;
-    public Space bKingSpace;
+    public static Space wKingSpace;
+    public static Space bKingSpace;
 
     public GameBoard() {
         Space[][] board = new Space[8][8];
@@ -39,7 +39,7 @@ public class GameBoard {
         bKingSpace = gameBoard[4][7];
     }
 
-    public void updateBoard() { //to be called after each turn
+    public static void updateBoard() { //to be called after each turn
         for (int i=0; i<8; i++) {
             for (int j=0; j<8; j++) {
                 gameBoard[i][j].bdanger = false;
@@ -63,10 +63,10 @@ public class GameBoard {
         }
     }
 
-    public boolean whiteChecked() {
+    public static boolean whiteChecked() {
         return wKingSpace.bdanger;
     }
-    public boolean blackChecked() {
+    public static boolean blackChecked() {
         return bKingSpace.wdanger;
     }
 }
