@@ -1,6 +1,8 @@
 package mechanics.Pieces;
 import mechanics.Piece;
 import mechanics.Space;
+import mechanics.Game;
+
 public class King implements Piece {
     private int[] position;
     boolean color; //white or black
@@ -159,6 +161,7 @@ public class King implements Piece {
         board[this.position[0]][this.position[1]].occupant = null;
         this.position = null;
         //end game
+        Game.endGame();
     }
 
     public int[] getPos() {
