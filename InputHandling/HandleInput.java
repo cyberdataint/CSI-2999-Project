@@ -24,26 +24,25 @@ public class HandleInput {
      */
 
 
-
-public static boolean turn = false;
+public static boolean whiteTurn = true;
+public static boolean activeTurn = false;
 
 public static Piece activePiece = null;
 
-public static GameBoard chess = new GameBoard();
-
 public static Color[] original_color = null;
+public static Space[] highlightedSpaces;
 
 
 public static void handleButtonPress(int x, int y){
 
-    if (turn == false) {
+    if (activeTurn == false) {
 
         //add logic for handling button press event
    
         System.out.println("Button handled");
 
         //get the space at the clicked coordinates
-        Space clickedSpace = chess.gameBoard[x][y];
+        Space clickedSpace = GameBoard.gameBoard[x][y];
 
         //check if space is occupied
         if (clickedSpace.occupant != null){
@@ -53,10 +52,19 @@ public static void handleButtonPress(int x, int y){
 
             //retrieve info about clicked piece
             boolean isWhite = clickedPiece.getColor();
-            int[] position = clickedPiece.getPos();
-            int id = clickedPiece.getId();
-
-            Space[] validMoves = clickedPiece.validMoves(chess.gameBoard);
+            // int[] position = clickedPiece.getPos();
+            // int id = clickedPiece.getId();
+            if (isWhite != whiteTurn) { //not your turn!!!
+                activePiece = null;
+                if (whiteTurn) {
+                    System.out.println("It's White's turn!");
+                }
+                else {
+                    System.out.println("It's Black's turn!");
+                }
+                return;
+            }
+            Space[] validMoves = clickedPiece.validMoves(GameBoard.gameBoard);
 
             //light up valid move spaces
             highlightValidMoves(validMoves);
@@ -68,50 +76,53 @@ public static void handleButtonPress(int x, int y){
           
 
 
-            turn = true;  //pt 1 of 2 click turn is complete
+            activeTurn = true;  //pt 1 of 2 click turn is complete
 
         }   
     }
 
 
 
-    if (turn == true) {
+    if (activeTurn == true) {
 
 
 
-        if (activePiece.moveTo( x, y, chess.gameBoard) == null) {
+        if (activePiece.moveTo( x, y, GameBoard.gameBoard) == null) {
 
             //tell user its null
             System.out.println("Invalid Move Selected!");
 
-            turn = false;  //complete turn
-            activePiece = null;
-
-
-            int count = 0;
-            for (Space space: activePiece.validMoves(chess.gameBoard)){
-                //need to get the button on this space to use setBackground
-                if (space != null) {
-                    Board.squares[space.xcoord][space.ycoord].setBackground(original_color[count]);
-                    count++;
-                }
-                
-            }
-            original_color = null;
-
             return;
+        }
 
-       
-
+        activeTurn = false;  //complete turn
+        activePiece = null;
+        int count = 0;
+        for (Space space: highlightedSpaces){
+            //need to get the button on this space to use setBackground
+            if (space != null) {
+                Board.squares[space.xcoord][space.ycoord].setBackground(original_color[count]);
+                count++;
             }
+            
+        }
+        original_color = null;
+        highlightedSpaces = null;
+        GameBoard.updateBoard();
+        whiteTurn = !whiteTurn;
+        return;
+
+    
 
         }
 
     }
+
+    
     public static void highlightValidMoves(Space[] validMoves){
 
 
-
+        highlightedSpaces = validMoves;
         original_color = new Color[validMoves.length];
 
         int count = 0;
