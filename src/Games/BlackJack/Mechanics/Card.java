@@ -1,3 +1,4 @@
+package visualsfx;
 public class Card {
 
     private final String face;  //face of card ("Ace", "Deuce",...)
@@ -14,6 +15,38 @@ public class Card {
     // return String representation of Card
     public String toString() {
         return face + " of " + suit;
+    }
+
+    public int getFaceValue() {
+        switch (face) {
+            case "Ace":
+                return 1;
+            case "Two":
+                return 2;
+            case "Three":
+                return 3;
+            case "Four":
+                return 4;
+            case "Five":
+                return 5;
+            case "Six":
+                return 6;
+            case "Seven":
+                return 7;
+            case "Eight":
+                return 8;
+            case "Nine":
+                return 9;
+            case "Ten":
+            case "Jack":
+            case "Queen":
+            case "King":
+                return 10;
+            default:
+                return 10;
+            
+
+        }
     }
     
 }
