@@ -13,7 +13,7 @@ public class DeckOfCards {
     // constructor fills deck of Cards
 
     public DeckOfCards() {
-        String[] faces = {"Ace", "Deuce", "Three", "Four", "Five", "Six",
+        String[] faces = {"Ace", "Two", "Three", "Four", "Five", "Six",
     "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
 
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
