@@ -88,14 +88,14 @@ public class BJSceneController {
     int cpuTotal;
 
     //declare the deck of cards so it can be accessed throughout rest of application
-    //private DeckOfCards deck;
-
+    
+    public DeckOfCards deck = new DeckOfCards();
     // Component event handling methods and methods I created to supplement event handling below such as setDealerCards and setPlayer1Cards
 
     @FXML
     public void initialize() {
-        //DeckOfCards deck = new DeckOfCards();
-        //deck.shuffle();
+        
+        deck.shuffle();
 
         
     }
