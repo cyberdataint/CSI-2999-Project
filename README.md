@@ -13,8 +13,8 @@ This is a simple Java game directory that hosts three games - .
 - [Introduction](#introduction)
 - [Games](#games)
   - [Game 1: Chess](#game-1-Chess)
-  - [Game 2: Black Jack](#game-2-)
-  - [Game 3: Dino Jump Game](#game-3-)
+  - [Game 2: Black Jack](#game-2-Black_Jack)
+  - [Game 3: Dino Jump Game](#game-3-Dino_Jump_Game)
 - [Requirements](#requirements)
 - [How to Use](#how-to-use)
 
@@ -33,14 +33,14 @@ This Java Game Directory provides a user-friendly interface to access and play t
 - Customized graphics enhance the visual appeal.
 - Includes a Time Clock feature.
 
-### Game 2: Black Jack
+### Game 2: Black_Jack
 - Single-player Black Jack with optional MPC players.
 - Hit, stand, and double down following standard rules.
 - Manage your balance and adjust bet amounts with ease.
 - Multiplayer mode adds excitement.
 - Game ends if you run out of money or complete the deck.
 
-### Game 3: Dino Jump Game
+### Game 3: Dino_Jump_Game
 - Customized Dino Jump Game with unique graphics.
 - Run as long as possible without hitting obstacles for high scores.
 - Use arrow keys to move left and right.
