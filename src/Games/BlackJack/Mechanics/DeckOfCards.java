@@ -9,6 +9,8 @@ public class DeckOfCards {
     private Card[] deck = new Card[NUMBER_OF_CARDS];    // card references
     private int currentCard = 0;    //index of next card to be dealt (0-51)
 
+    private PlayerNPC player; // reference to the player
+
     // constructor fills deck of Cards
 
     public DeckOfCards() {
@@ -54,6 +56,13 @@ public class DeckOfCards {
         }
         else {
             return null;    //return null to indicate that all Cards were dealt
+        }
+    }
+
+    public void hit() {
+        Card card = dealCard();
+        if (card != null) {
+            player.addCardToHand(card);
         }
     }
 }
