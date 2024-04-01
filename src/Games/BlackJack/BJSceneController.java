@@ -147,7 +147,7 @@ public class BJSceneController {
 
             Card dealtCard = deck.dealCard();
 
-            filename = "/Users/marktudor/Desktop/Card_pics/" +  dealtCard.toString() + ".png";
+            filename = "./Card_pics/" +  dealtCard.toString() + ".png";
 
             file = new File(filename);
 
