@@ -8,16 +8,16 @@ public class PlayerNPC {
 
     public void play(DeckOfCards deck, Card dealerVisibleCard) {
         boolean shouldHit = true;
-
         while (shouldHit) {
             int handValue = calculateHandValue(hand);
             if (handValue < 17) {
                 shouldHit = basicStrategyWithRandomness(handValue, dealerVisibleCard);
                 if (shouldHit) {
-                    hand.add(deck.dealCard());
+                    deck.hit(); // call the hit function from DeckOfCards to receive a card
                 }
             } else {
-                shouldHit = false; 
+                shouldHit = false;
+            }
         }
     }
 
@@ -39,5 +39,10 @@ public class PlayerNPC {
 
     private boolean handContainsAce(List<Card> hand) {
         return hand.stream().anyMatch(card -> card.getFace().equals("Ace"));
+    }
+
+    // method to add a card to the player's hand
+    public void addCardToHand(Card card) {
+        hand.add(card);
     }
 }
