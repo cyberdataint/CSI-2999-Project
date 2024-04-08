@@ -1,6 +1,6 @@
-package mechanics.Pieces;
-import mechanics.Piece;
-import mechanics.Space;
+package Games.Chess.Mechanics.Pieces;
+import Games.Chess.Mechanics.Piece;
+import Games.Chess.Mechanics.Space;
 import java.util.ArrayList;
 import java.util.List;
 

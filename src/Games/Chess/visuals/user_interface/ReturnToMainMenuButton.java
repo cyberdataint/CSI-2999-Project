@@ -1,4 +1,4 @@
-package visuals.user_interface;
+package Games.Chess.Visuals.user_interface;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

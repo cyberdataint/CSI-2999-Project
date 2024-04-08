@@ -1,4 +1,4 @@
-package visuals.border_panels;
+package Games.Chess.Visuals.border_panels;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -7,7 +7,7 @@ import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import visuals.user_interface.GameLog;
+import Games.Chess.Visuals.user_interface.GameLog;
 
 public class WestPanel extends JPanel {
     

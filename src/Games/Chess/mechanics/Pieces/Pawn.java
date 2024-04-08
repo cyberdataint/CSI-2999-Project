@@ -1,10 +1,10 @@
-package mechanics.Pieces;
+package Games.Chess.Mechanics.Pieces;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import mechanics.Piece;
-import mechanics.Space;
+import Games.Chess.Mechanics.Piece;
+import Games.Chess.Mechanics.Space;
 import java.util.ArrayList;
 import java.util.List;
 

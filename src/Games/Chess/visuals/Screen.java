@@ -1,4 +1,4 @@
-package visuals;
+package Games.Chess.Visuals;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,7 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import visuals.border_panels.*;
+import Games.Chess.Visuals.border_panels.*;
 
 public class Screen extends JFrame {
 
