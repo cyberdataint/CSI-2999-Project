@@ -1,4 +1,4 @@
-package visuals.user_interface;
+package Games.Chess.Visuals.user_interface;
 
 import java.awt.Dimension;
 import java.awt.Font;

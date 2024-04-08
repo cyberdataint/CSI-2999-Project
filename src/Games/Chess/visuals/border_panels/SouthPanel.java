@@ -1,4 +1,4 @@
-package visuals.border_panels;
+package Games.Chess.Visuals.border_panels;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import visuals.user_interface.RestartGameButton;
-import visuals.user_interface.ReturnToMainMenuButton;
+import Games.Chess.Visuals.user_interface.RestartGameButton;
+import Games.Chess.Visuals.user_interface.ReturnToMainMenuButton;
 
 public class SouthPanel extends JPanel {
     

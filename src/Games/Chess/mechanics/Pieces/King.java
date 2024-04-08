@@ -1,7 +1,7 @@
-package mechanics.Pieces;
-import mechanics.Piece;
-import mechanics.Space;
-import mechanics.Game;
+package Games.Chess.Mechanics.Pieces;
+import Games.Chess.Mechanics.Piece;
+import Games.Chess.Mechanics.Space;
+import Games.Chess.Mechanics.Game;
 
 public class King implements Piece {
     private int[] position;

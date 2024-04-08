@@ -1,4 +1,4 @@
-package mechanics;
+package Games.Chess.Mechanics;
 
 public class Space {
     public Piece occupant; //pieces should only be accessed by input handling via occupants of a space

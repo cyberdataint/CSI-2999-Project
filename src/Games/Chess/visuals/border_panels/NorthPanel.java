@@ -1,4 +1,4 @@
-package visuals.border_panels;
+package Games.Chess.Visuals.border_panels;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

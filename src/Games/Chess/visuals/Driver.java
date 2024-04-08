@@ -1,7 +1,7 @@
-package visuals;
+package Games.Chess.Visuals;
 
 
-import mechanics.Game;
+import Games.Chess.Mechanics.Game;
 
 public class Driver {
 

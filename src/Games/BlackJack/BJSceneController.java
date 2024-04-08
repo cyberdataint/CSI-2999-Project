@@ -1,6 +1,6 @@
-package visualsfx;
-import visualsfx.DeckOfCards;
-import visualsfx.Card;
+package Games.BlackJack;
+import Games.BlackJack.Mechanics.DeckOfCards;
+import Games.BlackJack.Mechanics.Card;
 
 import javafx.animation.FadeTransition;
 import javafx.util.Duration;

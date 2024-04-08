@@ -1,10 +1,10 @@
-package InputHandling;
+package Games.Chess.InputHandling;
 
 import java.awt.Color;
-import mechanics.GameBoard;
-import mechanics.Space;
-import mechanics.Piece;
-import visuals.user_interface.Board;
+import Games.Chess.Mechanics.GameBoard;
+import Games.Chess.Mechanics.Space;
+import Games.Chess.Mechanics.Piece;
+import Games.Chess.Visuals.user_interface.Board;
 
 public class HandleInput {
     

@@ -1,10 +1,10 @@
-package mechanics;
+package Games.Chess.Mechanics;
 
 import java.awt.Color;
 
-import visuals.border_panels.NorthPanel;
-import visuals.border_panels.SouthPanel;
-import visuals.user_interface.GameLog;
+import Games.Chess.Visuals.border_panels.NorthPanel;
+import Games.Chess.Visuals.border_panels.SouthPanel;
+import Games.Chess.Visuals.user_interface.GameLog;
 
 public class Game {
 

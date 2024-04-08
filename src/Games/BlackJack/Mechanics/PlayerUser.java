@@ -1,8 +1,8 @@
-package BlackJack.Mechanics;
+package Games.BlackJack.Mechanics;
 
 import java.util.ArrayList;
 import java.util.List;
-import BlackJack.Mechanics.DeckOfCards;
+import Games.BlackJack.Mechanics.DeckOfCards;
 
 public class PlayerUser {
     private List<Card> hand = new ArrayList<>();
