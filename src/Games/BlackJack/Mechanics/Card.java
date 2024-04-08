@@ -1,4 +1,4 @@
-package visualsfx;
+package Games.BlackJack.Mechanics;
 public class Card {
 
     private final String face;  //face of card ("Ace", "Deuce",...)

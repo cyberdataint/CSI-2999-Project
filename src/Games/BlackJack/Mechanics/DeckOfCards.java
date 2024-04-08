@@ -1,4 +1,4 @@
-package BlackJack.Mechanics;
+package Games.BlackJack.Mechanics;
 
 import java.security.SecureRandom;
 
