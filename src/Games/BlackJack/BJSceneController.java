@@ -189,7 +189,7 @@ public class BJSceneController {
             //have to keep this card but not display it, this is the "face down card"
             Card notShownCard = deck.dealCard();
 
-            filename = "/Users/marktudor/Desktop/Card_pics/" +  "BACK" + ".png";
+            filename = "./Card_pics/" +  "BACK" + ".png";
 
             file = new File(filename);
 
@@ -245,7 +245,7 @@ public class BJSceneController {
         for (int i = 0; i < 2; i++){
             Card dealtCard = deck.dealCard();
 
-            filename = "/Users/marktudor/Desktop/Card_pics/" +  dealtCard.toString() + ".png";
+            filename = "./Card_pics/" +  dealtCard.toString() + ".png";
 
             file = new File(filename);
 
@@ -306,7 +306,7 @@ public class BJSceneController {
         for (int i = 0; i < 2; i++){
             Card dealtCard = deck.dealCard();
 
-            filename = "/Users/marktudor/Desktop/Card_pics/" +  dealtCard.toString() + ".png";
+            filename = "./Card_pics/" +  dealtCard.toString() + ".png";
 
             file = new File(filename);
 

@@ -4,5 +4,6 @@ import java.util.List;
 public interface Player {
     public List<Card> getHand();
     public String name();
-    // public void hit(); hit happens from deck?
+    public void hit(Card card);
+    public void clearHand();
 }
