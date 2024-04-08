@@ -17,6 +17,14 @@ public class Card {
         return face + " of " + suit;
     }
 
+    public String getFace() {
+        return face;
+    }
+
+    public String getSuit() {
+        return suit;
+    }
+
     public int getFaceValue() {
         switch (face) {
             case "Ace":

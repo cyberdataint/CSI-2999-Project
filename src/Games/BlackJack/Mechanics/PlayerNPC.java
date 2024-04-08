@@ -33,7 +33,7 @@ public class PlayerNPC {
     private int calculateHandValue(List<Card> hand) {
         int value = 0;
         for (Card card : hand) {
-            value += card.getValue();
+            value += card.getFaceValue();
         }
         return value;
     }
