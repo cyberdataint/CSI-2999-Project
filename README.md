@@ -10,20 +10,25 @@
 This is a simple Java game directory that hosts three games - .
 
 ## Table of Contents
-- [Introduction](#introduction)
+- [Description](#description)
 - [Games](#games)
-  - [Game 1: Chess](#game-1-Chess)
-  - [Game 2: Black Jack](#game-2-Black_Jack)
-  - [Game 3: Dino Jump Game](#game-3-Dino_Jump_Game)
-- [Clone Repo](#clone-repo)
-- [How to play offline game](#how-to-play-offline-game)
+- [User Manual](#user-manual)
 - [Requirements](#requirements)
 
 
 
-## Introduction
+## Description
 
-This Java Game Directory provides a user-friendly interface to access and play three different games.
+Welcome to the Java Game Directory! This directory provides a user-friendly interface to access and play three different games. Each game is developed using different technologies for both front- and back-end:
+
+- **Chess:** Created using Java Swing, this classic chess game offers strategic gameplay for two players. Enjoy the authentic experience of standard chess rules with a user-friendly interface and customized graphics. The game also includes a Time Clock feature.
+  
+- **Black Jack:** Developed with JavaFX, this single-player Black Jack game allows you to hit, stand, and double down following standard rules. Manage your balance, adjust bet amounts, and experience the excitement of multiplayer mode.
+  
+- **Dino Jump Game:** Built with GoDot, this customized Dino Jump Game features unique graphics and continuous gameplay for endless fun. Use arrow keys to move left and right, press space to jump, and avoid obstacles to achieve high scores. The game's difficulty increases as you progress.
+
+Explore each game and enjoy hours of entertainment with our Java Game Directory!
+
 
 ## Games
 
@@ -59,7 +64,7 @@ This Java Game Directory provides a user-friendly interface to access and play t
    git clone https://github.com/cyberdataint/CSI-2999-Project.git
 ~~~
 
-## How to play offline game
+## User Manual
 
 BlackJack: 
   1. Click on 'Offline BlackJack' button
