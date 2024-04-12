@@ -33,4 +33,12 @@ public class DealerNPC {
     public void clearHand() {
         hand.clear();
     }
+    // allows the object to recieve a card and add it to the hand
+    public void receiveCard(Card card) {
+        hand.add(card);
+    }
+
+    public void clearHand() {
+        hand.clear();
+    }
 }

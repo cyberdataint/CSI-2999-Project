@@ -41,6 +41,18 @@ public class PlayerNPC {
     private boolean handContainsAce(List<Card> hand) {
         return hand.stream().anyMatch(card -> card.getFace().equals("Ace"));
     }
+<<<<<<< HEAD
+    // allows the object to recieve a card and add it to the hand
+    public void receiveCard(Card card) {
+        hand.add(card);
+    }
+
+    // function to get the hand
+    public List<Card> getHand() {
+        return hand;
+    }
+=======
+>>>>>>> main
 
     public void clearHand() {
         hand.clear();

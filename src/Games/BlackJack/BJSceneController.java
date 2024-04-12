@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/Games/BlackJack/Mechanics/BJSceneController.java
+package Games.BlackJack.Mechanics;
+=======
 package Games.BlackJack;
+>>>>>>> main:src/Games/BlackJack/BJSceneController.java
 import Games.BlackJack.Mechanics.DeckOfCards;
 import Games.BlackJack.Mechanics.Card;
 
@@ -81,20 +85,21 @@ public class BJSceneController {
     @FXML
     private GridPane player2Grid2;
   
-    //variables I want to be able to access throughout code below,  declaring dealer, player totals
-    int dealerTotal;
-    int player1Total;
-    int player2Total;
-    int cpuTotal;
+
+   
 
     //declare the deck of cards so it can be accessed throughout rest of application
     
     public DeckOfCards deck = new DeckOfCards();
-    // Component event handling methods and methods I created to supplement event handling below such as setDealerCards and setPlayer1Cards
+
+    // Declare globally to be accessible throughout
+    DealerNPC dealer = new DealerNPC();
+    PlayerNPC playerNPC = new PlayerNPC();
+
+    Card dealerCardNotShown;    // the second card in the dealers hand that is not displayed until the end of the turn
 
     @FXML
     public void initialize() {
-        
         deck.shuffle();
 
         
@@ -126,28 +131,40 @@ public class BJSceneController {
     @FXML
     void dealCardButtonPressed(ActionEvent event) throws Exception {
         winLabel.setText("");
-        DeckOfCards deck = new DeckOfCards();
-        deck.shuffle();
 
-        setDealerCards(dealerGrid1, deck);
-        setPlayer1Cards(player1Grid1, deck);
-        setCPUcards(cpuGrid1, deck);
+        // Clear all GridPanes before dealing new cards
+        clearGridPane(dealerGrid1);
+        clearGridPane(cpuGrid1);
+
+        //clear player hands before dealing new cards
+        playerNPC.clearHand();
+        dealer.clearHand();
+
+        // pull cards from deck and give cards to playerNPC and dealer objects
+        for (int i = 0; i < 2; i++) {
+            pullCardDealer();
+            pullCardPlayerNPC();
+        }
+                
+        // display initial cards
+        setDealerCards(dealerGrid1,dealer.getHand());
+        displayHand(cpuGrid1,playerNPC.getHand());
 
         }
 
 
-    public void setDealerCards(GridPane dealergrid, DeckOfCards deck) {
-            dealerTotal = 0;
-            int dealerAcetotal = 0;
-            boolean dealerAceCard = false;
-            int cardValue = 0;
+    public void setDealerCards(GridPane dealergrid, List<Card> hand) {
 
             String filename;
             File file;
 
-            Card dealtCard = deck.dealCard();
+            Card card1inHand = hand.get(0);
 
+<<<<<<< HEAD:src/Games/BlackJack/Mechanics/BJSceneController.java
+            filename = "/Users/marktudor/Desktop/Card_pics/" +  card1inHand.toString() + ".png";
+=======
             filename = "./Card_pics/" +  dealtCard.toString() + ".png";
+>>>>>>> main:src/Games/BlackJack/BJSceneController.java
 
             file = new File(filename);
 
@@ -164,30 +181,12 @@ public class BJSceneController {
             fadeTransition.setToValue(1);
             //fadeTransition.setDelay(Duration.seconds(2)); // Delay based on card index
             fadeTransition.play();
-            cardValue = dealtCard.getFaceValue();
-            if (cardValue == 1) {
-                dealerTotal += cardValue;
-                dealerAcetotal += 11;
-                dealerAceCard = true;
-            }
-            else {
-                dealerTotal += cardValue;
-            }
-            if (dealerTotal == 1) {
-                int secondtotal = dealerTotal + 11;
-                dealerTotalLabel.setText("" + dealerTotal + "/" + secondtotal);
-            }
-            else {
-                dealerTotalLabel.setText("" + dealerTotal);
-            }
-            
-            
             }
             else {
             System.out.println("NOT FOUND");
             }
             //have to keep this card but not display it, this is the "face down card"
-            Card notShownCard = deck.dealCard();
+            Card dealerCardNotShown = hand.get(1);
 
             filename = "./Card_pics/" +  "BACK" + ".png";
 
@@ -206,39 +205,12 @@ public class BJSceneController {
             fadeTransition.setToValue(1);
             //fadeTransition.setDelay(Duration.seconds(2)); // Delay based on card index
             fadeTransition.play();
-            
-            cardValue = dealtCard.getFaceValue();
-            if (cardValue == 1) {
-                dealerTotal += cardValue;
-                if (dealerAcetotal == 11) {
-                    dealerAcetotal += 1;
-                }
-                else {
-                    dealerAcetotal += cardValue;
-                }
-            }
-            /* 
-            if (dealerAceCard) {
-                dealerTotalLabel.setText("" + dealerTotal + "/" + dealerAcetotal);
-            }
-            else {
-                dealerTotalLabel.setText("" + dealerTotal);
-            }
-            }
-            else {
-            System.out.println("NOT FOUND");
-            }
-            dealerTotalLabel.setText("" + dealerTotal);
-            */
         }
 
     }
-    public void setPlayer1Cards(GridPane player1Grid1, DeckOfCards deck) {
-        player1Total = 0;
-        int player1Acetotal = 0;
-        boolean playerAceCard = false;
-        int cardValue = 0;
 
+<<<<<<< HEAD:src/Games/BlackJack/Mechanics/BJSceneController.java
+=======
         String filename;
         File file;
         
@@ -358,19 +330,78 @@ public class BJSceneController {
 
 
     
+>>>>>>> main:src/Games/BlackJack/BJSceneController.java
 
     @FXML
     void hitButtonPressed(ActionEvent event) {
-        
+        // Have to know which object selected to hit
+
+        // pull card method will be called
+        // displayHand method will be called
     }
 
     @FXML
     void standButtonPressed(ActionEvent event) {
+        // turn is ended
+    }
 
-    }
+    public void displayHand(GridPane gridToDisplayCards, List<Card> hand) {
+        // variables
+        String filename;
+        File file;
+
+        for (int i = 0; i < hand.size(); i++){
+
+            Card cardInHand = hand.get(i);
     
+            filename = "/Users/marktudor/Desktop/Card_pics/" +  cardInHand.toString() + ".png";
     
-     
-    }
+            file = new File(filename);
+    
+            if (file.exists()) {
+            //load and display card image
+            Image cardImage = new Image(file.toURI().toString());
+            ImageView imageView = new ImageView(cardImage);
+            imageView.setFitWidth(50);
+            imageView.setFitHeight(58);
+            imageView.setOpacity(0);
+            gridToDisplayCards.add(imageView,i,0);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), imageView);
+            fadeTransition.setFromValue(0);
+            fadeTransition.setToValue(1);
+            //not going to use fade transition with delay  
+            //fadeTransition.setDelay(Duration.seconds(i)); // Delay based on card index
+            fadeTransition.play();
+    
+        }
+
+        }
+
+}
+// these functions pull cards from the deck and add to the hand of the respective object
+public void pullCardPlayerNPC() {
+    Card dealtCard = deck.dealCard();
+    playerNPC.receiveCard(dealtCard);
+}
+
+public void pullCardDealer() {
+    Card dealtCard = deck.dealCard();
+    dealer.receiveCard(dealtCard);
+}
+
+// method to clear GridPane of cards
+public void clearGridPane(GridPane gridPane) {
+    gridPane.getChildren().clear();
+}
+
+
+
+
+
+
+
+
+
+}
 
 
