@@ -84,12 +84,15 @@ public class Game {
 
     }
 
-    public static void endGame() {
-
+    public static void endGame(boolean color) {
         // implement procedure for when game is won
         
-        // possibly have it linked to the king piece being taken
-        // within the king class
+        if (color) { //white king is dead, black wins
+            
+        }
+        else { //black king is dead, white wins
+
+        }
 
     }
 
