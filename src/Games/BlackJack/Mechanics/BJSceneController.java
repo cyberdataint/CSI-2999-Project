@@ -87,13 +87,13 @@ public class BJSceneController {
     int player2Total;
     int cpuTotal;
 
-    Card dealerCardNotShown;    // the second card in the dealers hand that is not displayed until the end
+    Card dealerCardNotShown;    // the second card in the dealers hand that is not displayed until the end of the turn
 
     //declare the deck of cards so it can be accessed throughout rest of application
     
     public DeckOfCards deck = new DeckOfCards();
 
-    // Declare globally to be accessible throughout?
+    // Declare globally to be accessible throughout
     DealerNPC dealer = new DealerNPC();
     PlayerNPC playerNPC = new PlayerNPC();
 
@@ -207,12 +207,15 @@ public class BJSceneController {
 
     @FXML
     void hitButtonPressed(ActionEvent event) {
-        
+        // Have to know which object selected to hit
+
+        // pull card method will be called
+        // displayHand method will be called
     }
 
     @FXML
     void standButtonPressed(ActionEvent event) {
-
+        // turn is ended
     }
 
     public void displayHand(GridPane gridToDisplayCards, List<Card> hand) {
@@ -220,7 +223,7 @@ public class BJSceneController {
         String filename;
         File file;
 
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < hand.size(); i++){
 
             Card cardInHand = hand.get(i);
     
