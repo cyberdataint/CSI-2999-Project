@@ -81,13 +81,8 @@ public class BJSceneController {
     @FXML
     private GridPane player2Grid2;
   
-    //variables I want to be able to access throughout code below,  declaring dealer, player totals
-    int dealerTotal;
-    int player1Total;
-    int player2Total;
-    int cpuTotal;
 
-    Card dealerCardNotShown;    // the second card in the dealers hand that is not displayed until the end of the turn
+   
 
     //declare the deck of cards so it can be accessed throughout rest of application
     
@@ -96,6 +91,8 @@ public class BJSceneController {
     // Declare globally to be accessible throughout
     DealerNPC dealer = new DealerNPC();
     PlayerNPC playerNPC = new PlayerNPC();
+
+    Card dealerCardNotShown;    // the second card in the dealers hand that is not displayed until the end of the turn
 
     @FXML
     public void initialize() {
@@ -131,17 +128,10 @@ public class BJSceneController {
     void dealCardButtonPressed(ActionEvent event) throws Exception {
         winLabel.setText("");
 
-        Card dealtCard;
-
         // pull cards from deck and give cards to playerNPC and dealer objects
         for (int i = 0; i < 2; i++) {
             pullCardDealer();
-            dealer.receiveCard(dealtCard);
-        }
-
-        for (int i = 0; i < 2; i++) {
             pullCardPlayerNPC();
-            playerNPC.receiveCard(dealtCard);
         }
                 
         // display initial cards
