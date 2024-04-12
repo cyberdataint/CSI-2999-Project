@@ -130,18 +130,17 @@ public class BJSceneController {
     @FXML
     void dealCardButtonPressed(ActionEvent event) throws Exception {
         winLabel.setText("");
-        deck.shuffle();
 
         Card dealtCard;
 
         // pull cards from deck and give cards to playerNPC and dealer objects
         for (int i = 0; i < 2; i++) {
-            dealtCard = deck.dealCard();
+            pullCardDealer();
             dealer.receiveCard(dealtCard);
         }
 
         for (int i = 0; i < 2; i++) {
-            dealtCard = deck.dealCard();
+            pullCardPlayerNPC();
             playerNPC.receiveCard(dealtCard);
         }
                 
