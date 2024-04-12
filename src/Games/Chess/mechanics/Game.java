@@ -1,10 +1,10 @@
-package mechanics;
+package Games.Chess.Mechanics;
 
 import java.awt.Color;
 
-import visuals.border_panels.NorthPanel;
-import visuals.border_panels.SouthPanel;
-import visuals.user_interface.GameLog;
+import Games.Chess.Visuals.border_panels.NorthPanel;
+import Games.Chess.Visuals.border_panels.SouthPanel;
+import Games.Chess.Visuals.user_interface.GameLog;
 
 public class Game {
 
@@ -84,12 +84,15 @@ public class Game {
 
     }
 
-    public static void endGame() {
-
+    public static void endGame(boolean color) {
         // implement procedure for when game is won
         
-        // possibly have it linked to the king piece being taken
-        // within the king class
+        if (color) { //white king is dead, black wins
+            
+        }
+        else { //black king is dead, white wins
+
+        }
 
     }
 

@@ -1,3 +1,4 @@
+package Games.BlackJack.Mechanics;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,16 +9,16 @@ public class PlayerNPC {
 
     public void play(DeckOfCards deck, Card dealerVisibleCard) {
         boolean shouldHit = true;
-
         while (shouldHit) {
             int handValue = calculateHandValue(hand);
             if (handValue < 17) {
                 shouldHit = basicStrategyWithRandomness(handValue, dealerVisibleCard);
                 if (shouldHit) {
-                    hand.add(deck.dealCard());
+                    deck.hit(); // This calls the hit method that adds a card to the player's hand
                 }
             } else {
-                shouldHit = false; 
+                shouldHit = false;
+            }
         }
     }
 
@@ -40,6 +41,7 @@ public class PlayerNPC {
     private boolean handContainsAce(List<Card> hand) {
         return hand.stream().anyMatch(card -> card.getFace().equals("Ace"));
     }
+<<<<<<< HEAD
     // allows the object to recieve a card and add it to the hand
     public void receiveCard(Card card) {
         hand.add(card);
@@ -49,6 +51,8 @@ public class PlayerNPC {
     public List<Card> getHand() {
         return hand;
     }
+=======
+>>>>>>> main
 
     public void clearHand() {
         hand.clear();

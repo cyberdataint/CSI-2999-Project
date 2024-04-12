@@ -1,12 +1,10 @@
-package mechanics.Pieces;
+package Games.Chess.Mechanics.Pieces;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import mechanics.Piece;
-import mechanics.Space;
-import java.util.ArrayList;
-import java.util.List;
+import Games.Chess.Mechanics.Piece;
+import Games.Chess.Mechanics.Space;
 
 public class Pawn implements Piece {
     private int x, y;

@@ -1,12 +1,12 @@
-package mechanics.Pieces;
+package Games.Chess.Mechanics.Pieces;
 import java.io.File;
 
 import javax.swing.ImageIcon;
 
-import mechanics.Piece;
-import mechanics.Space;
+import Games.Chess.Mechanics.Piece;
+import Games.Chess.Mechanics.Space;
 
-import visuals.user_interface.Board;
+import Games.Chess.Visuals.user_interface.Board;
 
 public class Knight implements Piece {
     private int[] position;

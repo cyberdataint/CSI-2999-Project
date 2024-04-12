@@ -1,7 +1,8 @@
-package mechanics.Pieces;
-import mechanics.Piece;
-import mechanics.Space;
-import mechanics.Game;
+package Games.Chess.Mechanics.Pieces;
+import Games.Chess.Mechanics.Piece;
+import Games.Chess.Mechanics.Space;
+import Games.Chess.Mechanics.Game;
+import Games.Chess.Mechanics.GameBoard;
 
 public class King implements Piece {
     private int[] position;
@@ -32,105 +33,127 @@ public class King implements Piece {
         //^
         if (pos[1]+1 < 8){
             if (!board[pos[0]][pos[1]+1].containsAlly(this)) {
-                moves[moveCounter] = board[pos[0]][pos[1]+1]; //valid move
-                moveCounter++;
-                if (this.color) {
-                    board[pos[0]][pos[1]+1].wdanger=true;
+                if (!(board[pos[0]][pos[1]+1].bdanger && this.color) && !(board[pos[0]][pos[1]+1].wdanger && !this.color)) {//if king isn't putting themselves in danger
+                    moves[moveCounter] = board[pos[0]][pos[1]+1]; //valid move
+                    moveCounter++;
+                    if (this.color) {
+                        board[pos[0]][pos[1]+1].wdanger=true;
+                    }
+                    else {
+                        board[pos[0]][pos[1]+1].bdanger=true;
+                    }
                 }
-                else {
-                    board[pos[0]][pos[1]+1].bdanger=true;
-                }
+                
             }
         }
         //>^
         if (pos[0]+1 < 8 && pos[1]+1 < 8){
             if (!board[pos[0]+1][pos[1]+1].containsAlly(this)) {
-                moves[moveCounter] = board[pos[0]+1][pos[1]+1]; //valid move
-                moveCounter++;
-                if (this.color) {
-                    board[pos[0]+1][pos[1]+1].wdanger=true;
-                }
-                else {
-                    board[pos[0]+1][pos[1]+1].bdanger=true;
+                if (!(board[pos[0]+1][pos[1]+1].bdanger && this.color) && !(board[pos[0]+1][pos[1]+1].wdanger && !this.color)) {
+                    moves[moveCounter] = board[pos[0]+1][pos[1]+1]; //valid move
+                    moveCounter++;
+                    if (this.color) {
+                        board[pos[0]+1][pos[1]+1].wdanger=true;
+                    }
+                    else {
+                        board[pos[0]+1][pos[1]+1].bdanger=true;
+                    }
                 }
             }
         }
         //>
         if (pos[0]+1 < 8){
             if (!board[pos[0]+1][pos[1]].containsAlly(this)) {
-                moves[moveCounter] = board[pos[0]+1][pos[1]]; //valid move
-                moveCounter++;
-                if (this.color) {
-                    board[pos[0]+1][pos[1]].wdanger=true;
-                }
-                else {
-                    board[pos[0]+1][pos[1]].bdanger=true;
+                if (!(board[pos[0]+1][pos[1]].bdanger && this.color) && !(board[pos[0]+1][pos[1]].wdanger && !this.color)) {
+                    moves[moveCounter] = board[pos[0]+1][pos[1]]; //valid move
+                    moveCounter++;
+                    if (this.color) {
+                        board[pos[0]+1][pos[1]].wdanger=true;
+                    }
+                    else {
+                        board[pos[0]+1][pos[1]].bdanger=true;
+                    }
                 }
             }
         }
         //>v
         if (pos[0]+1 < 8 && pos[1]-1 > -1){
             if (!board[pos[0]+1][pos[1]-1].containsAlly(this)) {
-                moves[moveCounter] = board[pos[0]+1][pos[1]-1]; //valid move
-                moveCounter++;
-                if (this.color) {
-                    board[pos[0]+1][pos[1]-1].wdanger=true;
-                }
-                else {
-                    board[pos[0]+1][pos[1]-1].bdanger=true;
+                if (!(board[pos[0]+1][pos[1]-1].bdanger && this.color) && !(board[pos[0]+1][pos[1]-1].wdanger && !this.color)) {
+                    moves[moveCounter] = board[pos[0]+1][pos[1]-1]; //valid move
+                    moveCounter++;
+                    if (this.color) {
+                        board[pos[0]+1][pos[1]-1].wdanger=true;
+                    }
+                    else {
+                        board[pos[0]+1][pos[1]-1].bdanger=true;
+                    }
                 }
             }
         }
         //v
         if (pos[1]-1 > -1){
             if (!board[pos[0]][pos[1]-1].containsAlly(this)) {
-                moves[moveCounter] = board[pos[0]][pos[1]-1]; //valid move
-                moveCounter++;
-                if (this.color) {
-                    board[pos[0]][pos[1]-1].wdanger=true;
-                }
-                else {
-                    board[pos[0]][pos[1]-1].bdanger=true;
+                if (!(board[pos[0]][pos[1]-1].bdanger && this.color) && !(board[pos[0]][pos[1]-1].wdanger && !this.color)) {
+                    moves[moveCounter] = board[pos[0]][pos[1]-1]; //valid move
+                    moveCounter++;
+                    if (this.color) {
+                        board[pos[0]][pos[1]-1].wdanger=true;
+                    }
+                    else {
+                        board[pos[0]][pos[1]-1].bdanger=true;
+                    }
                 }
             }
         }
         //<v
         if (pos[0]-1 > -1 && pos[1]-1 > -1){
             if (!board[pos[0]-1][pos[1]-1].containsAlly(this)) {
-                moves[moveCounter] = board[pos[0]-1][pos[1]-1]; //valid move
-                moveCounter++;
-                if (this.color) {
-                    board[pos[0]-1][pos[1]-1].wdanger=true;
-                }
-                else {
-                    board[pos[0]-1][pos[1]-1].bdanger=true;
+                if (!(board[pos[0]-1][pos[1]-1].bdanger && this.color) && !(board[pos[0]-1][pos[1]-1].wdanger && !this.color)) {
+                    moves[moveCounter] = board[pos[0]-1][pos[1]-1]; //valid move
+                    moveCounter++;
+                    if (this.color) {
+                        board[pos[0]-1][pos[1]-1].wdanger=true;
+                    }
+                    else {
+                        board[pos[0]-1][pos[1]-1].bdanger=true;
+                    }
                 }
             }
         }
         //<
         if (pos[0]-1 > -1){
             if (!board[pos[0]-1][pos[1]].containsAlly(this)) {
-                moves[moveCounter] = board[pos[0]-1][pos[1]]; //valid move
-                moveCounter++;
-                if (this.color) {
-                    board[pos[0]-1][pos[1]].wdanger=true;
-                }
-                else {
-                    board[pos[0]-1][pos[1]].bdanger=true;
+                if (!(board[pos[0]-1][pos[1]].bdanger && this.color) && !(board[pos[0]-1][pos[1]].wdanger && !this.color)) {
+                    moves[moveCounter] = board[pos[0]-1][pos[1]]; //valid move
+                    moveCounter++;
+                    if (this.color) {
+                        board[pos[0]-1][pos[1]].wdanger=true;
+                    }
+                    else {
+                        board[pos[0]-1][pos[1]].bdanger=true;
+                    }
                 }
             }
         }
         //<^
         if (pos[0]-1 > -1 && pos[1]+1 < 8){
             if (!board[pos[0]-1][pos[1]+1].containsAlly(this)) {
-                moves[moveCounter] = board[pos[0]-1][pos[1]+1]; //valid move
-                moveCounter++;
-                if (this.color) {
-                    board[pos[0]-1][pos[1]+1].wdanger=true;
+                if (!(board[pos[0]-1][pos[1]+1].bdanger && this.color) && !(board[pos[0]-1][pos[1]+1].wdanger && !this.color)) {
+                    moves[moveCounter] = board[pos[0]-1][pos[1]+1]; //valid move
+                    moveCounter++;
+                    if (this.color) {
+                        board[pos[0]-1][pos[1]+1].wdanger=true;
+                    }
+                    else {
+                        board[pos[0]-1][pos[1]+1].bdanger=true;
+                    }
                 }
-                else {
-                    board[pos[0]-1][pos[1]+1].bdanger=true;
-                }
+            }
+        }
+        if (moveCounter == 0) {
+            if ((this.color && GameBoard.whiteChecked()) || (!this.color && GameBoard.blackChecked())) {
+                this.remove(board);
             }
         }
         return moves;
@@ -161,7 +184,7 @@ public class King implements Piece {
         board[this.position[0]][this.position[1]].occupant = null;
         this.position = null;
         //end game
-        Game.endGame();
+        Game.endGame(this.getColor());
     }
 
     public int[] getPos() {

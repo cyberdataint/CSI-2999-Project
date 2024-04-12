@@ -1,4 +1,4 @@
-package mechanics;
+package Games.Chess.Mechanics;
 
 public interface Piece {
     public boolean getColor(); //black or white

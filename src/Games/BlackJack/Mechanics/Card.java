@@ -1,4 +1,4 @@
-package visualsfx;
+package Games.BlackJack.Mechanics;
 public class Card {
 
     private final String face;  //face of card ("Ace", "Deuce",...)
@@ -15,6 +15,14 @@ public class Card {
     // return String representation of Card
     public String toString() {
         return face + " of " + suit;
+    }
+
+    public String getFace() {
+        return face;
+    }
+
+    public String getSuit() {
+        return suit;
     }
 
     public int getFaceValue() {

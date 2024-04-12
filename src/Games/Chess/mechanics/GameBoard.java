@@ -1,7 +1,7 @@
-package mechanics;
-import mechanics.Pieces.Bishop;
-import mechanics.Pieces.Knight;
-import mechanics.Pieces.King;
+package Games.Chess.Mechanics;
+import Games.Chess.Mechanics.Pieces.Bishop;
+import Games.Chess.Mechanics.Pieces.Knight;
+import Games.Chess.Mechanics.Pieces.King;
 //import other pieces when ready
 
 public class GameBoard {
