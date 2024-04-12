@@ -31,6 +31,7 @@ public static Piece activePiece = null;
 
 public static Color[] original_color = null;
 public static Space[] highlightedSpaces;
+public static Space clickedSpace;
 
 
 public static void handleButtonPress(int x, int y){
@@ -42,7 +43,7 @@ public static void handleButtonPress(int x, int y){
         System.out.println("Button handled");
 
         //get the space at the clicked coordinates
-        Space clickedSpace = GameBoard.gameBoard[x][y];
+        clickedSpace = GameBoard.gameBoard[x][y];
 
         //check if space is occupied
         if (clickedSpace.occupant != null){
@@ -64,6 +65,21 @@ public static void handleButtonPress(int x, int y){
                 }
                 return;
             }
+            if (whiteTurn) {
+                if (GameBoard.whiteChecked() && activePiece.getName() != "King") {
+                    System.out.println("White King is checked! Save the King!");
+                    activePiece = null;
+                    return;
+                }
+            }
+            else {
+                if (GameBoard.blackChecked() && activePiece.getName() != "King") {
+                    System.out.println("Black King is checked! Save the King!");
+                    activePiece = null;
+                    return;
+                }
+            }
+
             Space[] validMoves = clickedPiece.validMoves(GameBoard.gameBoard);
 
             //light up valid move spaces
@@ -85,8 +101,7 @@ public static void handleButtonPress(int x, int y){
 
     if (activeTurn == true) {
 
-
-
+        
         if (activePiece.moveTo( x, y, GameBoard.gameBoard) == null) {
 
             //tell user its null

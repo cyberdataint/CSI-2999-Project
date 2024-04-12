@@ -5,8 +5,6 @@ import java.util.List;
 
 import Games.Chess.Mechanics.Piece;
 import Games.Chess.Mechanics.Space;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Pawn implements Piece {
     private int x, y;
