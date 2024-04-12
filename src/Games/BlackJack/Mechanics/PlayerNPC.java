@@ -14,7 +14,7 @@ public class PlayerNPC {
             if (handValue < 17) {
                 shouldHit = basicStrategyWithRandomness(handValue, dealerVisibleCard);
                 if (shouldHit) {
-                    deck.hit(); // call the hit function from DeckOfCards to receive a card
+                    deck.hit(); // This calls the hit method that adds a card to the player's hand
                 }
             } else {
                 shouldHit = false;
@@ -42,8 +42,7 @@ public class PlayerNPC {
         return hand.stream().anyMatch(card -> card.getFace().equals("Ace"));
     }
 
-    // method to add a card to the player's hand
-    public void addCardToHand(Card card) {
-        hand.add(card);
+    public void clearHand() {
+        hand.clear();
     }
 }
