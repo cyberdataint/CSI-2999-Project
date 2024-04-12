@@ -27,4 +27,8 @@ public class DealerNPC {
         }
         return null; 
     }
+    // allows the object to recieve a card and add it to the hand
+    public void receiveCard(Card card) {
+        hand.add(card);
+    }
 }

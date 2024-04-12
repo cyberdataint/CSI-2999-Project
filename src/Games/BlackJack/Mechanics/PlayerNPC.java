@@ -32,12 +32,21 @@ public class PlayerNPC {
     private int calculateHandValue(List<Card> hand) {
         int value = 0;
         for (Card card : hand) {
-            value += card.getValue();
+            value += card.getFaceValue();
         }
         return value;
     }
 
     private boolean handContainsAce(List<Card> hand) {
         return hand.stream().anyMatch(card -> card.getFace().equals("Ace"));
+    }
+    // allows the object to recieve a card and add it to the hand
+    public void receiveCard(Card card) {
+        hand.add(card);
+    }
+
+    // function to get the hand
+    public List<Card> getHand() {
+        return hand;
     }
 }

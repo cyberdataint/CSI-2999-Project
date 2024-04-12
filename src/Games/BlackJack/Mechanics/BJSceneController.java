@@ -87,14 +87,18 @@ public class BJSceneController {
     int player2Total;
     int cpuTotal;
 
+    Card dealerCardNotShown;    // the second card in the dealers hand that is not displayed until the end
+
     //declare the deck of cards so it can be accessed throughout rest of application
     
     public DeckOfCards deck = new DeckOfCards();
-    // Component event handling methods and methods I created to supplement event handling below such as setDealerCards and setPlayer1Cards
+
+    // Declare globally to be accessible throughout?
+    DealerNPC dealer = new DealerNPC();
+    PlayerNPC playerNPC = new PlayerNPC();
 
     @FXML
     public void initialize() {
-        
         deck.shuffle();
 
         
@@ -126,28 +130,36 @@ public class BJSceneController {
     @FXML
     void dealCardButtonPressed(ActionEvent event) throws Exception {
         winLabel.setText("");
-        DeckOfCards deck = new DeckOfCards();
         deck.shuffle();
 
-        setDealerCards(dealerGrid1, deck);
-        setPlayer1Cards(player1Grid1, deck);
-        setCPUcards(cpuGrid1, deck);
+        Card dealtCard;
+
+        // pull cards from deck and give cards to playerNPC and dealer objects
+        for (int i = 0; i < 2; i++) {
+            dealtCard = deck.dealCard();
+            dealer.receiveCard(dealtCard);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            dealtCard = deck.dealCard();
+            playerNPC.receiveCard(dealtCard);
+        }
+                
+        // display initial cards
+        setDealerCards(dealerGrid1,dealer.getHand());
+        displayHand(cpuGrid1,playerNPC.getHand());
 
         }
 
 
-    public void setDealerCards(GridPane dealergrid, DeckOfCards deck) {
-            dealerTotal = 0;
-            int dealerAcetotal = 0;
-            boolean dealerAceCard = false;
-            int cardValue = 0;
+    public void setDealerCards(GridPane dealergrid, List<Card> hand) {
 
             String filename;
             File file;
 
-            Card dealtCard = deck.dealCard();
+            Card card1inHand = hand.get(0);
 
-            filename = "/Users/marktudor/Desktop/Card_pics/" +  dealtCard.toString() + ".png";
+            filename = "/Users/marktudor/Desktop/Card_pics/" +  card1inHand.toString() + ".png";
 
             file = new File(filename);
 
@@ -164,30 +176,12 @@ public class BJSceneController {
             fadeTransition.setToValue(1);
             //fadeTransition.setDelay(Duration.seconds(2)); // Delay based on card index
             fadeTransition.play();
-            cardValue = dealtCard.getFaceValue();
-            if (cardValue == 1) {
-                dealerTotal += cardValue;
-                dealerAcetotal += 11;
-                dealerAceCard = true;
-            }
-            else {
-                dealerTotal += cardValue;
-            }
-            if (dealerTotal == 1) {
-                int secondtotal = dealerTotal + 11;
-                dealerTotalLabel.setText("" + dealerTotal + "/" + secondtotal);
-            }
-            else {
-                dealerTotalLabel.setText("" + dealerTotal);
-            }
-            
-            
             }
             else {
             System.out.println("NOT FOUND");
             }
             //have to keep this card but not display it, this is the "face down card"
-            Card notShownCard = deck.dealCard();
+            Card dealerCardNotShown = hand.get(1);
 
             filename = "/Users/marktudor/Desktop/Card_pics/" +  "BACK" + ".png";
 
@@ -206,158 +200,10 @@ public class BJSceneController {
             fadeTransition.setToValue(1);
             //fadeTransition.setDelay(Duration.seconds(2)); // Delay based on card index
             fadeTransition.play();
-            
-            cardValue = dealtCard.getFaceValue();
-            if (cardValue == 1) {
-                dealerTotal += cardValue;
-                if (dealerAcetotal == 11) {
-                    dealerAcetotal += 1;
-                }
-                else {
-                    dealerAcetotal += cardValue;
-                }
-            }
-            /* 
-            if (dealerAceCard) {
-                dealerTotalLabel.setText("" + dealerTotal + "/" + dealerAcetotal);
-            }
-            else {
-                dealerTotalLabel.setText("" + dealerTotal);
-            }
-            }
-            else {
-            System.out.println("NOT FOUND");
-            }
-            dealerTotalLabel.setText("" + dealerTotal);
-            */
         }
 
     }
-    public void setPlayer1Cards(GridPane player1Grid1, DeckOfCards deck) {
-        player1Total = 0;
-        int player1Acetotal = 0;
-        boolean playerAceCard = false;
-        int cardValue = 0;
 
-        String filename;
-        File file;
-        
-        for (int i = 0; i < 2; i++){
-            Card dealtCard = deck.dealCard();
-
-            filename = "/Users/marktudor/Desktop/Card_pics/" +  dealtCard.toString() + ".png";
-
-            file = new File(filename);
-
-            if (file.exists()) {
-            //load and display card image
-            Image cardImage = new Image(file.toURI().toString());
-            ImageView imageView = new ImageView(cardImage);
-            imageView.setFitWidth(50);
-            imageView.setFitHeight(58);
-            imageView.setOpacity(0);
-            player1Grid1.add(imageView,i,0);
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), imageView);
-            fadeTransition.setFromValue(0);
-            fadeTransition.setToValue(1);
-            //not going to use fade transisiton with delay  
-            //fadeTransition.setDelay(Duration.seconds(i)); // Delay based on card index
-            fadeTransition.play();
-            cardValue = dealtCard.getFaceValue();
-            //Keeps track if card dealt is an ace, if yes; must hold both values added to player total
-            if (cardValue == 1) {
-                player1Total += cardValue;
-                player1Acetotal += 11;
-                playerAceCard = true;
-            }
-            else {
-                player1Total += cardValue;
-                player1Acetotal += cardValue;
-            }
-            
-            }
-            else {
-            System.out.println("NOT FOUND");
-            }
-
-        }
-        //if 1 of the players cards is an ace, display both values (card + 1, card + 11)
-        if (player1Acetotal == 21) {
-            player1totalLabel.setText("" + player1Acetotal);
-            winLabel.setText("BLACKJACK!!");
-        }
-        else if (playerAceCard) {
-            player1totalLabel.setText(""+ player1Total + "/" + player1Acetotal);
-        }
-        else {
-            player1totalLabel.setText("" + player1Total);
-        }
-
-    }
-    public void setCPUcards(GridPane cpuGrid1, DeckOfCards deck) {
-        cpuTotal = 0;
-        int cpuAcetotal = 0;
-        boolean cpuAceCard = false;
-        int cardValue = 0;
-
-        String filename;
-        File file;
-        
-        for (int i = 0; i < 2; i++){
-            Card dealtCard = deck.dealCard();
-
-            filename = "/Users/marktudor/Desktop/Card_pics/" +  dealtCard.toString() + ".png";
-
-            file = new File(filename);
-
-            if (file.exists()) {
-            //load and display card image
-            Image cardImage = new Image(file.toURI().toString());
-            ImageView imageView = new ImageView(cardImage);
-            imageView.setFitWidth(50);
-            imageView.setFitHeight(58);
-            imageView.setOpacity(0);
-            cpuGrid1.add(imageView,i,0);
-            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), imageView);
-            fadeTransition.setFromValue(0);
-            fadeTransition.setToValue(1);
-            //not going to use fade transisiton with delay  
-            //fadeTransition.setDelay(Duration.seconds(i)); // Delay based on card index
-            fadeTransition.play();
-            cardValue = dealtCard.getFaceValue();
-            //Keeps track if card dealt is an ace, if yes; must hold both values added to player total
-            if (cardValue == 1) {
-                cpuTotal += cardValue;
-                cpuAcetotal += 11;
-                cpuAceCard = true;
-            }
-            else {
-                cpuTotal += cardValue;
-                cpuAcetotal += cardValue;
-            }
-            
-            }
-            else {
-            System.out.println("NOT FOUND");
-            }
-
-        }
-        //if 1 of the players cards is an ace, display both values (card + 1, card + 11)
-        if (cpuAcetotal == 21) {
-            CPUTotalUpdateLabel.setText("" + cpuAcetotal);
-            winLabel.setText("BLACKJACK!!");
-        }
-        else if (cpuAceCard) {
-            CPUTotalUpdateLabel.setText(""+ cpuTotal + "/" + cpuAcetotal);
-        }
-        else {
-            CPUTotalUpdateLabel.setText("" + cpuTotal);
-        }
-    }
-    
-
-
-    
 
     @FXML
     void hitButtonPressed(ActionEvent event) {
@@ -368,9 +214,59 @@ public class BJSceneController {
     void standButtonPressed(ActionEvent event) {
 
     }
+
+    public void displayHand(GridPane gridToDisplayCards, List<Card> hand) {
+        // variables
+        String filename;
+        File file;
+
+        for (int i = 0; i < 2; i++){
+
+            Card cardInHand = hand.get(i);
     
+            filename = "/Users/marktudor/Desktop/Card_pics/" +  cardInHand.toString() + ".png";
     
-     
-    }
+            file = new File(filename);
+    
+            if (file.exists()) {
+            //load and display card image
+            Image cardImage = new Image(file.toURI().toString());
+            ImageView imageView = new ImageView(cardImage);
+            imageView.setFitWidth(50);
+            imageView.setFitHeight(58);
+            imageView.setOpacity(0);
+            gridToDisplayCards.add(imageView,i,0);
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), imageView);
+            fadeTransition.setFromValue(0);
+            fadeTransition.setToValue(1);
+            //not going to use fade transition with delay  
+            //fadeTransition.setDelay(Duration.seconds(i)); // Delay based on card index
+            fadeTransition.play();
+    
+        }
+
+        }
+
+}
+// these functions pull cards from the deck and add to the hand of the respective object
+public void pullCardPlayerNPC() {
+    Card dealtCard = deck.dealCard();
+    playerNPC.receiveCard(dealtCard);
+}
+
+public void pullCardDealer() {
+    Card dealtCard = deck.dealCard();
+    dealer.receiveCard(dealtCard);
+}
+
+
+
+
+
+
+
+
+
+}
 
 
