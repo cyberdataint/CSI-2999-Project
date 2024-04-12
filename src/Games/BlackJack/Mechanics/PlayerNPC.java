@@ -49,4 +49,8 @@ public class PlayerNPC {
     public List<Card> getHand() {
         return hand;
     }
+
+    public void clearHand() {
+        hand.clear();
+    }
 }

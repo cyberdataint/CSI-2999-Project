@@ -31,4 +31,8 @@ public class DealerNPC {
     public void receiveCard(Card card) {
         hand.add(card);
     }
+
+    public void clearHand() {
+        hand.clear();
+    }
 }

@@ -128,6 +128,14 @@ public class BJSceneController {
     void dealCardButtonPressed(ActionEvent event) throws Exception {
         winLabel.setText("");
 
+        // Clear all GridPanes before dealing new cards
+        clearGridPane(dealerGrid1);
+        clearGridPane(cpuGrid1);
+
+        //clear player hands before dealing new cards
+        playerNPC.clearHand();
+        dealer.clearHand();
+
         // pull cards from deck and give cards to playerNPC and dealer objects
         for (int i = 0; i < 2; i++) {
             pullCardDealer();
@@ -249,6 +257,11 @@ public void pullCardPlayerNPC() {
 public void pullCardDealer() {
     Card dealtCard = deck.dealCard();
     dealer.receiveCard(dealtCard);
+}
+
+// method to clear GridPane of cards
+public void clearGridPane(GridPane gridPane) {
+    gridPane.getChildren().clear();
 }
 
 
