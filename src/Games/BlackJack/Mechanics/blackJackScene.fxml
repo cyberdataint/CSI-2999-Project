@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visualsfx.BJSceneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="859.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Games.BlackJack.Mechanics.BJSceneController">
    <top>
       <ImageView fitHeight="129.0" fitWidth="859.0" BorderPane.alignment="CENTER">
          <image>
@@ -124,11 +124,6 @@
                   </GridPane>
                   <Pane GridPane.rowIndex="3">
                      <children>
-                        <Button fx:id="addPlayer2Button" layoutX="3.0" layoutY="14.0" mnemonicParsing="false" onAction="#addPlayer2ButtonPressed" style="-fx-background-color: purple;" text="ADD PLAYER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold Italic" size="13.0" />
-                           </font>
-                        </Button>
                         <Label fx:id="player2Label" layoutX="20.0" layoutY="57.0" prefHeight="17.0" prefWidth="58.0" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -230,7 +225,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="doubleButton" layoutX="471.0" layoutY="30.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="123.0" style="-fx-background-color: orange;" text="DOUBLE" textFill="WHITE">
+                  <Button fx:id="doubleButton" layoutX="471.0" layoutY="30.0" mnemonicParsing="false" onAction="#doubleButtonPressed" prefHeight="45.0" prefWidth="123.0" style="-fx-background-color: orange;" text="DOUBLE" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="24.0" />
                      </font>

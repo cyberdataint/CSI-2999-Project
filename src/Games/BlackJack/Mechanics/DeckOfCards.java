@@ -10,8 +10,7 @@ public class DeckOfCards {
 
     private Card[] deck = new Card[NUMBER_OF_CARDS];    // card references
     private int currentCard = 0;    //index of next card to be dealt (0-51)
-
-    private PlayerNPC player; // reference to the player
+    private int numOfCards;
 
     // constructor fills deck of Cards
 
@@ -26,6 +25,7 @@ public class DeckOfCards {
         for (int count = 0; count < deck.length; count++) {
             deck[count] = new Card(faces[count % 13], suits[count / 13]);
         }
+        numOfCards = 52;
     }
 
     // shuffle deck of Cards with one-pass algorithm
@@ -54,17 +54,30 @@ public class DeckOfCards {
         // determing whether Cards remain to be dealt
 
         if (currentCard < deck.length) {
+            numOfCards--;
             return deck[currentCard++];     // return current Card in array
+            
         }
         else {
             return null;    //return null to indicate that all Cards were dealt
         }
+        
     }
 
-    public void hit() {
-        Card card = dealCard();
-        if (card != null) {
-            player.addCardToHand(card);
+    public void resetDeck() {
+        String[] faces = {"Ace", "Two", "Three", "Four", "Five", "Six",
+    "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
+
+        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+
+        // populate deck with Card objects
+
+        for (int count = 0; count < deck.length; count++) {
+            deck[count] = new Card(faces[count % 13], suits[count / 13]);
         }
     }
+    public int getNumOfCards() {
+        return this.numOfCards;
+    }
+
 }
