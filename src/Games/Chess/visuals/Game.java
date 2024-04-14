@@ -1,4 +1,4 @@
-package Games.Chess.Mechanics;
+package Games.Chess.Visuals;
 
 import java.awt.Color;
 

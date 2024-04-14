@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import Games.Chess.Mechanics.Game;
+import Games.Chess.Visuals.Game;
 
 public class RestartGameButton extends JButton {
     

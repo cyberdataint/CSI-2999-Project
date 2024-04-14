@@ -1,7 +1,7 @@
 package Games.Chess.Mechanics.Pieces;
 import Games.Chess.Mechanics.Piece;
 import Games.Chess.Mechanics.Space;
-import Games.Chess.Mechanics.Game;
+import Games.Chess.Visuals.Game;
 import Games.Chess.Mechanics.GameBoard;
 
 public class King implements Piece {
